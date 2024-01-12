@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7yqto2deoima"
-path="res://.godot/imported/Death.png-20cb09cd1bce55158eb075c17aac32ee.ctex"
+uid="uid://dkrfbm2ymb6qa"
+path="res://.godot/imported/Walk Left.png-25c7eb4a4407111ce7b78f817985f9fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://16x16 Animated Top-down Character V1.1/16x16 Animated Top-down Character V1.1/Seperate Spritesheets/Death.png"
-dest_files=["res://.godot/imported/Death.png-20cb09cd1bce55158eb075c17aac32ee.ctex"]
+source_file="res://Assets/16x16 Animated Top-down Character V1.1/16x16 Animated Top-down Character V1.1/Seperate Spritesheets/Walk Left.png"
+dest_files=["res://.godot/imported/Walk Left.png-25c7eb4a4407111ce7b78f817985f9fa.ctex"]
 
 [params]
 

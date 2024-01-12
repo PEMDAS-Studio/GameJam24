@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3k7wp3ssf1vo"
-path="res://.godot/imported/Slash Right.png-6ce4a6fa134c4db9cf512c923b2ba58a.ctex"
+uid="uid://c7m5vgobebogd"
+path="res://.godot/imported/Slash Up.png-21d41bb43177797224958e44318892ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://16x16 Animated Top-down Character V1.1/16x16 Animated Top-down Character V1.1/Seperate Spritesheets/Slash Right.png"
-dest_files=["res://.godot/imported/Slash Right.png-6ce4a6fa134c4db9cf512c923b2ba58a.ctex"]
+source_file="res://Assets/16x16 Animated Top-down Character V1.1/16x16 Animated Top-down Character V1.1/Seperate Spritesheets/Slash Up.png"
+dest_files=["res://.godot/imported/Slash Up.png-21d41bb43177797224958e44318892ae.ctex"]
 
 [params]
 

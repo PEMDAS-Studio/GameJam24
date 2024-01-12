@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cw3xy0kjvsb5w"
-path="res://.godot/imported/preview.png-a236e7e3b82aca033ac64968868b786d.ctex"
+uid="uid://bpvwock0tltpo"
+path="res://.godot/imported/Full Spritesheet.png-756ef38ca61bfb1f5e15b7882c1f8405.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TilesetGrass/TilesetGrass/preview.png"
-dest_files=["res://.godot/imported/preview.png-a236e7e3b82aca033ac64968868b786d.ctex"]
+source_file="res://Assets/16x16 Animated Top-down Character V1.1/16x16 Animated Top-down Character V1.1/Full Spritesheet.png"
+dest_files=["res://.godot/imported/Full Spritesheet.png-756ef38ca61bfb1f5e15b7882c1f8405.ctex"]
 
 [params]
 

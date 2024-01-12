@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkrfbm2ymb6qa"
-path="res://.godot/imported/Walk Left.png-81873724897db43cbd1f3d8dd3ad652c.ctex"
+uid="uid://bisau1i28g31n"
+path="res://.godot/imported/Pull Left.png-941fa7a8dd29c2968a797f24466b9c8b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://16x16 Animated Top-down Character V1.1/16x16 Animated Top-down Character V1.1/Seperate Spritesheets/Walk Left.png"
-dest_files=["res://.godot/imported/Walk Left.png-81873724897db43cbd1f3d8dd3ad652c.ctex"]
+source_file="res://Assets/16x16 Animated Top-down Character V1.1/16x16 Animated Top-down Character V1.1/Seperate Spritesheets/Pull Left.png"
+dest_files=["res://.godot/imported/Pull Left.png-941fa7a8dd29c2968a797f24466b9c8b.ctex"]
 
 [params]
 

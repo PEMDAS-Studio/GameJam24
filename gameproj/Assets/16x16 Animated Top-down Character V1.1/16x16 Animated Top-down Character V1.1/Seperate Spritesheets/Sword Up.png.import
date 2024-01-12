@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwf2akun217r0"
-path="res://.godot/imported/Sword Right.png-ff585500bc676e28bd7e4b0f0fe8ea0e.ctex"
+uid="uid://c8n3xqqphrd2w"
+path="res://.godot/imported/Sword Up.png-92396337070499ce3632747f63916469.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://16x16 Animated Top-down Character V1.1/16x16 Animated Top-down Character V1.1/Seperate Spritesheets/Sword Right.png"
-dest_files=["res://.godot/imported/Sword Right.png-ff585500bc676e28bd7e4b0f0fe8ea0e.ctex"]
+source_file="res://Assets/16x16 Animated Top-down Character V1.1/16x16 Animated Top-down Character V1.1/Seperate Spritesheets/Sword Up.png"
+dest_files=["res://.godot/imported/Sword Up.png-92396337070499ce3632747f63916469.ctex"]
 
 [params]
 

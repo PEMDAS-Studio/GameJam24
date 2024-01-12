@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cs7mmn1ba171m"
-path="res://.godot/imported/Walk Right.png-2891431b7ca2e0a872c475239c80723f.ctex"
+uid="uid://c7c27ptpynl6m"
+path="res://.godot/imported/Slash Down.png-a5f3efe856e3d6f870a36afd2808045f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://16x16 Animated Top-down Character V1.1/16x16 Animated Top-down Character V1.1/Seperate Spritesheets/Walk Right.png"
-dest_files=["res://.godot/imported/Walk Right.png-2891431b7ca2e0a872c475239c80723f.ctex"]
+source_file="res://Assets/16x16 Animated Top-down Character V1.1/16x16 Animated Top-down Character V1.1/Seperate Spritesheets/Slash Down.png"
+dest_files=["res://.godot/imported/Slash Down.png-a5f3efe856e3d6f870a36afd2808045f.ctex"]
 
 [params]
 

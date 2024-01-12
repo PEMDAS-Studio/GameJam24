@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxvdvbx7e2oha"
-path="res://.godot/imported/map2.png-7fc29057841878785ed6e2ac5d57b479.ctex"
+uid="uid://bwf2akun217r0"
+path="res://.godot/imported/Sword Right.png-3263a9540c77012dd005edabad9166c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TilesetGrass/TilesetGrass/map2.png"
-dest_files=["res://.godot/imported/map2.png-7fc29057841878785ed6e2ac5d57b479.ctex"]
+source_file="res://Assets/16x16 Animated Top-down Character V1.1/16x16 Animated Top-down Character V1.1/Seperate Spritesheets/Sword Right.png"
+dest_files=["res://.godot/imported/Sword Right.png-3263a9540c77012dd005edabad9166c0.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bisau1i28g31n"
-path="res://.godot/imported/Pull Left.png-06ad6fdeb29441fa633e410bf21b0ee5.ctex"
+uid="uid://c7yqto2deoima"
+path="res://.godot/imported/Death.png-5903e4bcb711c32e967afca9d7224b7b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://16x16 Animated Top-down Character V1.1/16x16 Animated Top-down Character V1.1/Seperate Spritesheets/Pull Left.png"
-dest_files=["res://.godot/imported/Pull Left.png-06ad6fdeb29441fa633e410bf21b0ee5.ctex"]
+source_file="res://Assets/16x16 Animated Top-down Character V1.1/16x16 Animated Top-down Character V1.1/Seperate Spritesheets/Death.png"
+dest_files=["res://.godot/imported/Death.png-5903e4bcb711c32e967afca9d7224b7b.ctex"]
 
 [params]
 

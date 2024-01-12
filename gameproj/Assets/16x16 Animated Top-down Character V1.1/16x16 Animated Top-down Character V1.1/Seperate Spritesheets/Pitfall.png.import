@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhdp7bvholc4o"
-path="res://.godot/imported/Slash Left.png-fa1e7b9423d3b57b4e70ed0249a43cce.ctex"
+uid="uid://dytfdbw70p0du"
+path="res://.godot/imported/Pitfall.png-0474784287fdcac9b34a5fb0cbe7cf63.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://16x16 Animated Top-down Character V1.1/16x16 Animated Top-down Character V1.1/Seperate Spritesheets/Slash Left.png"
-dest_files=["res://.godot/imported/Slash Left.png-fa1e7b9423d3b57b4e70ed0249a43cce.ctex"]
+source_file="res://Assets/16x16 Animated Top-down Character V1.1/16x16 Animated Top-down Character V1.1/Seperate Spritesheets/Pitfall.png"
+dest_files=["res://.godot/imported/Pitfall.png-0474784287fdcac9b34a5fb0cbe7cf63.ctex"]
 
 [params]
 

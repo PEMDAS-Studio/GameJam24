@@ -63,7 +63,7 @@ layout_mode = 2
 [node name="Spread_Please_Start" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 38)
 layout_mode = 2
-text = "Spread"
+text = "Spread Please |START|"
 
 [node name="Seperator 3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -71,7 +71,7 @@ layout_mode = 2
 [node name="Bad_Grass_Start" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 38)
 layout_mode = 2
-text = "START"
+text = "Bad Grass |START|"
 
 [node name="Seperator 4" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2

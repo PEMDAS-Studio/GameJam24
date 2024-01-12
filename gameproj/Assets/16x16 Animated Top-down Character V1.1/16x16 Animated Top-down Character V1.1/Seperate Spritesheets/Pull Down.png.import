@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chywbis3ggk03"
-path="res://.godot/imported/Walk Down.png-4affad146a2ba139197817c32515bdfe.ctex"
+uid="uid://ces48kfcpv8oy"
+path="res://.godot/imported/Pull Down.png-d1ff4f616c93b203fa9f5440db008f29.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://16x16 Animated Top-down Character V1.1/16x16 Animated Top-down Character V1.1/Seperate Spritesheets/Walk Down.png"
-dest_files=["res://.godot/imported/Walk Down.png-4affad146a2ba139197817c32515bdfe.ctex"]
+source_file="res://Assets/16x16 Animated Top-down Character V1.1/16x16 Animated Top-down Character V1.1/Seperate Spritesheets/Pull Down.png"
+dest_files=["res://.godot/imported/Pull Down.png-d1ff4f616c93b203fa9f5440db008f29.ctex"]
 
 [params]
 

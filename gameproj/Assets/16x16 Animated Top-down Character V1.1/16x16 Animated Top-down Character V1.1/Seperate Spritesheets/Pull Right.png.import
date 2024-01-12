@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwfgsd0u42m20"
-path="res://.godot/imported/overworld_tileset_grass.png-56ec10acb80d37b124d74f4018378cea.ctex"
+uid="uid://b5tiei7cibje7"
+path="res://.godot/imported/Pull Right.png-a079bb10367bf88786a72f8615e60f4b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TilesetGrass/TilesetGrass/overworld_tileset_grass.png"
-dest_files=["res://.godot/imported/overworld_tileset_grass.png-56ec10acb80d37b124d74f4018378cea.ctex"]
+source_file="res://Assets/16x16 Animated Top-down Character V1.1/16x16 Animated Top-down Character V1.1/Seperate Spritesheets/Pull Right.png"
+dest_files=["res://.godot/imported/Pull Right.png-a079bb10367bf88786a72f8615e60f4b.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7c27ptpynl6m"
-path="res://.godot/imported/Slash Down.png-7688f9001066431a79d847aae4b3a911.ctex"
+uid="uid://cp3ly4407p2kp"
+path="res://.godot/imported/Sword Down.png-738c08beccefc2ee6127532068857579.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://16x16 Animated Top-down Character V1.1/16x16 Animated Top-down Character V1.1/Seperate Spritesheets/Slash Down.png"
-dest_files=["res://.godot/imported/Slash Down.png-7688f9001066431a79d847aae4b3a911.ctex"]
+source_file="res://Assets/16x16 Animated Top-down Character V1.1/16x16 Animated Top-down Character V1.1/Seperate Spritesheets/Sword Down.png"
+dest_files=["res://.godot/imported/Sword Down.png-738c08beccefc2ee6127532068857579.ctex"]
 
 [params]
 

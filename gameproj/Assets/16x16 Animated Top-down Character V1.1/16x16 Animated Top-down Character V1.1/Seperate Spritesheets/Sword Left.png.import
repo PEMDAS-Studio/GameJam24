@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1qapm4flh0ng"
-path="res://.godot/imported/Walk Up.png-8c4ebe4f672e815c0ea177f4bc7b8588.ctex"
+uid="uid://bo3cnx6pvihyp"
+path="res://.godot/imported/Sword Left.png-554a2fa99918777fa8b8baccde1c1ed4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://16x16 Animated Top-down Character V1.1/16x16 Animated Top-down Character V1.1/Seperate Spritesheets/Walk Up.png"
-dest_files=["res://.godot/imported/Walk Up.png-8c4ebe4f672e815c0ea177f4bc7b8588.ctex"]
+source_file="res://Assets/16x16 Animated Top-down Character V1.1/16x16 Animated Top-down Character V1.1/Seperate Spritesheets/Sword Left.png"
+dest_files=["res://.godot/imported/Sword Left.png-554a2fa99918777fa8b8baccde1c1ed4.ctex"]
 
 [params]
 

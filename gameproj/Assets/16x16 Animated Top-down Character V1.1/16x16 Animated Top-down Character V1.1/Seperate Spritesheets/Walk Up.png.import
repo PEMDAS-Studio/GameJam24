@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7m5vgobebogd"
-path="res://.godot/imported/Slash Up.png-7777e5e3c7be453a993d1abcf859817f.ctex"
+uid="uid://d1qapm4flh0ng"
+path="res://.godot/imported/Walk Up.png-ebac59c8b4a9a34846e14f28de96cac4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://16x16 Animated Top-down Character V1.1/16x16 Animated Top-down Character V1.1/Seperate Spritesheets/Slash Up.png"
-dest_files=["res://.godot/imported/Slash Up.png-7777e5e3c7be453a993d1abcf859817f.ctex"]
+source_file="res://Assets/16x16 Animated Top-down Character V1.1/16x16 Animated Top-down Character V1.1/Seperate Spritesheets/Walk Up.png"
+dest_files=["res://.godot/imported/Walk Up.png-ebac59c8b4a9a34846e14f28de96cac4.ctex"]
 
 [params]
 
