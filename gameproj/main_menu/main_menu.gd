@@ -1,9 +1,9 @@
 class_name MainMenu
 extends Control
 
-@onready var spread_please_start = $MarginContainer/HBoxContainer/VBoxContainer/Spread_Please_Start as Button
-@onready var bad_grass_start = $MarginContainer/HBoxContainer/VBoxContainer/Bad_Grass_Start as Button
-@onready var exit_button = $MarginContainer/HBoxContainer/VBoxContainer/Exit_Button as Button
+@onready var spread_please_start = $MarginContainer/VBoxContainer/VBoxContainer2/Spread_Please_Start as Button
+@onready var bad_grass_start = $MarginContainer/VBoxContainer/VBoxContainer2/Bad_Grass_Start as Button
+@onready var exit_button = $MarginContainer/VBoxContainer/VBoxContainer2/Exit_Button as Button
 @onready var start_level_one = preload("res://SpreadPlease/spread_please.tscn") as PackedScene
 @onready var start_level_two = preload("res://BadGrass/grassgame.tscn") as PackedScene
 
