@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5gbth34eiokl"]
+[gd_scene load_steps=2 format=3 uid="uid://b5gbth34eiokl"]
 
-[ext_resource type="Texture2D" uid="uid://1e7kr2c45bq8" path="res://main menu placeholder.png" id="1_io0hc"]
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_u4c8m"]
 
 [node name="Main_Menu" type="Control"]
@@ -13,14 +12,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u4c8m")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_io0hc")
+color = Color(1, 0.262745, 0, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -61,12 +60,20 @@ alignment = 1
 [node name="Seperator 2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Start_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Spread_Please_Start" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 38)
+layout_mode = 2
+text = "Spread"
+
+[node name="Seperator 3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Bad_Grass_Start" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 38)
 layout_mode = 2
 text = "START"
 
-[node name="Seperator 3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Seperator 4" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="Exit_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]

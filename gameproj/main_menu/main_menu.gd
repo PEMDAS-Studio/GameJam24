@@ -3,7 +3,7 @@ extends Control
 
 @onready var start_button = $MarginContainer/HBoxContainer/VBoxContainer/Start_Button as Button
 @onready var exit_button = $MarginContainer/HBoxContainer/VBoxContainer/Exit_Button as Button
-@onready var start_level = preload("res://main/main.tscn") as PackedScene
+@onready var start_level = preload("res://Spread_Please/spread_please.tscn") as PackedScene
 
 func _ready():
 	start_button.button_down.connect(on_start_pressed)
