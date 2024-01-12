@@ -18,7 +18,7 @@ func _process(delta):
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("grassaction"):
 		#var charPos : Vector2 = position;
-		var tile_pos : Vector2i = tile_map.local_to_map(character.global_position) - Vector2i(7, 4);
+		var tile_pos : Vector2i = tile_map.local_to_map(character.global_position);
 		var atlas_coord : Vector2i = Vector2i(0,0);
 		tile_map.set_cell(0, tile_pos,0, atlas_coord);
 		pass
