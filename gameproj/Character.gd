@@ -29,8 +29,6 @@ func HandleAnimation():
 		sprite.pause()
 		sprite.frame = 0
 	
-	print_debug(velocity)
-	
 	if velocity.x > 0 && velocity.y == 0:
 		sprite.play("Right")
 	elif velocity.x < 0 && velocity.y == 0:
@@ -42,3 +40,5 @@ func HandleAnimation():
 		sprite.play("Up")
 	
 	
+
+

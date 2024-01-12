@@ -1,7 +1,7 @@
-[gd_scene load_steps=53 format=3 uid="uid://j8nhuf26cji3"]
+[gd_scene load_steps=53 format=3 uid="uid://dsb00ec2pu45o"]
 
 [ext_resource type="Script" path="res://Character.gd" id="1_q1jeg"]
-[ext_resource type="Texture2D" uid="uid://bpvwock0tltpo" path="res://16x16 Animated Top-down Character V1.1/16x16 Animated Top-down Character V1.1/Full Spritesheet.png" id="2_jvcgt"]
+[ext_resource type="Texture2D" uid="uid://bpvwock0tltpo" path="res://Assets/16x16 Animated Top-down Character V1.1/16x16 Animated Top-down Character V1.1/Full Spritesheet.png" id="2_jvcgt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8l41w"]
 atlas = ExtResource("2_jvcgt")
@@ -236,7 +236,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Down",
-"speed": 11.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -370,7 +370,7 @@ script = ExtResource("1_q1jeg")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_k51ec")
-animation = &"Left"
+animation = &"Down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3.75)

@@ -27,6 +27,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -64.0
+offset_right = -101.0
+offset_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 12
@@ -52,11 +56,11 @@ layout_mode = 2
 
 [node name="Spread_Please_Start" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "Spread Please |START|"
+text = "Spread Please"
 
 [node name="Bad_Grass_Start" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "Bad Grass |START|"
+text = "Bad Grass"
 
 [node name="Exit_Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
