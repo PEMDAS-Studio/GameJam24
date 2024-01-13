@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Base" load_steps=2 format=3 uid="uid://qs4cdt4yyrue"]
+
+[ext_resource type="Script" path="res://BadGrass/Towers/Base.gd" id="1_n4sun"]
+
+[resource]
+script = ExtResource("1_n4sun")
+name = ""
+Rate = 100.0
+Deposite = 0.0
+Type = "Base"
+Description = ""

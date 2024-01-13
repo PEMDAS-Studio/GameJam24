@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ElectricalBase" load_steps=2 format=3 uid="uid://urrh8pbetkq3"]
+
+[ext_resource type="Script" path="res://BadGrass/Towers/EnergyBase.gd" id="1_3f0t0"]
+
+[resource]
+script = ExtResource("1_3f0t0")
+DischargeRate = 2.0
+name = "Power Generator"
+Rate = 1.0
+MaxCapacity = 8.0
+Deposite = 0.0
+MaxHealth = 10.0
+Type = "Energy Generator"
+Description = "A power house for recharging Utilities."

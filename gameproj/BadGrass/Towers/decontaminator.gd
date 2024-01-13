@@ -1,15 +1,12 @@
 extends Node2D
 
-@export var RATE = 100
-
-@export var DEPOSIT = 0.0
+@export var Stats : Base
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	Stats.AutomateResources(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	DEPOSIT += RATE * delta;
-	pass
+	print_debug(Stats.Deposite)
+	print_debug(Stats.DischargeRate)

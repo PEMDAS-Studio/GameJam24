@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7qn6vhi6yni3"]
+[gd_scene load_steps=6 format=3 uid="uid://c7qn6vhi6yni3"]
 
 [ext_resource type="Script" path="res://BadGrass/Towers/decontaminator.gd" id="1_87cdd"]
 [ext_resource type="Texture2D" uid="uid://dwfgsd0u42m20" path="res://Assets/TilesetGrass/TilesetGrass/overworld_tileset_grass.png" id="1_k3n5v"]
+[ext_resource type="Resource" uid="uid://urrh8pbetkq3" path="res://BadGrass/Towers/EnergyBase.tres" id="2_m45jd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mjbq1"]
 texture = ExtResource("1_k3n5v")
@@ -141,10 +142,6 @@ texture = ExtResource("1_k3n5v")
 9:11/0 = 0
 10:11/0 = 0
 11:11/0 = 0
-0:12/0 = 0
-1:12/0 = 0
-2:12/0 = 0
-3:12/0 = 0
 5:12/0 = 0
 6:12/0 = 0
 7:12/0 = 0
@@ -152,10 +149,6 @@ texture = ExtResource("1_k3n5v")
 9:12/0 = 0
 10:12/0 = 0
 11:12/0 = 0
-0:13/0 = 0
-1:13/0 = 0
-2:13/0 = 0
-3:13/0 = 0
 4:13/0 = 0
 5:13/0 = 0
 6:13/0 = 0
@@ -164,10 +157,6 @@ texture = ExtResource("1_k3n5v")
 9:13/0 = 0
 10:13/0 = 0
 11:13/0 = 0
-0:14/0 = 0
-1:14/0 = 0
-2:14/0 = 0
-3:14/0 = 0
 4:14/0 = 0
 5:14/0 = 0
 6:14/0 = 0
@@ -176,10 +165,6 @@ texture = ExtResource("1_k3n5v")
 9:14/0 = 0
 10:14/0 = 0
 11:14/0 = 0
-0:15/0 = 0
-1:15/0 = 0
-2:15/0 = 0
-3:15/0 = 0
 4:15/0 = 0
 5:15/0 = 0
 6:15/0 = 0
@@ -215,19 +200,36 @@ texture = ExtResource("1_k3n5v")
 0:20/0 = 0
 1:20/0 = 0
 2:20/0 = 0
+0:12/0 = 0
+0:13/0 = 0
+0:14/0 = 0
+0:15/0 = 0
+1:12/0 = 0
+1:13/0 = 0
+1:14/0 = 0
+1:15/0 = 0
+2:12/0 = 0
+2:13/0 = 0
+2:14/0 = 0
+2:15/0 = 0
+3:12/0 = 0
+3:13/0 = 0
+3:14/0 = 0
+3:15/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_xv8j4"]
 sources/0 = SubResource("TileSetAtlasSource_mjbq1")
 
 [node name="Decontaminator" type="Node2D"]
 script = ExtResource("1_87cdd")
+Stats = ExtResource("2_m45jd")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_xv8j4")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 0, 12, 196608, 0, 15, 131074, 131072, 14, 65536, 0, 13, 131072, 0, 14, 1, 65536, 12, 65537, 65536, 13, 131073, 65536, 14, 196609, 65536, 15, 2, 131072, 12, 65538, 131072, 13, 196610, 131072, 15, 3, 196608, 12, 65539, 196608, 13, 131075, 196608, 14, 196611, 196608, 15)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 position = Vector2(32, 32)

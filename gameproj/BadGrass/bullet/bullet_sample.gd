@@ -16,19 +16,28 @@ func _process(delta):
 	var distance = _traversalDirection * delta
 	position += distance
 	_traveledDistance += distance.length()
+	
 	look_at(get_global_mouse_position())
+	Decontaminate()
+	
 	if _traveledDistance > maxRange:
-		var tile_pos : Vector2i = tile_map.local_to_map(global_position)
-		var tile_source = tile_map.get_cell_source_id(0, tile_pos);
-		if tile_source == 0:
-			make_tile_purple(tile_pos);
-		elif tile_source == 1: 
-			make_tile_green(tile_pos);
 		queue_free()
 
 func Shoot(direction: Vector2, angle: float):
 	_traversalDirection = direction * traversalVelocity
 	set_process(true)
+
+func Decontaminate():
+	var tile_pos : Vector2i = tile_map.local_to_map(global_position)
+	var tile_source = tile_map.get_cell_source_id(0, tile_pos);
+	
+	#Contaminate healthy grass.
+	#if tile_source == 0:
+		#make_tile_purple(tile_pos);
+	
+	# Decontaminate the grass 
+	if tile_source == 1: 
+		make_tile_green(tile_pos);
 
 func make_tile_green(tile_pos):
 	var atlas_coord : Vector2i = tile_map.get_cell_atlas_coords(0, tile_pos);

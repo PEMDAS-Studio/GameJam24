@@ -16,18 +16,9 @@ func _ready():
 	attackTimer.timeout.connect(my_lambda)
 	set_motion_mode(MOTION_MODE_FLOATING);
 	
-
 func _physics_process(delta):
 	if (Input.is_action_just_pressed("grassaction") && !_isAttacking):
-		var mousePosition = get_global_mouse_position()
-		_isAttacking = true
-		attackTimer.start()
-		var bullet = bulletscene.instantiate()
-		var position = global_position
-		bullet.global_position = position
-		get_tree().root.add_child(bullet)
-		var direction = Vector2(mousePosition.x - position.x, mousePosition.y - position.y).normalized()
-		bullet.Shoot(direction, atan2(direction.y, direction.x))
+		Attack()
 	
 	var xDirection = Input.get_axis("left", "right")
 	var yDirection = Input.get_axis("up", "down")
@@ -46,7 +37,6 @@ func _physics_process(delta):
 	velocity = SPEED * normalizedSpeed
 	
 	HandleAnimation()
-	
 	move_and_slide()
 
 func HandleAnimation():
@@ -63,7 +53,17 @@ func HandleAnimation():
 		sprite.play("Down")
 	elif velocity.y < 0:
 		sprite.play("Up")
-	
+
+func Attack():
+	var mousePosition = get_global_mouse_position()
+	_isAttacking = true
+	attackTimer.start()
+	var bullet = bulletscene.instantiate()
+	var position = global_position
+	bullet.global_position = position
+	get_tree().root.add_child(bullet)
+	var direction = Vector2(mousePosition.x - position.x, mousePosition.y - position.y).normalized()
+	bullet.Shoot(direction, atan2(direction.y, direction.x))
 	
 
 
