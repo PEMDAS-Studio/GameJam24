@@ -14,6 +14,8 @@ func _ready():
 	var my_lambda = func ():
 		_isAttacking = false
 	attackTimer.timeout.connect(my_lambda)
+	set_motion_mode(MOTION_MODE_FLOATING);
+	
 
 func _physics_process(delta):
 	if (Input.is_action_just_pressed("grassaction") && !_isAttacking):

@@ -12,14 +12,14 @@ func _ready():
 func _process(delta):
 	pass
 
-func _unhandled_input(event):
-	if Input.is_action_just_pressed("grassaction"):
-		var tile_pos : Vector2i = tile_map.local_to_map(character.global_position)
-		var tile_source = tile_map.get_cell_source_id(0, tile_pos);
-		if tile_source == 0:
-			make_tile_purple(tile_pos);
-		elif tile_source == 1: 
-			make_tile_green(tile_pos);
+#func _unhandled_input(event):
+	#if Input.is_action_just_pressed("grassaction"):
+		#var tile_pos : Vector2i = tile_map.local_to_map(character.global_position)
+		#var tile_source = tile_map.get_cell_source_id(0, tile_pos);
+		#if tile_source == 0:
+			#make_tile_purple(tile_pos);
+		#elif tile_source == 1: 
+			#make_tile_green(tile_pos);
 	
 func make_tile_green(tile_pos):
 	var atlas_coord : Vector2i = tile_map.get_cell_atlas_coords(0, tile_pos);
