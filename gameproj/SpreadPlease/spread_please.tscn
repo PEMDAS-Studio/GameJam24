@@ -1,3 +1,9 @@
-[gd_scene format=3 uid="uid://bfedtkwku8tex"]
+[gd_scene load_steps=2 format=3 uid="uid://bfedtkwku8tex"]
+
+[ext_resource type="PackedScene" uid="uid://cunro14ci21sc" path="res://SpreadPlease/Scenes/sp_ui.tscn" id="1_u6tv1"]
 
 [node name="SpreadPlease" type="Node2D"]
+
+[node name="SP_UI" parent="." instance=ExtResource("1_u6tv1")]
+offset_right = 360.0
+offset_bottom = 180.0

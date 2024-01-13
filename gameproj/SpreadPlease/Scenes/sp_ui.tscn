@@ -1,0 +1,113 @@
+[gd_scene load_steps=3 format=3 uid="uid://cunro14ci21sc"]
+
+[ext_resource type="Script" path="res://SpreadPlease/Scripts/sp_ui.gd" id="1_woe3w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jmogg"]
+
+[node name="SP_UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_woe3w")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Text" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Text"]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="KarmicLabel" type="Label" parent="MarginContainer/VBoxContainer/Text/HBoxContainer"]
+layout_mode = 2
+text = "Karmic Level:"
+label_settings = SubResource("LabelSettings_jmogg")
+
+[node name="KarmicLevel" type="Label" parent="MarginContainer/VBoxContainer/Text/HBoxContainer"]
+layout_mode = 2
+text = "+25"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Text"]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 2
+
+[node name="SpreadLabel" type="Label" parent="MarginContainer/VBoxContainer/Text/HBoxContainer2"]
+layout_mode = 2
+text = "Spread Size:"
+
+[node name="SpreadLevel" type="Label" parent="MarginContainer/VBoxContainer/Text/HBoxContainer2"]
+layout_mode = 2
+text = "%36"
+
+[node name="Ideas" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="IdeaText" type="Label" parent="MarginContainer/VBoxContainer/Ideas"]
+custom_minimum_size = Vector2(180, 2.08165e-12)
+layout_mode = 2
+text = "You'v Got Mail!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+
+[node name="Spread" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "Spread the Idea"
+
+[node name="Prevent" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "Prevent the Idea"
+
+[node name="SeeConsequences" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "?"
+
+[node name="Consequences" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 20.0
+offset_right = 320.0
+offset_bottom = 160.0
+color = Color(0.113725, 0.113725, 0.113725, 0.862745)
+
+[node name="ConsequencesLabel" type="Label" parent="Consequences"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You are good bad boy!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/Spread" to="." method="_on_spread_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/Prevent" to="." method="_on_prevent_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/SeeConsequences" to="." method="_on_see_consequences_pressed"]
