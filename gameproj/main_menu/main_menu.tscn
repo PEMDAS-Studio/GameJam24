@@ -51,6 +51,8 @@ vertical_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 4
+alignment = 1
 
 [node name="Spread_Please_Start" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
@@ -59,6 +61,10 @@ text = "Spread Please"
 [node name="Bad_Grass_Start" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 text = "Bad Grass"
+
+[node name="Setting_Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Settings"
 
 [node name="Exit_Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
