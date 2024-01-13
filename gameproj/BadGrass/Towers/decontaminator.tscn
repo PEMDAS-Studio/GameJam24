@@ -229,9 +229,9 @@ tile_set = SubResource("TileSet_xv8j4")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 0, 12, 196608, 0, 15, 131074, 131072, 14, 65536, 0, 13, 131072, 0, 14, 1, 65536, 12, 65537, 65536, 13, 131073, 65536, 14, 196609, 65536, 15, 2, 131072, 12, 65538, 131072, 13, 196610, 131072, 15, 3, 196608, 12, 65539, 196608, 13, 131075, 196608, 14, 196611, 196608, 15)
 
-[node name="Area2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(32, 32)
 scale = Vector2(3.2, 3.2)
 build_mode = 1

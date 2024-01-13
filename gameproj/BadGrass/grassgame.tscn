@@ -456,22 +456,22 @@ layer_0/tile_data = PackedInt32Array(458762, 1, 0, 327682, 1, 0, 393218, 1, 0, 4
 position = Vector2(70, -23)
 Stats = ExtResource("5_r8nw1")
 
-[node name="Area2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 disable_mode = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-186, 256)
 shape = SubResource("RectangleShape2D_m067n")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1130, 256)
 shape = SubResource("RectangleShape2D_m067n")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(473, 611)
 shape = SubResource("RectangleShape2D_7nk77")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(472, -98)
 shape = SubResource("RectangleShape2D_7nk77")
 
