@@ -25,7 +25,6 @@ func InitBase(tileSet: TileMap):
 	var my_lambda = func ():
 		var hostileTileCount = _detectDamage(tileSet)
 		Stats.Health -= hostileTileCount
-		print_debug(Stats.Health)
 		
 	_timer.timeout.connect(my_lambda)
 	_timer.start()
