@@ -2,10 +2,11 @@ extends Node
 
 @onready var character = $CharacterBody2D
 @onready var tile_map : TileMap = $TileMap
+@onready var decontaminator : DecontaminatorBase = $Decontaminator
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	decontaminator.InitBase(tile_map)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

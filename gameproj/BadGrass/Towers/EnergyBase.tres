@@ -9,6 +9,6 @@ name = "Power Generator"
 Rate = 1.0
 MaxCapacity = 8.0
 Deposite = 0.0
-MaxHealth = 10.0
+MaxHealth = 50.0
 Type = "Energy Generator"
 Description = "A power house for recharging Utilities."
