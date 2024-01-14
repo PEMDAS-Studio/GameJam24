@@ -1,8 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7qn6vhi6yni3"]
+[gd_scene load_steps=9 format=3 uid="uid://c7qn6vhi6yni3"]
 
 [ext_resource type="Script" path="res://BadGrass/Towers/decontaminator.gd" id="1_87cdd"]
 [ext_resource type="Texture2D" uid="uid://dwfgsd0u42m20" path="res://Assets/TilesetGrass/TilesetGrass/overworld_tileset_grass.png" id="1_k3n5v"]
-[ext_resource type="Resource" uid="uid://urrh8pbetkq3" path="res://BadGrass/Towers/EnergyBase.tres" id="2_m45jd"]
+[ext_resource type="Script" path="res://BadGrass/Towers/Base.gd" id="2_wdto1"]
+[ext_resource type="Script" path="res://BadGrass/Towers/DeconZone.gd" id="4_f6q81"]
+
+[sub_resource type="Resource" id="Resource_3xven"]
+script = ExtResource("2_wdto1")
+name = ""
+Rate = 0.0
+MaxCapacity = 0.0
+Deposite = 0.0
+MaxHealth = 0.0
+Type = "Base"
+Description = ""
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mjbq1"]
 texture = ExtResource("1_k3n5v")
@@ -142,6 +153,10 @@ texture = ExtResource("1_k3n5v")
 9:11/0 = 0
 10:11/0 = 0
 11:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
 5:12/0 = 0
 6:12/0 = 0
 7:12/0 = 0
@@ -149,6 +164,10 @@ texture = ExtResource("1_k3n5v")
 9:12/0 = 0
 10:12/0 = 0
 11:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
 4:13/0 = 0
 5:13/0 = 0
 6:13/0 = 0
@@ -157,6 +176,10 @@ texture = ExtResource("1_k3n5v")
 9:13/0 = 0
 10:13/0 = 0
 11:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
 4:14/0 = 0
 5:14/0 = 0
 6:14/0 = 0
@@ -165,6 +188,10 @@ texture = ExtResource("1_k3n5v")
 9:14/0 = 0
 10:14/0 = 0
 11:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
 4:15/0 = 0
 5:15/0 = 0
 6:15/0 = 0
@@ -200,29 +227,16 @@ texture = ExtResource("1_k3n5v")
 0:20/0 = 0
 1:20/0 = 0
 2:20/0 = 0
-0:12/0 = 0
-0:13/0 = 0
-0:14/0 = 0
-0:15/0 = 0
-1:12/0 = 0
-1:13/0 = 0
-1:14/0 = 0
-1:15/0 = 0
-2:12/0 = 0
-2:13/0 = 0
-2:14/0 = 0
-2:15/0 = 0
-3:12/0 = 0
-3:13/0 = 0
-3:14/0 = 0
-3:15/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_xv8j4"]
 sources/0 = SubResource("TileSetAtlasSource_mjbq1")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_tn5lh"]
+radius = 77.026
+
 [node name="Decontaminator" type="Node2D"]
 script = ExtResource("1_87cdd")
-Stats = ExtResource("2_m45jd")
+Stats = SubResource("Resource_3xven")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-35, -34)
@@ -238,3 +252,9 @@ position = Vector2(32, 32)
 scale = Vector2(3.2, 3.2)
 build_mode = 1
 polygon = PackedVector2Array(-9.0625, 6.25, -9.0625, -2.5, -8.75, -3.4375, -8.4375, -4.0625, -7.8125, -5, -7.1875, -5.625, -6.25, -6.25, -5.3125, -6.5625, -4.375, -6.875, 5.3125, -6.875, 6.25, -6.5625, 7.1875, -6.25, 8.125, -5.625, 9.0625, -5, 9.375, -4.375, 9.6875, -3.75, 10, -2.8125, 10, 6.5625, 9.375, 7.5, 8.75, 8.125, 8.4375, 8.4375, 7.8125, 8.75, 6.875, 9.0625, -3.4375, 9.0625, -5.9375, 8.75, -6.875, 8.4375, -7.5, 8.125, -8.4375, 7.1875, -8.75, 6.875)
+
+[node name="InteractionZone" type="Area2D" parent="."]
+script = ExtResource("4_f6q81")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionZone"]
+shape = SubResource("CircleShape2D_tn5lh")

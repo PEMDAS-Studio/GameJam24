@@ -66,4 +66,6 @@ func Attack():
 	bullet.Shoot(direction, atan2(direction.y, direction.x))
 	
 
+func _on_area_entered(area):
+	print_debug(area)
 

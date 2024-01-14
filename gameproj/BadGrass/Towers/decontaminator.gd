@@ -4,11 +4,13 @@ class_name DecontaminatorBase
 @export var Stats : Base
 var _timer = Timer.new()
 
+
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
 	Stats = Stats.duplicate()
 	Stats.AutomateResources(self)
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
