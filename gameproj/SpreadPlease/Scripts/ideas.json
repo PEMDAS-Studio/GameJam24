@@ -1,0 +1,26 @@
+[
+	{
+		"text": "You need to give half of your money to people in need.",
+		"accepted_karmic_value": 60,
+		"rejected_karmic_value": -5,
+		"accepted_spread_level": -20,
+		"rejected_spread_level": 0,
+		"consequences": "Powerty level is decreasing, capitalist are mad at you."
+	},
+	{
+		"text": "You can kill old people if it's beneficial to you.",
+		"accepted_karmic_value": -60,
+		"rejected_karmic_value": 30,
+		"accepted_spread_level": 10,
+		"rejected_spread_level": 10,
+		"consequences": "Capitalist are thriving, you are powerful in man-power"
+	},
+	{
+		"text": "You can't drink alcohol while pregnant ",
+		"accepted_karmic_value": 30,
+		"rejected_karmic_value": -30,
+		"accepted_spread_level": -10,
+		"rejected_spread_level": 10,
+		"consequences": "Child deaths and at-birth complications are decreasing."
+	}
+]
