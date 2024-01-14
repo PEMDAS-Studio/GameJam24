@@ -17,6 +17,7 @@ var spreadLevel:int = 0
 var currentIdea:int
 var totalIdeas:int = 3
 var ideas = [];
+var spreadIdeas = [];
 
 func _ready():
 	load_ideas_json()
@@ -42,6 +43,11 @@ func GetNextIdea(index:int):
 
 func randomIdea():
 	var nextIdea = randi_range(0, totalIdeas-1)
+	if spreadIdeas.find(nextIdea) != -1:
+		if (spreadIdeas.size() == ideas.size()):
+			return
+		randomIdea()
+		return
 	GetNextIdea(nextIdea)
 
 
@@ -49,6 +55,7 @@ func _on_spread_pressed():
 	karmicLevel += ideas[currentIdea]["accepted_karmic_value"]
 	spreadLevel += ideas[currentIdea]["accepted_spread_level"]
 	consequences_label.text = ideas[currentIdea]["consequences"]
+	spreadIdeas.push_front(currentIdea);
 	randomIdea()
 
 
