@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://cemx6ge4f7ajp"]
+[gd_scene load_steps=11 format=3 uid="uid://cemx6ge4f7ajp"]
 
 [ext_resource type="Texture2D" uid="uid://dwfgsd0u42m20" path="res://Assets/TilesetGrass/TilesetGrass/overworld_tileset_grass.png" id="1_aap60"]
 [ext_resource type="Script" path="res://changegrass.gd" id="1_loyf3"]
 [ext_resource type="PackedScene" uid="uid://dsb00ec2pu45o" path="res://character.tscn" id="2_hu4nw"]
 [ext_resource type="Texture2D" uid="uid://c4bn0beidonjg" path="res://Assets/TilesetGrass/TilesetGrass/overworld_tileset_grass_infected.png" id="2_j1y7l"]
-[ext_resource type="Resource" uid="uid://urrh8pbetkq3" path="res://BadGrass/Towers/EnergyBase.tres" id="5_r8nw1"]
 [ext_resource type="PackedScene" uid="uid://c7qn6vhi6yni3" path="res://BadGrass/Towers/decontaminator.tscn" id="5_vh137"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4672s"]
@@ -145,10 +144,6 @@ texture = ExtResource("1_aap60")
 9:11/0 = 0
 10:11/0 = 0
 11:11/0 = 0
-0:12/0 = 0
-1:12/0 = 0
-2:12/0 = 0
-3:12/0 = 0
 5:12/0 = 0
 6:12/0 = 0
 7:12/0 = 0
@@ -156,10 +151,6 @@ texture = ExtResource("1_aap60")
 9:12/0 = 0
 10:12/0 = 0
 11:12/0 = 0
-0:13/0 = 0
-1:13/0 = 0
-2:13/0 = 0
-3:13/0 = 0
 4:13/0 = 0
 5:13/0 = 0
 6:13/0 = 0
@@ -168,10 +159,6 @@ texture = ExtResource("1_aap60")
 9:13/0 = 0
 10:13/0 = 0
 11:13/0 = 0
-0:14/0 = 0
-1:14/0 = 0
-2:14/0 = 0
-3:14/0 = 0
 4:14/0 = 0
 5:14/0 = 0
 6:14/0 = 0
@@ -180,10 +167,6 @@ texture = ExtResource("1_aap60")
 9:14/0 = 0
 10:14/0 = 0
 11:14/0 = 0
-0:15/0 = 0
-1:15/0 = 0
-2:15/0 = 0
-3:15/0 = 0
 4:15/0 = 0
 5:15/0 = 0
 6:15/0 = 0
@@ -219,6 +202,22 @@ texture = ExtResource("1_aap60")
 0:20/0 = 0
 1:20/0 = 0
 2:20/0 = 0
+0:12/0 = 0
+0:13/0 = 0
+0:14/0 = 0
+0:15/0 = 0
+1:12/0 = 0
+1:13/0 = 0
+1:14/0 = 0
+1:15/0 = 0
+2:12/0 = 0
+2:13/0 = 0
+2:14/0 = 0
+2:15/0 = 0
+3:12/0 = 0
+3:13/0 = 0
+3:14/0 = 0
+3:15/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l14wb"]
 texture = ExtResource("2_j1y7l")
@@ -454,7 +453,6 @@ layer_0/tile_data = PackedInt32Array(458762, 1, 0, 327682, 1, 0, 393218, 1, 0, 4
 
 [node name="Decontaminator" parent="." instance=ExtResource("5_vh137")]
 position = Vector2(70, -23)
-Stats = ExtResource("5_r8nw1")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 disable_mode = 2

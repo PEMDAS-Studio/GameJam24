@@ -15,7 +15,9 @@ class_name Base
 		MaxHealth = value
 		Health = MaxHealth
 
-var Health : float
+var Health : float :
+	set(value):
+		Health = clamp(value, 0, MaxHealth)
 
 @export_enum("Base", "Energy Generator", "Storage", "Decontaminator")
 var Type : String = "Base"
