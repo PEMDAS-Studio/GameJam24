@@ -15,7 +15,7 @@ var isConsPanelOpen:bool = false
 var karmicLevel:int = 0
 var spreadLevel:int = 0
 var currentIdea:int
-var totalIdeas:int = 3
+var totalIdeas:int = 9
 var ideas = [];
 var spreadIdeas = [];
 

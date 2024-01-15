@@ -22,5 +22,53 @@
 		"accepted_spread_level": -10,
 		"rejected_spread_level": 10,
 		"consequences": "Child deaths and at-birth complications are decreasing."
-	}
+	},
+	{
+		"text": "You have to fast on every red moon",
+		"accepted_karmic_value": -10,
+		"rejected_karmic_value": 30,
+		"accepted_spread_level": 5,
+		"rejected_spread_level": 30,
+		"consequences": "Peasants and low commoners might riot against you, since they have lack of ways to get food."
+	},
+	{
+		"text": "You can't drink alcohol on sundays ",
+		"accepted_karmic_value": 50,
+		"rejected_karmic_value": -20,
+		"accepted_spread_level": 30,
+		"rejected_spread_level": -10,
+		"consequences": "Capitalist will love this idea this means less people beind hungover so they can make them work harder."
+	},
+	{
+		"text": "You have to bow to the Pope when ever he arrives ",
+		"accepted_karmic_value": 25,
+		"rejected_karmic_value": -5,
+		"accepted_spread_level": 10,
+		"rejected_spread_level": -3,
+		"consequences": "Your in the pope good favor and you want that."
+	},
+	{
+		"text": "You can steal on every wednesday when no one is looking ",
+		"accepted_karmic_value": -15,
+		"rejected_karmic_value": 20,
+		"accepted_spread_level": 30,
+		"rejected_spread_level": -20,
+		"consequences": "Capitalist will hate this idea so will the pope, someone will love it."
+	},
+	{
+		"text": "You can't sit down in the church before the preist say you can ",
+		"accepted_karmic_value": 55,
+		"rejected_karmic_value": -35,
+		"accepted_spread_level": 20,
+		"rejected_spread_level": -2,
+		"consequences": "You will have the favour of the pope and the church."
+	},
+	{
+		"text": "You have to give food to the starving. ",
+		"accepted_karmic_value": 70,
+		"rejected_karmic_value": -20,
+		"accepted_spread_level": -15,
+		"rejected_spread_level": 5,
+		"consequences": "No one wants to give there food away, there might turn into a riot",
+	},
 ]
