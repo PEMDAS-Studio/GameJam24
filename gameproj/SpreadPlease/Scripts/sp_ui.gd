@@ -44,7 +44,7 @@ func GetNextIdea(index:int):
 func randomIdea():
 	var nextIdea = randi_range(0, totalIdeas-1)
 	if spreadIdeas.find(nextIdea) != -1:
-		if (spreadIdeas.size() == ideas.size()):
+		if (spreadIdeas.size() >= ideas.size()):
 			return
 		randomIdea()
 		return
