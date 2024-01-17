@@ -6,6 +6,8 @@ const SPEED = 70.0
 @onready var anim = $Anim
 @onready var hurt_time = $HurtTime
 
+var pickUp:PackedScene = preload("res://BadGrass/Enemies/pickup.tscn")
+
 var health:float = 9
 var damage:float = 5
 
@@ -23,6 +25,9 @@ func _physics_process(delta):
 	velocity = position.direction_to(playerPos) * SPEED
 	
 	if health < 0:
+		var pickup = pickUp.instantiate()
+		pickup.position = self.position
+		get_parent().add_child(pickup)
 		queue_free()
 	
 	move_and_slide()

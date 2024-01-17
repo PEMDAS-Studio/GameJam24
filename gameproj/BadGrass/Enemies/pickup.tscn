@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3hgs3ieavo6o"]
+
+[ext_resource type="Texture2D" uid="uid://bpvwock0tltpo" path="res://Assets/16x16 Animated Top-down Character V1.1/16x16 Animated Top-down Character V1.1/Full Spritesheet.png" id="1_ph37d"]
+[ext_resource type="Script" path="res://BadGrass/Enemies/pickup.gd" id="1_xdvhu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h32cc"]
+radius = 6.0
+
+[node name="Pickup" type="Area2D"]
+script = ExtResource("1_xdvhu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.411765, 0.376471, 1)
+scale = Vector2(3, 3)
+texture = ExtResource("1_ph37d")
+region_enabled = true
+region_rect = Rect2(106.486, 323.647, 4.05391, 3.91876)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_h32cc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
