@@ -1,0 +1,155 @@
+[gd_scene load_steps=21 format=3 uid="uid://beuy842wf4e4p"]
+
+[ext_resource type="Texture2D" uid="uid://bj6vl3gjkih3t" path="res://BadGrass/Enemies/Sprites/satyr-Sheet.png" id="1_dx1gb"]
+[ext_resource type="Script" path="res://BadGrass/Enemies/enemy.gd" id="1_hnxka"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3hxk3"]
+radius = 6.0
+height = 18.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3w3k5"]
+atlas = ExtResource("1_dx1gb")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37wde"]
+atlas = ExtResource("1_dx1gb")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ioj56"]
+atlas = ExtResource("1_dx1gb")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgyer"]
+atlas = ExtResource("1_dx1gb")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lt2ec"]
+atlas = ExtResource("1_dx1gb")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1g47m"]
+atlas = ExtResource("1_dx1gb")
+region = Rect2(192, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oi6gd"]
+atlas = ExtResource("1_dx1gb")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gyav"]
+atlas = ExtResource("1_dx1gb")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31yxx"]
+atlas = ExtResource("1_dx1gb")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syw3j"]
+atlas = ExtResource("1_dx1gb")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wamtx"]
+atlas = ExtResource("1_dx1gb")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4psv"]
+atlas = ExtResource("1_dx1gb")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6hme"]
+atlas = ExtResource("1_dx1gb")
+region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pc8nw"]
+atlas = ExtResource("1_dx1gb")
+region = Rect2(224, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5hpu4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3w3k5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37wde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ioj56")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgyer")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lt2ec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1g47m")
+}],
+"loop": true,
+"name": &"Hit",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oi6gd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gyav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31yxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syw3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wamtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4psv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6hme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pc8nw")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 16.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_crhhe"]
+radius = 8.0
+height = 24.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klpn6"]
+size = Vector2(24, 16)
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_hnxka")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_3hxk3")
+
+[node name="Anim" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5hpu4")
+animation = &"Run"
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_crhhe")
+
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_klpn6")
+
+[node name="HurtTime" type="Timer" parent="."]
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
+[connection signal="body_exited" from="HurtBox" to="." method="_on_hurt_box_body_exited"]
+[connection signal="timeout" from="HurtTime" to="." method="_on_hurt_time_timeout"]

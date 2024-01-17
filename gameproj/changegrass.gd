@@ -6,6 +6,9 @@ extends Node
 var _contaminatedTiles : Dictionary = {}
 var _spreadableTiles : Array[Vector2i]
 
+var enemy:PackedScene = preload("res://BadGrass/Enemies/enemy.tscn")
+var enemySpawnTimer:float = 0.5
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	decontaminator.InitBase(tile_map)
@@ -30,7 +33,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	enemySpawnTimer -= delta
+	if enemySpawnTimer < 0:
+		var enemyPotentialXPos = randf_range(256, 1087)
+		var enemyPotentialYPos = randf_range(-40, 558)
+		var enemy = enemy.instantiate()
+		enemy.position = Vector2(enemyPotentialXPos,enemyPotentialYPos)
+		add_child(enemy)
+		enemySpawnTimer = 0.5
+	
 	
 #func _unhandled_input(event):
 	#if Input.is_action_just_pressed("grassaction"):

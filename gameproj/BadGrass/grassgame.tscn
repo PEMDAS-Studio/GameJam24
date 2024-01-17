@@ -473,7 +473,7 @@ shape = SubResource("RectangleShape2D_7nk77")
 position = Vector2(472, -98)
 shape = SubResource("RectangleShape2D_7nk77")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_hu4nw")]
+[node name="Player" parent="." instance=ExtResource("2_hu4nw")]
 SPEED = 76.0
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+[node name="Camera2D" type="Camera2D" parent="Player"]

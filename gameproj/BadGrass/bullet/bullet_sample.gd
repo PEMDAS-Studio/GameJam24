@@ -6,6 +6,8 @@ var _traversalDirection: Vector2
 var _traveledDistance : float = 0
 var tile_map : TileMap
 
+var damage:float = 10
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_process(false)
