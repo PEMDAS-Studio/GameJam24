@@ -18,7 +18,7 @@ func _ready():
 	set_motion_mode(MOTION_MODE_FLOATING);
 	
 func _physics_process(delta):
-	if (Input.is_action_just_pressed("grassaction") && !_isAttacking):
+	if (Input.is_action_pressed("grassaction") && !_isAttacking):
 		Attack()
 	
 	var xDirection = Input.get_axis("left", "right")
