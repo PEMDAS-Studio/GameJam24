@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b3hgs3ieavo6o"]
 
 [ext_resource type="Script" path="res://BadGrass/Enemies/pickup.gd" id="1_xdvhu"]
-[ext_resource type="Texture2D" uid="uid://bhiq0ma1vr5ml" path="res://Assets/bullet.png" id="2_3rrqs"]
+[ext_resource type="Texture2D" uid="uid://dbvsajkqj2gy0" path="res://Assets/Orb/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/gem_004-export.png" id="2_7k7pg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h32cc"]
 radius = 6.0
@@ -10,12 +10,9 @@ radius = 6.0
 script = ExtResource("1_xdvhu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.32549, 0.666667, 0.890196, 1)
-self_modulate = Color(0.458824, 1, 1, 1)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("2_3rrqs")
-region_enabled = true
-region_rect = Rect2(-0.276863, 0.0854626, 10.4645, 10.1375)
+texture = ExtResource("2_7k7pg")
+region_rect = Rect2(-0.00102425, -0.0272989, 16.0805, 15.9454)
+region_filter_clip_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_h32cc")
