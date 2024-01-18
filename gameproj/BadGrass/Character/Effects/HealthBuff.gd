@@ -8,8 +8,8 @@ func ApplyEffect(character: Character):
 	var buffTimer = Timer.new()
 	buffTimer.one_shot = true
 	buffTimer.wait_time = Dduration
-	buffTimer.timeout.connect(ResetEffect(character))
-	character.Stats.MaxHealth += character.Stats.MaxHealth * IncreasePercentage
+	buffTimer.timeout.connect(ResetEffect.bind(character))
+	character.Stats.MaxHealth += character.Stats.MaxHealth * IncreasePercentage / 100
 	character.add_child(buffTimer)
 	buffTimer.start()
 

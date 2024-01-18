@@ -8,7 +8,7 @@ func ApplyEffect(character: Character):
 	var buffTimer = Timer.new()
 	buffTimer.one_shot = true
 	buffTimer.wait_time = Dduration
-	buffTimer.timeout.connect(ResetEffect(character))
+	buffTimer.timeout.connect(ResetEffect.bind(character))
 	character.Stats.Speed += character.Stats.Speed * IncreasePercentage
 	character.add_child(buffTimer)
 	buffTimer.start()

@@ -8,7 +8,7 @@
 [sub_resource type="Resource" id="Resource_guilo"]
 script = ExtResource("2_6ecgr")
 OriginalSpeed = 72
-OriginalHeath = 10
+OriginalHeath = 10.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8l41w"]
 atlas = ExtResource("2_jvcgt")

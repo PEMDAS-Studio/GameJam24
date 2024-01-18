@@ -9,13 +9,13 @@ func ApplyEffect(character: Character):
 	var buffTimer = Timer.new()
 	buffTimer.one_shot = true
 	buffTimer.wait_time = Dduration
-	buffTimer.timeout.connect(RemoveEffect(buffTimer))
+	buffTimer.timeout.connect(RemoveEffect.bind(buffTimer))
 	character.add_child(buffTimer)
 	
 	var regenTimer = Timer.new()
 	regenTimer.one_shot = false
 	regenTimer.wait_time = 1
-	regenTimer.timeout.connect(Heal(character))
+	regenTimer.timeout.connect(Heal.bind(character))
 	buffTimer.add_child(regenTimer)
 	buffTimer.start()
 	regenTimer.start()

@@ -4,11 +4,13 @@ class_name CharacterStats
 @export var OriginalSpeed : int:
 	set(value):
 		Speed = value
+		OriginalHeath = value
 		
-@export var OriginalHeath : int:
+@export var OriginalHeath : float:
 	set(value):
 		MaxHealth = value
 		Health = value
+		OriginalHeath = value
 		
 var Speed : int :
 	set(value):

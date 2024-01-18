@@ -8,6 +8,7 @@ var attackTimer : Timer
 var bulletscene : PackedScene = preload("res://BadGrass/bullet/bullet_sample.tscn") 
 
 var _effects : Array[CharacterStatEffect] = []
+var Items : Array[CharacterStatEffect] = []
 
 func _ready():
 	attackTimer = Timer.new()
@@ -22,6 +23,9 @@ func _ready():
 func _physics_process(delta):
 	if (Input.is_action_pressed("grassaction") && !_isAttacking):
 		Attack()
+	
+	if (Input.is_action_pressed("useItem")):
+		UseItem()
 	
 	var xDirection = Input.get_axis("left", "right")
 	var yDirection = Input.get_axis("up", "down")
@@ -75,8 +79,17 @@ func _on_area_entered(area):
 func ConsumeItem(item):
 	var effect = item.StatusEffect
 	for appliedEffect in _effects:
-		if (appliedEffect.Name == effect.name):
+		if (appliedEffect.Name == effect.Name):
 			return
 	
 	_effects.append(effect)
 	effect.ApplyEffect(self)
+
+func UseItem():
+	if !Items.is_empty():
+		var item = Items[0]
+		var a = {
+			StatusEffect = item
+		}
+		ConsumeItem(a)
+		Items.remove_at(0)
