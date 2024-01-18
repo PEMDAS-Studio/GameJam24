@@ -4,7 +4,7 @@ class_name CharacterStats
 @export var OriginalSpeed : int:
 	set(value):
 		Speed = value
-		OriginalHeath = value
+		OriginalSpeed = value
 		
 @export var OriginalHeath : float:
 	set(value):

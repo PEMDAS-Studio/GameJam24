@@ -8,7 +8,7 @@ var attackTimer : Timer
 var bulletscene : PackedScene = preload("res://BadGrass/bullet/bullet_sample.tscn") 
 
 var _effects : Array[CharacterStatEffect] = []
-var Items : Array[CharacterStatEffect] = []
+var Items : Array[PickedItem] = []
 
 func _ready():
 	attackTimer = Timer.new()
@@ -76,7 +76,7 @@ func Attack():
 func _on_area_entered(area):
 	print_debug(area)
 
-func ConsumeItem(item):
+func ConsumeItem(item : PickedItem):
 	var effect = item.StatusEffect
 	for appliedEffect in _effects:
 		if (appliedEffect.Name == effect.Name):
@@ -88,8 +88,5 @@ func ConsumeItem(item):
 func UseItem():
 	if !Items.is_empty():
 		var item = Items[0]
-		var a = {
-			StatusEffect = item
-		}
-		ConsumeItem(a)
+		ConsumeItem(item)
 		Items.remove_at(0)

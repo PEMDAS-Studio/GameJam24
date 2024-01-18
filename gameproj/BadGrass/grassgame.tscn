@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cemx6ge4f7ajp"]
+[gd_scene load_steps=13 format=3 uid="uid://cemx6ge4f7ajp"]
 
 [ext_resource type="Texture2D" uid="uid://dwfgsd0u42m20" path="res://Assets/TilesetGrass/TilesetGrass/overworld_tileset_grass.png" id="1_aap60"]
 [ext_resource type="Script" path="res://changegrass.gd" id="1_loyf3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c4bn0beidonjg" path="res://Assets/TilesetGrass/TilesetGrass/overworld_tileset_grass_infected.png" id="2_j1y7l"]
 [ext_resource type="PackedScene" uid="uid://c7qn6vhi6yni3" path="res://BadGrass/Towers/decontaminator.tscn" id="5_vh137"]
 [ext_resource type="PackedScene" uid="uid://dxjjsaqqsmf8g" path="res://BadGrass/Items/SampleItem.tscn" id="6_mqvyd"]
+[ext_resource type="PackedScene" uid="uid://byn5s63foa22l" path="res://BadGrass/Items/SampleItemSpeed.tscn" id="7_1avd7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4672s"]
 texture = ExtResource("1_aap60")
@@ -480,3 +481,6 @@ shape = SubResource("RectangleShape2D_7nk77")
 
 [node name="SampleItem" parent="." instance=ExtResource("6_mqvyd")]
 position = Vector2(66, 85)
+
+[node name="SampleItem2" parent="." instance=ExtResource("7_1avd7")]
+position = Vector2(106, 123)
