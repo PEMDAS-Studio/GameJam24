@@ -11,7 +11,6 @@ var pickUp:PackedScene = preload("res://BadGrass/Enemies/pickup.tscn")
 var health:float = 9
 var damage:float = 5
 
-
 func _ready():
 	anim.play("Run")
 
@@ -32,25 +31,20 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-
 func _on_hit_box_area_entered(area):
 	if area.get_name() == "BulletSample":
 		health -= area.damage
-
 
 func _on_hurt_box_body_entered(body):
 	if body.get_name() == "Player":
 		anim.play("Hit")
 		hurt_time.start(1)
 
-
 func _on_hurt_box_body_exited(body):
 	if body.get_name() == "Player":
 		anim.play("Run")
 		hurt_time.stop()
 
-
-
 func _on_hurt_time_timeout():
-	Player.Health -= damage
-	print(Player.Health)
+	Player.Stats.Health -= damage
+	print(Player.Stats.Health)

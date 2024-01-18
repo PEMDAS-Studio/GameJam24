@@ -1,11 +1,13 @@
 extends CharacterBody2D
+class_name Character
 
-@export var SPEED = 72.0
-@export var Health = 10
+@export var Stats : CharacterStats
 @onready var sprite = $Sprite2D as AnimatedSprite2D
 var _isAttacking = false
 var attackTimer : Timer
 var bulletscene : PackedScene = preload("res://BadGrass/bullet/bullet_sample.tscn") 
+
+var _effects : Array[CharacterStatEffect] = []
 
 func _ready():
 	attackTimer = Timer.new()
@@ -25,17 +27,17 @@ func _physics_process(delta):
 	var yDirection = Input.get_axis("up", "down")
 	
 	if xDirection:
-		velocity.x = xDirection * SPEED
+		velocity.x = xDirection * Stats.Speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, Stats.Speed)
 		
 	if yDirection:
-		velocity.y = yDirection * SPEED
+		velocity.y = yDirection * Stats.Speed
 	else:
-		velocity.y = move_toward(velocity.y, 0, SPEED)
+		velocity.y = move_toward(velocity.y, 0, Stats.Speed)
 		
 	var normalizedSpeed = velocity.normalized()
-	velocity = SPEED * normalizedSpeed
+	velocity = Stats.Speed * normalizedSpeed
 	
 	HandleAnimation()
 	move_and_slide()
@@ -70,3 +72,11 @@ func Attack():
 func _on_area_entered(area):
 	print_debug(area)
 
+func ConsumeItem(item):
+	var effect = item.StatusEffect
+	for appliedEffect in _effects:
+		if (appliedEffect.Name == effect.name):
+			return
+	
+	_effects.append(effect)
+	effect.ApplyEffect(self)
