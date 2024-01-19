@@ -1,88 +1,37 @@
-[gd_scene load_steps=21 format=3 uid="uid://beuy842wf4e4p"]
+[gd_scene load_steps=15 format=3 uid="uid://beuy842wf4e4p"]
 
-[ext_resource type="Texture2D" uid="uid://bj6vl3gjkih3t" path="res://BadGrass/Enemies/Sprites/satyr-Sheet.png" id="1_dx1gb"]
 [ext_resource type="Script" path="res://BadGrass/Enemies/enemy.gd" id="1_hnxka"]
+[ext_resource type="Texture2D" uid="uid://6e4mmwhskjou" path="res://BadGrass/Enemies/Sprites/Grass_Little_020.png" id="2_htv4l"]
+[ext_resource type="Texture2D" uid="uid://dmwih36720xio" path="res://BadGrass/Enemies/Sprites/Grass_Little_021.png" id="3_hfa4a"]
+[ext_resource type="Texture2D" uid="uid://dmxe0lmnbbiho" path="res://BadGrass/Enemies/Sprites/Grass_Little_022.png" id="4_gu0e1"]
+[ext_resource type="Texture2D" uid="uid://do0yrnqv7ocg4" path="res://BadGrass/Enemies/Sprites/Grass_Little_023.png" id="5_opybe"]
+[ext_resource type="Texture2D" uid="uid://id08h0oldgmm" path="res://BadGrass/Enemies/Sprites/Grass_Little_024.png" id="6_moyjs"]
+[ext_resource type="Texture2D" uid="uid://ddnng6dhi816b" path="res://BadGrass/Enemies/Sprites/Grass_Little_014.png" id="7_wroy3"]
+[ext_resource type="Texture2D" uid="uid://ci3l7esq8vl82" path="res://BadGrass/Enemies/Sprites/Grass_Little_015.png" id="8_73mxb"]
+[ext_resource type="Texture2D" uid="uid://bc043kkx1sydk" path="res://BadGrass/Enemies/Sprites/Grass_Little_016.png" id="9_lgwcq"]
+[ext_resource type="Texture2D" uid="uid://d1o6xxnblvgmg" path="res://BadGrass/Enemies/Sprites/Grass_Little_017.png" id="10_0lpgp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3hxk3"]
 radius = 6.0
 height = 18.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3w3k5"]
-atlas = ExtResource("1_dx1gb")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_37wde"]
-atlas = ExtResource("1_dx1gb")
-region = Rect2(32, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ioj56"]
-atlas = ExtResource("1_dx1gb")
-region = Rect2(64, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cgyer"]
-atlas = ExtResource("1_dx1gb")
-region = Rect2(128, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lt2ec"]
-atlas = ExtResource("1_dx1gb")
-region = Rect2(160, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1g47m"]
-atlas = ExtResource("1_dx1gb")
-region = Rect2(192, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oi6gd"]
-atlas = ExtResource("1_dx1gb")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2gyav"]
-atlas = ExtResource("1_dx1gb")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_31yxx"]
-atlas = ExtResource("1_dx1gb")
-region = Rect2(64, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_syw3j"]
-atlas = ExtResource("1_dx1gb")
-region = Rect2(96, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wamtx"]
-atlas = ExtResource("1_dx1gb")
-region = Rect2(128, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m4psv"]
-atlas = ExtResource("1_dx1gb")
-region = Rect2(160, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i6hme"]
-atlas = ExtResource("1_dx1gb")
-region = Rect2(192, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pc8nw"]
-atlas = ExtResource("1_dx1gb")
-region = Rect2(224, 32, 32, 32)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_5hpu4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3w3k5")
+"texture": ExtResource("2_htv4l")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_37wde")
+"texture": ExtResource("3_hfa4a")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ioj56")
+"texture": ExtResource("4_gu0e1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cgyer")
+"texture": ExtResource("5_opybe")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lt2ec")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1g47m")
+"texture": ExtResource("6_moyjs")
 }],
 "loop": true,
 "name": &"Hit",
@@ -90,28 +39,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oi6gd")
+"texture": ExtResource("7_wroy3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2gyav")
+"texture": ExtResource("8_73mxb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_31yxx")
+"texture": ExtResource("9_lgwcq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_syw3j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wamtx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m4psv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i6hme")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pc8nw")
+"texture": ExtResource("10_0lpgp")
 }],
 "loop": true,
 "name": &"Run",
@@ -132,8 +69,10 @@ script = ExtResource("1_hnxka")
 shape = SubResource("CapsuleShape2D_3hxk3")
 
 [node name="Anim" type="AnimatedSprite2D" parent="."]
+z_as_relative = false
 sprite_frames = SubResource("SpriteFrames_5hpu4")
-animation = &"Run"
+animation = &"Hit"
+frame_progress = 0.508066
 
 [node name="HitBox" type="Area2D" parent="."]
 
