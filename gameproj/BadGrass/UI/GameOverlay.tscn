@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbtinxet4lnqv"]
+[gd_scene load_steps=5 format=3 uid="uid://dbtinxet4lnqv"]
 
 [ext_resource type="Script" path="res://BadGrass/UI/GameOverlay.gd" id="1_gsxuw"]
 [ext_resource type="Texture2D" uid="uid://b42bb8evb7b7h" path="res://Assets/UI/HealthBar/HealthEmpty.png" id="1_k0w44"]
 [ext_resource type="Texture2D" uid="uid://dj1b7pytb6dub" path="res://Assets/UI/HealthBar/HealthFill.png" id="2_j4sg8"]
+[ext_resource type="Texture2D" uid="uid://d0a7tidhcav7p" path="res://Assets/UI/HealthBar/XpBar.png" id="4_2cs8q"]
 
 [node name="GameOverlay" type="CanvasLayer"]
 script = ExtResource("1_gsxuw")
@@ -19,3 +20,23 @@ stretch_margin_right = 2
 stretch_margin_bottom = 2
 texture_under = ExtResource("1_k0w44")
 texture_progress = ExtResource("2_j4sg8")
+
+[node name="ExperienceBar" type="TextureProgressBar" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -8.0
+offset_right = -1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 80.0
+nine_patch_stretch = true
+stretch_margin_left = 2
+stretch_margin_top = 2
+stretch_margin_right = 2
+stretch_margin_bottom = 2
+texture_under = ExtResource("1_k0w44")
+texture_progress = ExtResource("4_2cs8q")

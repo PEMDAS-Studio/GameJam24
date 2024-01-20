@@ -13,8 +13,12 @@ var enemySpawnTimer:float = 0.5
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	character.Stats.changed.connect(UiOverlay.UpdateHealthBar.bind(character.Stats))
+	character.LeveledUp.connect(UiOverlay.UpdateLevelUpExperience)
+	character.XpChanged.connect(UiOverlay.UpdateExperience)
 	UiOverlay.HealthBar.max_value = character.Stats.MaxHealth
 	UiOverlay.HealthBar.value = character.Stats.Health
+	UiOverlay.XpBar.value = 0
+	UiOverlay.XpBar.max_value = character.GetXpToNextLevel()
 	
 	decontaminator.InitBase(tile_map)
 	var tiles = tile_map.get_used_cells(0)

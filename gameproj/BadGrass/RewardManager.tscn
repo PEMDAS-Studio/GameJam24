@@ -1,0 +1,87 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhmq6su4odk6"]
+
+[ext_resource type="Script" path="res://BadGrass/RewardManager.gd" id="1_3ao64"]
+
+[node name="RewardManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3ao64")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Option1" type="Control" parent="CanvasLayer/Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/Option1"]
+custom_minimum_size = Vector2(100, 120)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -60.0
+offset_right = 100.0
+offset_bottom = 60.0
+grow_vertical = 2
+color = Color(0.219608, 0.219608, 0.219608, 0.329412)
+metadata/_edit_use_anchors_ = true
+
+[node name="Option2" type="Control" parent="CanvasLayer/Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/Option2"]
+custom_minimum_size = Vector2(100, 120)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -60.0
+offset_right = 100.0
+offset_bottom = 60.0
+grow_vertical = 2
+color = Color(0.219608, 0.219608, 0.219608, 0.329412)
+metadata/_edit_use_anchors_ = true
+
+[node name="Option3" type="Control" parent="CanvasLayer/Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/Option3"]
+custom_minimum_size = Vector2(100, 120)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -60.0
+offset_right = 100.0
+offset_bottom = 60.0
+grow_vertical = 2
+color = Color(0.219608, 0.219608, 0.219608, 0.329412)
+metadata/_edit_use_anchors_ = true

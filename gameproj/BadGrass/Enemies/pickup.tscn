@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3hgs3ieavo6o"]
+[gd_scene load_steps=4 format=3 uid="uid://cdm1pbxp0uxfi"]
 
 [ext_resource type="Script" path="res://BadGrass/Enemies/pickup.gd" id="1_xdvhu"]
 [ext_resource type="Texture2D" uid="uid://dbvsajkqj2gy0" path="res://Assets/Orb/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/gem_004-export.png" id="2_7k7pg"]
@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_h32cc"]
 radius = 6.0
 
-[node name="Pickup" type="Area2D"]
+[node name="Pickup" type="Area2D" groups=["Xp"]]
 script = ExtResource("1_xdvhu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

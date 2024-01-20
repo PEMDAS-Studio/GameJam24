@@ -1,6 +1,12 @@
 extends CharacterBody2D
 class_name Character
 
+var _experience : int = 0
+var _levelUpExperience : Array[int] = [90, 200, 400, 500, 760, 990, 1300, 1780, 2000, 2500, 3140]
+var _level : int = 0
+signal LeveledUp
+signal XpChanged
+
 @export var Stats : CharacterStats
 @onready var sprite = $Sprite2D as AnimatedSprite2D
 var _isAttacking = false
@@ -13,6 +19,11 @@ var Items : Array[PickedItem] = []
 ## This seaction is to handle weapon setting but currently we are without weapons.
 var aquiredWeaponEffects : Array[BaseWeaponStatusEffect] = []
 
+func GetLevel() -> int:
+	return _level
+
+func GetXpToNextLevel() -> int:
+	return _levelUpExperience[_level]
 
 func _ready():
 	attackTimer = Timer.new()
@@ -78,10 +89,6 @@ func Attack():
 	var direction = Vector2(mousePosition.x - position.x, mousePosition.y - position.y).normalized()
 	bullet.Shoot(direction, atan2(direction.y, direction.x))
 	
-
-func _on_area_entered(area):
-	print_debug(area)
-
 func ConsumeItem(item : PickedItem):
 	var effect = item.StatusEffect
 	for appliedEffect in _effects:
@@ -90,6 +97,15 @@ func ConsumeItem(item : PickedItem):
 	
 	_effects.append(effect)
 	effect.ApplyEffect(self)
+
+func IncreaseXp(amount: int):
+	_experience = _experience + amount
+	if (_experience >= _levelUpExperience[_level]):
+		var overflownXp = _experience - _levelUpExperience[_level]
+		_experience = overflownXp
+		_level += 1
+		emit_signal("LeveledUp", _level, _levelUpExperience[_level])
+	emit_signal("XpChanged", _experience)
 
 func UseItem():
 	if !Items.is_empty():

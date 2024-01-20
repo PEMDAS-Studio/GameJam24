@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name Enemy
 
 const SPEED = 70.0
+var XpAmount = 10
 
 @onready var Player:Object = get_parent().get_node("Player")
 @onready var anim = $Anim
@@ -9,7 +10,7 @@ const SPEED = 70.0
 
 var pickUp:PackedScene = preload("res://BadGrass/Enemies/pickup.tscn")
 
-var health:float = 90
+var health:float = 9
 var damage:float = 5
 
 func _ready():
@@ -26,6 +27,7 @@ func _physics_process(delta):
 	
 	if health < 0:
 		var pickup = pickUp.instantiate()
+		pickup.XpAmount = XpAmount
 		pickup.position = self.position
 		get_parent().add_child(pickup)
 		queue_free()
