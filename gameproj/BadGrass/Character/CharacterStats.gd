@@ -23,7 +23,9 @@ var MaxHealth : float :
 		MaxHealth = value
 		if (Health > value):
 			Health = value
+		emit_changed()
 
 var Health : float :
 	set(value):
 		Health = max(value, 0)
+		emit_changed()

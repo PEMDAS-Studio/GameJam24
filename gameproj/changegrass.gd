@@ -1,8 +1,9 @@
 extends Node
 
-@onready var character = $CharacterBody2D
+@onready var character = $Player as Character
 @onready var tile_map : TileMap = $TileMap
 @onready var decontaminator : DecontaminatorBase = $Decontaminator
+@onready var UiOverlay = $GameOverlay as GameOverlay
 var _contaminatedTiles : Dictionary = {}
 var _spreadableTiles : Array[Vector2i]
 
@@ -11,6 +12,10 @@ var enemySpawnTimer:float = 0.5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	character.Stats.changed.connect(UiOverlay.UpdateHealthBar.bind(character.Stats))
+	UiOverlay.HealthBar.max_value = character.Stats.MaxHealth
+	UiOverlay.HealthBar.value = character.Stats.Health
+	
 	decontaminator.InitBase(tile_map)
 	var tiles = tile_map.get_used_cells(0)
 	for tile in tiles:

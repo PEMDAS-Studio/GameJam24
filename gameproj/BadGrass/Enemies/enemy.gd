@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Enemy
 
 const SPEED = 70.0
 
@@ -8,7 +9,7 @@ const SPEED = 70.0
 
 var pickUp:PackedScene = preload("res://BadGrass/Enemies/pickup.tscn")
 
-var health:float = 9
+var health:float = 90
 var damage:float = 5
 
 func _ready():
@@ -34,7 +35,10 @@ func _physics_process(delta):
 func _on_hit_box_area_entered(area):
 	if area.get_name() == "BulletSample":
 		health -= area.damage
-
+		#For every status effect, attempt an application of the effect
+		for effect in area.StatusEffects:
+			var result = effect.ApplyEffect(self)
+			
 func _on_hurt_box_body_entered(body):
 	if body.get_name() == "Player":
 		anim.play("Hit")
@@ -47,4 +51,3 @@ func _on_hurt_box_body_exited(body):
 
 func _on_hurt_time_timeout():
 	Player.Stats.Health -= damage
-	print(Player.Stats.Health)

@@ -10,6 +10,10 @@ var bulletscene : PackedScene = preload("res://BadGrass/bullet/bullet_sample.tsc
 var _effects : Array[CharacterStatEffect] = []
 var Items : Array[PickedItem] = []
 
+## This seaction is to handle weapon setting but currently we are without weapons.
+var aquiredWeaponEffects : Array[BaseWeaponStatusEffect] = []
+
+
 func _ready():
 	attackTimer = Timer.new()
 	attackTimer.one_shot = true
@@ -24,7 +28,7 @@ func _physics_process(delta):
 	if (Input.is_action_pressed("grassaction") && !_isAttacking):
 		Attack()
 	
-	if (Input.is_action_pressed("useItem")):
+	if (Input.is_action_just_pressed("useItem")):
 		UseItem()
 	
 	var xDirection = Input.get_axis("left", "right")
@@ -68,6 +72,8 @@ func Attack():
 	var bullet = bulletscene.instantiate()
 	var position = global_position
 	bullet.global_position = position
+	bullet.StatusEffects = aquiredWeaponEffects
+	
 	get_tree().root.add_child(bullet)
 	var direction = Vector2(mousePosition.x - position.x, mousePosition.y - position.y).normalized()
 	bullet.Shoot(direction, atan2(direction.y, direction.x))
