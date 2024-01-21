@@ -1,25 +1,41 @@
-extends Control
+extends CanvasLayer
 
 var isGamePaused:bool = false
+@onready var pause_menu = $PauseMenu
 
 func _ready():
-	pass
+	pause_menu.hide()
 	
 
 
 func _input(event):
 	if Input.is_action_just_pressed("pause"):
-		if isGamePaused == false:
-			get_tree().paused = true
-			isGamePaused = true
-			return
-	
-	if Input.is_action_just_pressed("pause"):
-		if isGamePaused == true:
-			get_tree().paused = false
-			isGamePaused = false
-			return
+		PauseResume()
 	
 			
 func _process(delta):
 	pass
+
+
+func _on_resume_pressed():
+	PauseResume()
+	
+func PauseResume():
+	if isGamePaused == false:
+		pause_menu.show()
+		get_tree().paused = true
+		isGamePaused = true
+		print("Paused")
+		return
+	
+	if isGamePaused == true:
+		pause_menu.hide()
+		get_tree().paused = false
+		isGamePaused = false
+		print("Resumed")
+		return
+	
+
+
+func _on_exit_pressed():
+	get_tree().quit()
