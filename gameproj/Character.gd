@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Character
 
 var _experience : int = 0
-var _levelUpExperience : Array[int] = [90, 200, 400, 500, 760, 990, 1300, 1780, 2000, 2500, 3140]
+var _levelUpExperience : Array[int] = [90]
 var _level : int = 0
 signal LeveledUp
 signal XpChanged
@@ -103,11 +103,15 @@ func ConsumeItem(item : PickedItem):
 
 func IncreaseXp(amount: int):
 	_experience = _experience + amount
+	if (_level == _levelUpExperience.size()):
+			return
 	if (_experience >= _levelUpExperience[_level]):
+		if (_level == _levelUpExperience.size()):
+			return
 		var overflownXp = _experience - _levelUpExperience[_level]
 		_experience = overflownXp
 		_level += 1
-		emit_signal("LeveledUp", _level, _levelUpExperience[_level])
+		emit_signal("LeveledUp", _level, 0 if _level == _levelUpExperience.size() else _levelUpExperience[_level])
 	emit_signal("XpChanged", _experience)
 
 func UseItem():

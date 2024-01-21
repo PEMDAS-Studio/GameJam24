@@ -58,6 +58,4 @@ func _on_hurt_time_timeout():
 	Player.Stats.Health -= damage
 
 func HealthChange(dmg):
-	if (Stats.Health <= 0):
-		return
 	FloatingTextManager.CreateOrUseDamageFloat(dmg, marker.global_position)
