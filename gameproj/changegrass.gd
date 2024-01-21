@@ -54,6 +54,8 @@ func _process(delta):
 		add_child(enemy)
 		enemySpawnTimer = 0.5
 	
+	
+	
 #func _unhandled_input(event):
 	#if Input.is_action_just_pressed("grassaction"):
 		#var tile_pos : Vector2i = tile_map.local_to_map(character.global_position)
