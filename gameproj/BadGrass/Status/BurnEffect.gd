@@ -18,8 +18,7 @@ func TriggerEffect(target, effectDetails : BurnStatusDetails):
 	tickTimer.start()
 	
 func _AddBurn(target, effectDetails : BurnStatusDetails):
-	#target.Stats.Health -= effectDetails.DamagePerTick
-	target.health -= effectDetails.DamagePerTick
+	target.Stats.Health -= effectDetails.DamagePerTick
 	
 func _RemoveTick(timer: Timer):
 	timer.queue_free()

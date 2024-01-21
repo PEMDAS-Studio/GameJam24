@@ -7,11 +7,13 @@ extends Node
 var _contaminatedTiles : Dictionary = {}
 var _spreadableTiles : Array[Vector2i]
 
+var RewardScene : PackedScene = preload("res://BadGrass/RewardManager.tscn")
 var enemy:PackedScene = preload("res://BadGrass/Enemies/enemy.tscn")
 var enemySpawnTimer:float = 0.5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	character.LeveledUp.connect(_SelectReward.unbind(2))
 	character.Stats.changed.connect(UiOverlay.UpdateHealthBar.bind(character.Stats))
 	character.LeveledUp.connect(UiOverlay.UpdateLevelUpExperience)
 	character.XpChanged.connect(UiOverlay.UpdateExperience)
@@ -47,6 +49,7 @@ func _process(delta):
 		var enemyPotentialXPos = randf_range(256, 1087)
 		var enemyPotentialYPos = randf_range(-40, 558)
 		var enemy = enemy.instantiate()
+		enemy.Stats = EnemyStats.new()
 		enemy.position = Vector2(enemyPotentialXPos,enemyPotentialYPos)
 		add_child(enemy)
 		enemySpawnTimer = 0.5
@@ -92,3 +95,9 @@ func spreadContamination():
 	_contaminatedTiles[possibleTiles[neighbourkey]] = false
 	if possibleTiles.size() == 1:
 		_spreadableTiles.remove_at(key)
+
+func _SelectReward():
+	var scene = RewardScene.instantiate() as RewardManager
+	scene.RewardSelected.connect(character.AttachReward)
+	get_tree().paused = true
+	get_tree().root.add_child(scene)

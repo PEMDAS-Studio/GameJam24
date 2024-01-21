@@ -3,14 +3,12 @@
 [ext_resource type="Script" path="res://BadGrass/RewardManager.gd" id="1_3ao64"]
 
 [node name="RewardManager" type="Control"]
-process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
 script = ExtResource("1_3ao64")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -22,7 +20,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
@@ -41,7 +38,6 @@ theme_override_constants/separation = 10
 [node name="Option1" type="Control" parent="CanvasLayer/Control/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-mouse_filter = 1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/Option1"]
 custom_minimum_size = Vector2(100, 160)
@@ -53,8 +49,7 @@ offset_top = -60.0
 offset_right = 100.0
 offset_bottom = 60.0
 grow_vertical = 2
-mouse_filter = 1
-color = Color(0.219608, 0.219608, 0.219608, 0.898039)
+color = Color(0.219608, 0.219608, 0.219608, 0.329412)
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/Option1/ColorRect"]
@@ -69,6 +64,13 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
+[node name="Button" type="Button" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/Option1/ColorRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 9
+text = "Select"
+
 [node name="Control" type="Control" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/Option1/ColorRect/MarginContainer"]
 layout_mode = 2
 
@@ -79,17 +81,9 @@ offset_bottom = 120.0
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
 
-[node name="Button" type="Button" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/Option1/ColorRect/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_font_sizes/font_size = 9
-text = "Select"
-
 [node name="Option2" type="Control" parent="CanvasLayer/Control/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-mouse_filter = 1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/Option2"]
 custom_minimum_size = Vector2(100, 160)
@@ -101,8 +95,7 @@ offset_top = -60.0
 offset_right = 100.0
 offset_bottom = 60.0
 grow_vertical = 2
-mouse_filter = 1
-color = Color(0.219608, 0.219608, 0.219608, 0.898039)
+color = Color(0.219608, 0.219608, 0.219608, 0.329412)
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/Option2/ColorRect"]
@@ -117,6 +110,13 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
+[node name="Button" type="Button" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/Option2/ColorRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 9
+text = "Select"
+
 [node name="Control" type="Control" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/Option2/ColorRect/MarginContainer"]
 layout_mode = 2
 
@@ -127,17 +127,9 @@ offset_bottom = 120.0
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
 
-[node name="Button" type="Button" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/Option2/ColorRect/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_font_sizes/font_size = 9
-text = "Select"
-
 [node name="Option3" type="Control" parent="CanvasLayer/Control/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-mouse_filter = 1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/Option3"]
 custom_minimum_size = Vector2(100, 160)
@@ -149,8 +141,7 @@ offset_top = -60.0
 offset_right = 100.0
 offset_bottom = 60.0
 grow_vertical = 2
-mouse_filter = 1
-color = Color(0.219608, 0.219608, 0.219608, 0.898039)
+color = Color(0.219608, 0.219608, 0.219608, 0.329412)
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/Option3/ColorRect"]
@@ -165,6 +156,13 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
+[node name="Button" type="Button" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/Option3/ColorRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 9
+text = "Select"
+
 [node name="Control" type="Control" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/Option3/ColorRect/MarginContainer"]
 layout_mode = 2
 
@@ -175,12 +173,4 @@ offset_bottom = 120.0
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
 
-[node name="Button" type="Button" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/Option3/ColorRect/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_font_sizes/font_size = 9
-text = "Select"
-
-[connection signal="pressed" from="CanvasLayer/Control/MarginContainer/HBoxContainer/Option2/ColorRect/MarginContainer/Button" to="." method="_on_button_pressed" binds= [2]]
-[connection signal="pressed" from="CanvasLayer/Control/MarginContainer/HBoxContainer/Option3/ColorRect/MarginContainer/Button" to="." method="_on_button_pressed" binds= [3]]
+[connection signal="pressed" from="CanvasLayer/Control/MarginContainer/HBoxContainer/Option3/ColorRect/MarginContainer/Button" to="." method="_SelectOption" binds= [3]]

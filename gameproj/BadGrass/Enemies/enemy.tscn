@@ -88,6 +88,9 @@ shape = SubResource("RectangleShape2D_klpn6")
 
 [node name="HurtTime" type="Timer" parent="."]
 
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -7)
+
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
 [connection signal="body_exited" from="HurtBox" to="." method="_on_hurt_box_body_exited"]

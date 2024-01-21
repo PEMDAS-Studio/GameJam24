@@ -9,6 +9,8 @@ signal XpChanged
 
 @export var Stats : CharacterStats
 @onready var sprite = $Sprite2D as AnimatedSprite2D
+@onready var marker = $Marker2D
+
 var _isAttacking = false
 var attackTimer : Timer
 var bulletscene : PackedScene = preload("res://BadGrass/bullet/bullet_sample.tscn") 
@@ -34,6 +36,7 @@ func _ready():
 		_isAttacking = false
 	attackTimer.timeout.connect(my_lambda)
 	set_motion_mode(MOTION_MODE_FLOATING);
+	Stats.HealthChanger.connect(HealthChanged)
 	
 func _physics_process(delta):
 	if (Input.is_action_pressed("grassaction") && !_isAttacking):
@@ -112,3 +115,19 @@ func UseItem():
 		var item = Items[0]
 		ConsumeItem(item)
 		Items.remove_at(0)
+
+func AttachReward(effect: BaseWeaponEffect):
+	if (effect is BaseWeaponStatusEffect):
+		var addbuff = true
+		for aquiredEffect in aquiredWeaponEffects:
+			if (effect.Name == aquiredEffect.Name):
+				addbuff = false
+		if (addbuff):
+			aquiredWeaponEffects.append(effect)
+	else:
+		#UpdateState for bullet
+		pass
+
+func HealthChanged(damage):
+	FloatingTextManager.CreateOrUseDamageFloat(damage, marker.global_position)
+	

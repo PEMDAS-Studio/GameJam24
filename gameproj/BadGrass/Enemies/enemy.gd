@@ -4,16 +4,19 @@ class_name Enemy
 const SPEED = 70.0
 var XpAmount = 10
 
+@export var Stats  : EnemyStats
 @onready var Player:Object = get_parent().get_node("Player")
 @onready var anim = $Anim
 @onready var hurt_time = $HurtTime
+@onready var marker = $Marker2D
 
 var pickUp:PackedScene = preload("res://BadGrass/Enemies/pickup.tscn")
 
-var health:float = 9
 var damage:float = 5
 
 func _ready():
+	Stats.Health = 25
+	Stats.HealthChanged.connect(HealthChange)
 	anim.play("Run")
 
 func _physics_process(delta):
@@ -25,7 +28,7 @@ func _physics_process(delta):
 	
 	velocity = position.direction_to(playerPos) * SPEED
 	
-	if health < 0:
+	if Stats.Health < 0:
 		var pickup = pickUp.instantiate()
 		pickup.XpAmount = XpAmount
 		pickup.position = self.position
@@ -36,7 +39,7 @@ func _physics_process(delta):
 
 func _on_hit_box_area_entered(area):
 	if area.get_name() == "BulletSample":
-		health -= area.damage
+		Stats.Health -= area.damage
 		#For every status effect, attempt an application of the effect
 		for effect in area.StatusEffects:
 			var result = effect.ApplyEffect(self)
@@ -53,3 +56,8 @@ func _on_hurt_box_body_exited(body):
 
 func _on_hurt_time_timeout():
 	Player.Stats.Health -= damage
+
+func HealthChange(dmg):
+	if (Stats.Health <= 0):
+		return
+	FloatingTextManager.CreateOrUseDamageFloat(dmg, marker.global_position)

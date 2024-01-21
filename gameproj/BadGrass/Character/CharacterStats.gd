@@ -1,6 +1,8 @@
 extends Resource
 class_name CharacterStats
 
+signal HealthChanger
+
 @export var OriginalSpeed : int:
 	set(value):
 		Speed = value
@@ -27,5 +29,6 @@ var MaxHealth : float :
 
 var Health : float :
 	set(value):
+		emit_signal("HealthChanger", Health - value)
 		Health = max(value, 0)
 		emit_changed()
