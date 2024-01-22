@@ -15,6 +15,7 @@ func ApplyEffect(character: Character):
 
 func ResetEffect(character: Character):
 	character.Stats.Speed = character.Stats.OriginalSpeed
+	super.ResetEffect(character)
 	
 func UpdateEffect(character: Character):
 	pass

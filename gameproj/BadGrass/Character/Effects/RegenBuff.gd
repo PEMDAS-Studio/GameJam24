@@ -9,7 +9,7 @@ func ApplyEffect(character: Character):
 	var buffTimer = Timer.new()
 	buffTimer.one_shot = true
 	buffTimer.wait_time = Dduration
-	buffTimer.timeout.connect(RemoveEffect.bind(buffTimer))
+	buffTimer.timeout.connect(RemoveEffect.bind(buffTimer, character))
 	character.add_child(buffTimer)
 	
 	var regenTimer = Timer.new()
@@ -23,5 +23,6 @@ func ApplyEffect(character: Character):
 func Heal(character: Character):
 	character.Stats.Health += RegenRate
 
-func RemoveEffect(timer: Timer):
+func RemoveEffect(timer: Timer, character: Character):
 	timer.queue_free()
+	super.ResetEffect(character)

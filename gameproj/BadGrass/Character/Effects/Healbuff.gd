@@ -6,3 +6,4 @@ var Description : String = "Heal the character by " + str(HealAmount)
 
 func ApplyEffect(character: Character):
 	character.Stats.Health += HealAmount
+	super.ResetEffect(character)

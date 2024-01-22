@@ -18,4 +18,5 @@ func _on_pick_up(body):
 		item.SpriteSource = sprite.texture.resource_path
 		
 		body.Items.append(item)
+		body.UseItem()
 		queue_free()

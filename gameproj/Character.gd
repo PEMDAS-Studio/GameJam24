@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Character
 
 var _experience : int = 0
-var _levelUpExperience : Array[int] = [90]
+var _levelUpExperience : Array[int] = [90, 200, 400, 500, 760, 990, 1300, 1780, 2000, 2500, 3140]
 var _level : int = 0
 signal LeveledUp
 signal XpChanged
@@ -42,10 +42,7 @@ func _ready():
 func _physics_process(delta):
 	if (Input.is_action_pressed("grassaction") && !_isAttacking):
 		Attack()
-	
-	if (Input.is_action_just_pressed("useItem")):
-		UseItem()
-	
+		
 	var xDirection = Input.get_axis("left", "right")
 	var yDirection = Input.get_axis("up", "down")
 	
