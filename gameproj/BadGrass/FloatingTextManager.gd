@@ -5,8 +5,8 @@ var FloatingTextScene : PackedScene
 func CreateOrUseDamageFloat(damage: float, position: Vector2):
 	var textScene : FloatingText = _GetScene().instantiate()
 	textScene.global_position = position
-	textScene.SetText(damage)
-	#textScene.SetColor(Color(1, 0, 0, 1))
+	textScene.SetColor(Color.GREEN if damage < 0 else Color.WHITE)
+	textScene.SetText(abs(damage))
 	
 	get_tree().current_scene.add_child(textScene)
 

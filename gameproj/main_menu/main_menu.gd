@@ -1,7 +1,6 @@
 class_name MainMenu
 extends Control
 
-@onready var spread_please_start = $MarginContainer/VBoxContainer/VBoxContainer2/Spread_Please_Start as Button
 @onready var bad_grass_start = $MarginContainer/VBoxContainer/VBoxContainer2/Bad_Grass_Start as Button
 @onready var setting_button = $MarginContainer/VBoxContainer/VBoxContainer2/Setting_Button as Button
 @onready var exit_button = $MarginContainer/VBoxContainer/VBoxContainer2/Exit_Button as Button

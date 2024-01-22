@@ -22,6 +22,10 @@ func _ready():
 	UiOverlay.HealthBar.value = character.Stats.Health
 	UiOverlay.XpBar.value = 0
 	UiOverlay.XpBar.max_value = character.GetXpToNextLevel()
+	UiOverlay.DashBar1.max_value = character.Stats.DashCharge / 2
+	UiOverlay.DashBar1.value = UiOverlay.DashBar1.max_value
+	UiOverlay.DashBar2.max_value = character.Stats.DashCharge
+	UiOverlay.DashBar2.value = UiOverlay.DashBar2.max_value
 	
 	decontaminator.InitBase(tile_map)
 	var tiles = tile_map.get_used_cells(0)

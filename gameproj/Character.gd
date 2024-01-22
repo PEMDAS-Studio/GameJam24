@@ -11,10 +11,13 @@ signal Decontaminated
 @export var Stats : CharacterStats
 @onready var sprite = $Sprite2D as AnimatedSprite2D
 @onready var marker = $Marker2D
+@onready var dashChargeTimer = $DashCharger
 
 var _isAttacking = false
 var attackTimer : Timer
 var bulletscene : PackedScene = preload("res://BadGrass/bullet/bullet_sample.tscn") 
+var _isDashing = false
+var animation : String
 
 var _effects : Array[CharacterStatEffect] = []
 var Items : Array[PickedItem] = []
@@ -29,6 +32,8 @@ func GetXpToNextLevel() -> int:
 	return _levelUpExperience[_level]
 
 func _ready():
+	dashChargeTimer.one_shot = false
+	dashChargeTimer.timeout.connect(_chargeDash)
 	attackTimer = Timer.new()
 	attackTimer.one_shot = true
 	add_child(attackTimer)
@@ -42,22 +47,42 @@ func _ready():
 func _physics_process(delta):
 	if (Input.is_action_pressed("grassaction") && !_isAttacking):
 		Attack()
+	
+	if (Input.is_action_just_pressed("dash") && Stats.DashCharge >= 20 && !_isDashing):
+		var dashTimer = Timer.new()
+		dashTimer.one_shot = true
+		dashTimer.timeout.connect(_endDash)
+		add_child(dashTimer)
+		var timer = Timer.new()
+		timer.wait_time = 0.03
+		timer.one_shot = false
+		timer.timeout.connect(_createTrail.bind(timer))
+		get_tree().root.add_child(timer)
+		timer.start()
+		dashTimer.wait_time = Stats.DashDuration
+		dashTimer.start()
+		_isDashing = true
+		Stats.DashCharge -= 20
+		collision_layer = 0
+		collision_mask = 0
 		
 	var xDirection = Input.get_axis("left", "right")
 	var yDirection = Input.get_axis("up", "down")
 	
+	var speed = Stats.DashSpeed if _isDashing else Stats.Speed
+	
 	if xDirection:
-		velocity.x = xDirection * Stats.Speed
+		velocity.x = xDirection * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, Stats.Speed)
+		velocity.x = move_toward(velocity.x, 0, speed)
 		
 	if yDirection:
-		velocity.y = yDirection * Stats.Speed
+		velocity.y = yDirection * speed
 	else:
-		velocity.y = move_toward(velocity.y, 0, Stats.Speed)
+		velocity.y = move_toward(velocity.y, 0, speed)
 		
 	var normalizedSpeed = velocity.normalized()
-	velocity = Stats.Speed * normalizedSpeed
+	velocity = speed * normalizedSpeed
 	
 	HandleAnimation()
 	move_and_slide()
@@ -68,15 +93,18 @@ func HandleAnimation():
 		sprite.frame = 0
 	
 	if velocity.x > 0 && velocity.y == 0:
-		sprite.play("Right")
+		animation = "Right"
 	elif velocity.x < 0 && velocity.y == 0:
-		sprite.play("Left")
+		animation = "Left"
 	
 	if velocity.y > 0:
-		sprite.play("Down")
+		animation = "Down"
 	elif velocity.y < 0:
-		sprite.play("Up")
-
+		animation = "Up"
+	
+	sprite.play(animation)
+	
+	
 func Attack():
 	var mousePosition = get_global_mouse_position()
 	_isAttacking = true
@@ -136,3 +164,27 @@ func HealthChanged(damage):
 	
 func _TileDecontaminated(pos: Vector2i):
 	Decontaminated.emit(pos)
+
+func _endDash():
+	_isDashing = false
+	collision_layer = 1
+	collision_mask = 1
+	dashChargeTimer.start()
+	dashChargeTimer.wait_time = Stats.DashChargeRate / 20
+	
+func _chargeDash():
+	Stats.DashCharge += 1
+	if Stats.DashCharge == 40:
+		dashChargeTimer.stop()
+		
+func _createTrail():
+	var trail = sprite.duplicate()
+	trail.global_position = global_position
+	get_tree().root.add_child(trail)
+	var trailTween = create_tween()
+	trailTween.tween_property(trail, "modulate:a", 0.0, 0.3)
+	trailTween.play()
+	var my_lambda = func (sprite):
+		sprite.queue_free()
+	
+	trailTween.finished.connect(my_lambda.bind(trail))

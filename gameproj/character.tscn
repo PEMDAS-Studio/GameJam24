@@ -7,8 +7,12 @@
 
 [sub_resource type="Resource" id="Resource_pjnha"]
 script = ExtResource("2_6ecgr")
+DashSpeed = 400
+DashDuration = 0.2
+DashChargeRate = 4.0
+DashCharge = 40
 OriginalSpeed = 72
-OriginalHeath = 10.0
+OriginalHeath = 42.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8l41w"]
 atlas = ExtResource("2_jvcgt")
@@ -393,3 +397,5 @@ shape = SubResource("RectangleShape2D_8y2sr")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3.75)
 shape = SubResource("RectangleShape2D_8y2sr")
+
+[node name="DashCharger" type="Timer" parent="."]

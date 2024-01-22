@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbtinxet4lnqv"]
+[gd_scene load_steps=7 format=3 uid="uid://dbtinxet4lnqv"]
 
 [ext_resource type="Script" path="res://BadGrass/UI/GameOverlay.gd" id="1_gsxuw"]
 [ext_resource type="Texture2D" uid="uid://b42bb8evb7b7h" path="res://Assets/UI/HealthBar/HealthEmpty.png" id="1_k0w44"]
 [ext_resource type="Texture2D" uid="uid://dj1b7pytb6dub" path="res://Assets/UI/HealthBar/HealthFill.png" id="2_j4sg8"]
 [ext_resource type="Texture2D" uid="uid://d0a7tidhcav7p" path="res://Assets/UI/HealthBar/XpBar.png" id="4_2cs8q"]
+[ext_resource type="Texture2D" uid="uid://cafh7fj5bmrps" path="res://BadGrass/bullet/WeaponEffect/Effects/arrow_empty.png" id="5_v7xv3"]
+[ext_resource type="Texture2D" uid="uid://bdmnwpv2bteav" path="res://BadGrass/bullet/WeaponEffect/Effects/arrow_full.png" id="6_gtim5"]
 
 [node name="GameOverlay" type="CanvasLayer"]
 script = ExtResource("1_gsxuw")
@@ -40,3 +42,26 @@ stretch_margin_right = 2
 stretch_margin_bottom = 2
 texture_under = ExtResource("1_k0w44")
 texture_progress = ExtResource("4_2cs8q")
+
+[node name="DashBar1" type="TextureProgressBar" parent="."]
+offset_left = 5.0
+offset_top = 25.0
+offset_right = 31.0
+offset_bottom = 51.0
+max_value = 20.0
+value = 9.0
+texture_under = ExtResource("5_v7xv3")
+texture_progress = ExtResource("6_gtim5")
+texture_progress_offset = Vector2(1, 1)
+
+[node name="DashBar2" type="TextureProgressBar" parent="."]
+offset_left = 31.0
+offset_top = 25.0
+offset_right = 57.0
+offset_bottom = 51.0
+min_value = 20.0
+max_value = 40.0
+value = 20.0
+texture_under = ExtResource("5_v7xv3")
+texture_progress = ExtResource("6_gtim5")
+texture_progress_offset = Vector2(1, 1)
