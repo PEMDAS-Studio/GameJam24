@@ -51,9 +51,9 @@ func _physics_process(delta):
 	if (Input.is_action_just_pressed("dash") && Stats.DashCharge >= 20 && !_isDashing):
 		var dashTimer = Timer.new()
 		dashTimer.one_shot = true
-		dashTimer.timeout.connect(_endDash)
 		add_child(dashTimer)
 		var timer = Timer.new()
+		dashTimer.timeout.connect(_endDash.bind(timer))
 		timer.wait_time = 0.03
 		timer.one_shot = false
 		timer.timeout.connect(_createTrail)
@@ -64,7 +64,7 @@ func _physics_process(delta):
 		_isDashing = true
 		Stats.DashCharge -= 20
 		collision_layer = 0
-		collision_mask = 0
+		collision_mask = 8
 		
 	var xDirection = Input.get_axis("left", "right")
 	var yDirection = Input.get_axis("up", "down")
@@ -165,12 +165,13 @@ func HealthChanged(damage):
 func _TileDecontaminated(pos: Vector2i):
 	Decontaminated.emit(pos)
 
-func _endDash():
+func _endDash(timer):
 	_isDashing = false
 	collision_layer = 1
-	collision_mask = 1
+	collision_mask = 9
 	dashChargeTimer.start()
 	dashChargeTimer.wait_time = Stats.DashChargeRate / 20
+	timer.queue_free()
 	
 func _chargeDash():
 	Stats.DashCharge += 1
@@ -178,7 +179,8 @@ func _chargeDash():
 		dashChargeTimer.stop()
 		
 func _createTrail():
-	var trail = sprite.duplicate()
+	var trail = sprite.duplicate() as AnimatedSprite2D
+	trail.scale = Vector2(4, 4)
 	trail.global_position = global_position
 	get_tree().root.add_child(trail)
 	var trailTween = create_tween()

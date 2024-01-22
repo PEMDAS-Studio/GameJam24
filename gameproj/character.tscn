@@ -377,6 +377,7 @@ animations = [{
 size = Vector2(11, 8.5)
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 9
 script = ExtResource("1_q1jeg")
 _experience = 89
 Stats = SubResource("Resource_pjnha")
