@@ -1,11 +1,8 @@
-<<<<<<< Updated upstream
 [gd_scene load_steps=15 format=3 uid="uid://cemx6ge4f7ajp"]
-=======
-[gd_scene load_steps=13 format=3 uid="uid://cemx6ge4f7ajp"]
->>>>>>> Stashed changes
 
 [ext_resource type="Texture2D" uid="uid://dwfgsd0u42m20" path="res://Assets/TilesetGrass/TilesetGrass/overworld_tileset_grass.png" id="1_aap60"]
 [ext_resource type="Script" path="res://changegrass.gd" id="1_loyf3"]
+[ext_resource type="PackedScene" uid="uid://dbtinxet4lnqv" path="res://BadGrass/UI/GameOverlay.tscn" id="2_cdx4g"]
 [ext_resource type="PackedScene" uid="uid://dsb00ec2pu45o" path="res://character.tscn" id="2_hu4nw"]
 [ext_resource type="Texture2D" uid="uid://c4bn0beidonjg" path="res://Assets/TilesetGrass/TilesetGrass/overworld_tileset_grass_infected.png" id="2_j1y7l"]
 [ext_resource type="PackedScene" uid="uid://c7qn6vhi6yni3" path="res://BadGrass/Towers/decontaminator.tscn" id="5_vh137"]
@@ -449,7 +446,6 @@ size = Vector2(20, 688)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7nk77"]
 size = Vector2(1336, 20)
 
-<<<<<<< Updated upstream
 [node name="Game" type="Node2D"]
 process_mode = 3
 
@@ -462,12 +458,6 @@ script = ExtResource("1_loyf3")
 [node name="GameOverlay" parent="Grassgame" instance=ExtResource("2_cdx4g")]
 
 [node name="TileMap" type="TileMap" parent="Grassgame"]
-=======
-[node name="Grassgame" type="Node2D"]
-script = ExtResource("1_loyf3")
-
-[node name="TileMap" type="TileMap" parent="."]
->>>>>>> Stashed changes
 position = Vector2(0, 8)
 tile_set = SubResource("TileSet_sbdte")
 format = 2
