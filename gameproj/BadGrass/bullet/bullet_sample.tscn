@@ -7,6 +7,7 @@
 radius = 5.0
 
 [node name="BulletSample" type="Area2D"]
+scale = Vector2(4, 4)
 script = ExtResource("1_rs4ax")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

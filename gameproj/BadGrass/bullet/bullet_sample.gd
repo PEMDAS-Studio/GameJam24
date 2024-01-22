@@ -1,8 +1,8 @@
 extends Area2D
 class_name Bullet
 
-@export var traversalVelocity: int = 256
-@export var maxRange: int = 64
+@export var traversalVelocity: int = 1024
+@export var maxRange: int = 256
 var StatusEffects : Array[BaseWeaponStatusEffect]
 
 var _traversalDirection: Vector2
@@ -34,7 +34,7 @@ func Shoot(direction: Vector2, angle: float):
 	set_process(true)
 
 func Decontaminate():
-	var tile_pos : Vector2i = tile_map.local_to_map(global_position)
+	var tile_pos : Vector2i = tile_map.local_to_map(global_position) / 4
 	var tile_source = tile_map.get_cell_source_id(0, tile_pos);
 	
 	#Contaminate healthy grass.

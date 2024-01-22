@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Character
 
-var _experience : int = 0
+@export var _experience : int = 0
 var _levelUpExperience : Array[int] = [90, 200, 400, 500, 760, 990, 1300, 1780, 2000, 2500, 3140]
 var _level : int = 0
 signal LeveledUp

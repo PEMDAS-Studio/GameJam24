@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Enemy
 
-const SPEED = 70.0
+const SPEED = 210.0
 var XpAmount = 10
 
 @export var Stats  : EnemyStats
@@ -20,7 +20,7 @@ func _ready():
 	anim.play("Run")
 
 func _physics_process(delta):
-	var playerPos = Player.global_position
+	var playerPos = Player.global_position / 4
 	if playerPos.x - position.x < 0:
 		anim.flip_h = true
 	else:
