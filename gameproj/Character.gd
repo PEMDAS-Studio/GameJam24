@@ -56,7 +56,7 @@ func _physics_process(delta):
 		var timer = Timer.new()
 		timer.wait_time = 0.03
 		timer.one_shot = false
-		timer.timeout.connect(_createTrail.bind(timer))
+		timer.timeout.connect(_createTrail)
 		get_tree().root.add_child(timer)
 		timer.start()
 		dashTimer.wait_time = Stats.DashDuration
