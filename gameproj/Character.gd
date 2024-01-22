@@ -6,6 +6,7 @@ var _levelUpExperience : Array[int] = [90]
 var _level : int = 0
 signal LeveledUp
 signal XpChanged
+signal Decontaminated 
 
 @export var Stats : CharacterStats
 @onready var sprite = $Sprite2D as AnimatedSprite2D
@@ -83,10 +84,11 @@ func Attack():
 	var mousePosition = get_global_mouse_position()
 	_isAttacking = true
 	attackTimer.start()
-	var bullet = bulletscene.instantiate()
+	var bullet = bulletscene.instantiate() as Bullet
 	var position = global_position
 	bullet.global_position = position
 	bullet.StatusEffects = aquiredWeaponEffects
+	bullet.DecontontaminatedTile.connect(_TileDecontaminated)
 	
 	get_tree().root.add_child(bullet)
 	var direction = Vector2(mousePosition.x - position.x, mousePosition.y - position.y).normalized()
@@ -135,3 +137,5 @@ func AttachReward(effect: BaseWeaponEffect):
 func HealthChanged(damage):
 	FloatingTextManager.CreateOrUseDamageFloat(damage, marker.global_position)
 	
+func _TileDecontaminated(pos: Vector2i):
+	Decontaminated.emit(pos)

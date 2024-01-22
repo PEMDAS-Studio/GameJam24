@@ -17,6 +17,7 @@ func _ready():
 	character.Stats.changed.connect(UiOverlay.UpdateHealthBar.bind(character.Stats))
 	character.LeveledUp.connect(UiOverlay.UpdateLevelUpExperience)
 	character.XpChanged.connect(UiOverlay.UpdateExperience)
+	character.Decontaminated.connect(UpdateContaminationArray)
 	UiOverlay.HealthBar.max_value = character.Stats.MaxHealth
 	UiOverlay.HealthBar.value = character.Stats.Health
 	UiOverlay.XpBar.value = 0
@@ -53,8 +54,6 @@ func _process(delta):
 		enemy.position = Vector2(enemyPotentialXPos,enemyPotentialYPos)
 		add_child(enemy)
 		enemySpawnTimer = 0.5
-	
-	
 	
 #func _unhandled_input(event):
 	#if Input.is_action_just_pressed("grassaction"):
@@ -97,6 +96,16 @@ func spreadContamination():
 	_contaminatedTiles[possibleTiles[neighbourkey]] = false
 	if possibleTiles.size() == 1:
 		_spreadableTiles.remove_at(key)
+
+func UpdateContaminationArray(tilePos: Vector2i):
+	_contaminatedTiles.erase(tilePos)
+	var neightbouringTiles = tile_map.get_surrounding_cells(tilePos)
+	
+	for neighbour in neightbouringTiles:
+		if tile_map.get_cell_source_id(0, neighbour) == 1:
+			_contaminatedTiles[neighbour] = false
+			if _spreadableTiles.find(neighbour) == -1:
+				_spreadableTiles.append(neighbour)
 
 func _SelectReward():
 	var scene = RewardScene.instantiate() as RewardManager

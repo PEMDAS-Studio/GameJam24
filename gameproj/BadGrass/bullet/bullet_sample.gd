@@ -2,7 +2,7 @@ extends Area2D
 class_name Bullet
 
 @export var traversalVelocity: int = 256
-@export var maxRange: int = 124
+@export var maxRange: int = 64
 var StatusEffects : Array[BaseWeaponStatusEffect]
 
 var _traversalDirection: Vector2
@@ -10,6 +10,7 @@ var _traveledDistance : float = 0
 var tile_map : TileMap
 
 var damage:float = 10
+signal DecontontaminatedTile
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -47,6 +48,7 @@ func Decontaminate():
 func make_tile_green(tile_pos):
 	var atlas_coord : Vector2i = tile_map.get_cell_atlas_coords(0, tile_pos);
 	tile_map.set_cell(0, tile_pos,0, atlas_coord);
+	emit_signal("DecontontaminatedTile", tile_pos)
 
 func make_tile_purple(tile_pos):
 	var atlas_coord : Vector2i = tile_map.get_cell_atlas_coords(0, tile_pos);
