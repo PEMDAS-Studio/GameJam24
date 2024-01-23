@@ -12,13 +12,19 @@ var _spreadableTiles : Array[Vector2i]
 @onready var borderRight = $StaticBody2D/CollisionShape2D3
 @onready var borderTop = $StaticBody2D/CollisionShape2D4
 @onready var camera = $Player/Camera2D
+var path : PathFollow2D
 
 var RewardScene : PackedScene = preload("res://BadGrass/RewardManager.tscn")
 var enemy:PackedScene = preload("res://BadGrass/Enemies/enemy.tscn")
 var enemySpawnTimer:float = 0.5
+@export var enemyDiffCurve : Curve
+@export var enemyDiffSpikePoint : int
+var spawnTimer : Timer
+var enemyKilled = 0 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	path = get_tree().current_scene.find_child("PathFollow2D", true, false)
 	character.LeveledUp.connect(_SelectReward.unbind(2))
 	character.Stats.changed.connect(UiOverlay.UpdateHealthBar.bind(character.Stats))
 	character.LeveledUp.connect(UiOverlay.UpdateLevelUpExperience)
@@ -58,17 +64,18 @@ func _ready():
 	camera.limit_right = borderRight.global_position.x
 	camera.limit_top = borderTop.global_position.y
 	
+	spawnTimer = Timer.new()
+	spawnTimer.autostart = true
+	spawnTimer.one_shot = false
+	spawnTimer.wait_time = enemyDiffCurve.sample(0)
+	spawnTimer.timeout.connect(_spawnEnemy)
+	add_child(spawnTimer)
+	spawnTimer.start()
+	
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	enemySpawnTimer -= delta
-	if enemySpawnTimer < 0:
-		var enemyPotentialXPos = randf_range(256, 1087)
-		var enemyPotentialYPos = randf_range(-40, 558)
-		var enemy = enemy.instantiate()
-		enemy.Stats = EnemyStats.new()
-		enemy.position = Vector2(enemyPotentialXPos,enemyPotentialYPos)
-		add_child(enemy)
-		enemySpawnTimer = 0.5
+	spawnTimer.wait_time = enemyDiffCurve.sample(enemyKilled/enemyDiffSpikePoint)
 	
 #func _unhandled_input(event):
 	#if Input.is_action_just_pressed("grassaction"):
@@ -127,3 +134,16 @@ func _SelectReward():
 	scene.RewardSelected.connect(character.AttachReward)
 	get_tree().paused = true
 	get_tree().root.add_child(scene)
+
+func _spawnEnemy():
+	var enemyPotentialXPos = randf_range(256, 1087)
+	var enemyPotentialYPos = randf_range(-40, 558)
+	var enemyInstance = enemy.instantiate()
+	enemyInstance.Stats = EnemyStats.new()
+	enemyInstance.position = Vector2(enemyPotentialXPos,enemyPotentialYPos)
+	
+	var lamda : Callable = func():
+		enemyKilled += 1
+	
+	enemyInstance.connect("tree_exited", lamda)
+	add_child(enemyInstance)

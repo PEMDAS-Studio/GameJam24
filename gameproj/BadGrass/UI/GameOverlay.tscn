@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dj1b7pytb6dub" path="res://Assets/UI/HealthBar/HealthFill.png" id="2_j4sg8"]
 [ext_resource type="Texture2D" uid="uid://d0a7tidhcav7p" path="res://Assets/UI/HealthBar/XpBar.png" id="4_2cs8q"]
 [ext_resource type="Texture2D" uid="uid://de4bu7pe1kp38" path="res://Assets/UI/HealthBar/XpBarEmpty.png" id="4_jwpr6"]
-[ext_resource type="Texture2D" uid="uid://cafh7fj5bmrps" path="res://BadGrass/bullet/WeaponEffect/Effects/arrow_empty.png" id="5_v7xv3"]
-[ext_resource type="Texture2D" uid="uid://bdmnwpv2bteav" path="res://BadGrass/bullet/WeaponEffect/Effects/arrow_full.png" id="6_gtim5"]
+[ext_resource type="Texture2D" uid="uid://drhbsd3utahvs" path="res://Assets/UI/HealthBar/DashBarEmpty.png" id="6_b2tuy"]
+[ext_resource type="Texture2D" uid="uid://cx2sx61cis0re" path="res://Assets/UI/HealthBar/DashBar.png" id="7_1urpe"]
 
 [node name="GameOverlay" type="CanvasLayer"]
 script = ExtResource("1_gsxuw")
@@ -47,25 +47,23 @@ texture_progress = ExtResource("4_2cs8q")
 
 [node name="DashBar1" type="TextureProgressBar" parent="."]
 offset_left = 5.0
-offset_top = 100.0
-offset_right = 31.0
-offset_bottom = 126.0
+offset_top = 71.0
+offset_right = 37.0
+offset_bottom = 103.0
 scale = Vector2(3, 3)
 max_value = 20.0
 value = 9.0
-texture_under = ExtResource("5_v7xv3")
-texture_progress = ExtResource("6_gtim5")
-texture_progress_offset = Vector2(1, 1)
+texture_under = ExtResource("6_b2tuy")
+texture_progress = ExtResource("7_1urpe")
 
 [node name="DashBar2" type="TextureProgressBar" parent="."]
-offset_left = 93.0
-offset_top = 100.0
-offset_right = 119.0
-offset_bottom = 126.0
+offset_left = 98.0
+offset_top = 71.0
+offset_right = 130.0
+offset_bottom = 103.0
 scale = Vector2(3, 3)
 min_value = 20.0
 max_value = 40.0
 value = 20.0
-texture_under = ExtResource("5_v7xv3")
-texture_progress = ExtResource("6_gtim5")
-texture_progress_offset = Vector2(1, 1)
+texture_under = ExtResource("6_b2tuy")
+texture_progress = ExtResource("7_1urpe")
