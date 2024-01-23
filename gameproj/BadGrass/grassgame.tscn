@@ -11,8 +11,9 @@
 
 [sub_resource type="Curve" id="Curve_i4ufg"]
 min_value = 0.3
-_data = [Vector2(0, 1), 0.0, -2.27788, 0, 0, Vector2(0.212209, 0.616515), -0.860608, -0.860608, 0, 0, Vector2(0.546512, 0.429954), -0.365679, -0.365679, 0, 0, Vector2(1, 0.300399), 0.0, 0.0, 0, 0]
-point_count = 4
+max_value = 1.5
+_data = [Vector2(0, 1.5), 0.0, -1.01868, 0, 0, Vector2(0.110465, 1.26014), -3.05604, -3.05604, 0, 0, Vector2(0.30814, 0.913667), -1.38015, -1.38015, 0, 0, Vector2(0.563954, 0.611617), -1.73176, -1.73176, 0, 0, Vector2(1, 0.300399), 0.0, 0.0, 0, 0]
+point_count = 5
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4672s"]
 texture = ExtResource("1_aap60")
@@ -458,7 +459,8 @@ process_mode = 1
 scale = Vector2(4, 4)
 script = ExtResource("1_loyf3")
 enemyDiffCurve = SubResource("Curve_i4ufg")
-enemyDiffSpikePoint = 30
+enemyDiffSpikePoint = 45
+ItemDropPercentage = 5.0
 
 [node name="GameOverlay" parent="Grassgame" instance=ExtResource("2_cdx4g")]
 
@@ -491,6 +493,7 @@ position = Vector2(472, -98)
 shape = SubResource("RectangleShape2D_7nk77")
 
 [node name="Player" parent="Grassgame" instance=ExtResource("2_hu4nw")]
+_experience = 0
 
 [node name="Camera2D" type="Camera2D" parent="Grassgame/Player"]
 

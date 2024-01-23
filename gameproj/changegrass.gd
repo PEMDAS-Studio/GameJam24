@@ -16,11 +16,15 @@ var path : PathFollow2D
 
 var RewardScene : PackedScene = preload("res://BadGrass/RewardManager.tscn")
 var enemy:PackedScene = preload("res://BadGrass/Enemies/enemy.tscn")
+var gameOverScene:PackedScene = preload("res://main_menu/GameOver/game_over.tscn")
 var enemySpawnTimer:float = 0.5
 @export var enemyDiffCurve : Curve
 @export var enemyDiffSpikePoint : int
 var spawnTimer : Timer
 var enemyKilled = 0 
+var currentEnemies = 0
+
+@export var ItemDropPercentage : float
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,6 +34,7 @@ func _ready():
 	character.LeveledUp.connect(UiOverlay.UpdateLevelUpExperience)
 	character.XpChanged.connect(UiOverlay.UpdateExperience)
 	character.Decontaminated.connect(UpdateContaminationArray)
+	character.Stats.Died.connect(GameEnded)
 	UiOverlay.HealthBar.max_value = character.Stats.MaxHealth
 	UiOverlay.HealthBar.value = character.Stats.Health
 	UiOverlay.XpBar.value = 0
@@ -136,14 +141,30 @@ func _SelectReward():
 	get_tree().root.add_child(scene)
 
 func _spawnEnemy():
+	if currentEnemies >= 80:
+		return
+		
 	var enemyPotentialXPos = randf_range(256, 1087)
 	var enemyPotentialYPos = randf_range(-40, 558)
 	var enemyInstance = enemy.instantiate()
 	enemyInstance.Stats = EnemyStats.new()
 	enemyInstance.position = Vector2(enemyPotentialXPos,enemyPotentialYPos)
 	
-	var lamda : Callable = func():
+	var enemyDeathLamda : Callable = func(enemy):
+		var rand = randf_range(0, 100)
+		if rand < ItemDropPercentage:
+			_DropItem(enemy)
 		enemyKilled += 1
+		currentEnemies -= 1
 	
-	enemyInstance.connect("tree_exited", lamda)
+	enemyInstance.connect("tree_exited", enemyDeathLamda.bind(enemyInstance))
 	add_child(enemyInstance)
+	currentEnemies += 1
+
+func _DropItem(enemy):
+	var instance = AvailableItems.GetItem()
+	instance.global_position = enemy.global_position
+	add_child(instance)
+
+func GameEnded():
+	get_tree().change_scene_to_packed(gameOverScene)

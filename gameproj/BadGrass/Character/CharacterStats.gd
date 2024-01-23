@@ -2,6 +2,7 @@ extends Resource
 class_name CharacterStats
 
 signal HealthChanger
+signal Died
 
 @export var DashSpeed : int
 @export var DashDuration : float
@@ -10,6 +11,9 @@ signal HealthChanger
 	set(value):
 		DashCharge = value
 		emit_changed()
+
+@export var RegenRate : float
+@export var BaseRegenAmount : int
 
 @export var OriginalSpeed : int:
 	set(value):
@@ -40,4 +44,5 @@ var Health : float :
 		emit_signal("HealthChanger", Health - value)
 		Health = max(value, 0)
 		emit_changed()
-		
+		if (Health == 0):
+			emit_signal("Died")

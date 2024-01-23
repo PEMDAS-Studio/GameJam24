@@ -41,7 +41,6 @@ func _on_hit_box_area_entered(area):
 	if area.get_name() == "BulletSample":
 		Stats.Health -= area.damage
 		anim.play("Hit")
-		hurt_time.start(1)
 		#For every status effect, attempt an application of the effect
 		for effect in area.StatusEffects:
 			var result = effect.ApplyEffect(self)

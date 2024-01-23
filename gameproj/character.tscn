@@ -11,6 +11,8 @@ DashSpeed = 1200
 DashDuration = 0.2
 DashChargeRate = 4.0
 DashCharge = 40
+RegenRate = 5.0
+BaseRegenAmount = 1
 OriginalSpeed = 264
 OriginalHeath = 42.0
 

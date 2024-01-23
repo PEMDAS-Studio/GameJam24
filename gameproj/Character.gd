@@ -24,6 +24,7 @@ var Items : Array[PickedItem] = []
 
 ## This seaction is to handle weapon setting but currently we are without weapons.
 var aquiredWeaponEffects : Array[BaseWeaponStatusEffect] = []
+var baseRegenTimer : Timer
 
 func GetLevel() -> int:
 	return _level
@@ -43,6 +44,20 @@ func _ready():
 	attackTimer.timeout.connect(my_lambda)
 	set_motion_mode(MOTION_MODE_FLOATING);
 	Stats.HealthChanger.connect(HealthChanged)
+	
+	#Base regen timer
+	baseRegenTimer = Timer.new()
+	baseRegenTimer.autostart = false
+	baseRegenTimer.wait_time = Stats.RegenRate
+	baseRegenTimer.one_shot = false
+	var lamda = func():
+		if (Stats.Health < Stats.MaxHealth):
+			Stats.Health += Stats.BaseRegenAmount
+	
+	baseRegenTimer.timeout.connect(lamda)
+	add_child(baseRegenTimer)
+	baseRegenTimer.start()
+	
 	
 func _physics_process(delta):
 	if (Input.is_action_pressed("grassaction") && !_isAttacking):
