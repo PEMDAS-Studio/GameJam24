@@ -7,6 +7,12 @@ extends Node
 var _contaminatedTiles : Dictionary = {}
 var _spreadableTiles : Array[Vector2i]
 
+@onready var borderLeft = $StaticBody2D/CollisionShape2D
+@onready var borderBottom = $StaticBody2D/CollisionShape2D2
+@onready var borderRight = $StaticBody2D/CollisionShape2D3
+@onready var borderTop = $StaticBody2D/CollisionShape2D4
+@onready var camera = $Player/Camera2D
+
 var RewardScene : PackedScene = preload("res://BadGrass/RewardManager.tscn")
 var enemy:PackedScene = preload("res://BadGrass/Enemies/enemy.tscn")
 var enemySpawnTimer:float = 0.5
@@ -47,6 +53,11 @@ func _ready():
 	timer.timeout.connect(spreadContamination)
 	timer.start()
 
+	camera.limit_left = borderLeft.global_position.x
+	camera.limit_bottom = borderBottom.global_position.y
+	camera.limit_right = borderRight.global_position.x
+	camera.limit_top = borderTop.global_position.y
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	enemySpawnTimer -= delta
