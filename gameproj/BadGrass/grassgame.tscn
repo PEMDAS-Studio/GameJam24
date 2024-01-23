@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cemx6ge4f7ajp"]
+[gd_scene load_steps=16 format=3 uid="uid://cemx6ge4f7ajp"]
 
 [ext_resource type="Texture2D" uid="uid://dwfgsd0u42m20" path="res://Assets/TilesetGrass/TilesetGrass/overworld_tileset_grass.png" id="1_aap60"]
 [ext_resource type="Script" path="res://changegrass.gd" id="1_loyf3"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dxjjsaqqsmf8g" path="res://BadGrass/Items/SampleItem.tscn" id="6_mqvyd"]
 [ext_resource type="PackedScene" uid="uid://byn5s63foa22l" path="res://BadGrass/Items/SampleItemSpeed.tscn" id="7_1avd7"]
 [ext_resource type="PackedScene" uid="uid://c2nn8a7e2h2h4" path="res://BadGrass/UI/PauseMenu/pause_menu.tscn" id="9_3lmwu"]
+[ext_resource type="AudioStream" uid="uid://qpn3l0gr4m2a" path="res://Assets/Audio/gamejam_altplay.wav" id="10_b0iia"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4672s"]
 texture = ExtResource("1_aap60")
@@ -498,3 +499,8 @@ position = Vector2(66, 85)
 
 [node name="SampleItem2" parent="Grassgame" instance=ExtResource("7_1avd7")]
 position = Vector2(106, 123)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_b0iia")
+volume_db = -18.08
+autoplay = true

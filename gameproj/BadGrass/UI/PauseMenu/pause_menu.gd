@@ -6,16 +6,12 @@ var isGamePaused:bool = false
 func _ready():
 	pause_menu.hide()
 	
-
-
 func _input(event):
 	if Input.is_action_just_pressed("pause"):
 		PauseResume()
-	
-			
+
 func _process(delta):
 	pass
-
 
 func _on_resume_pressed():
 	PauseResume()
@@ -34,8 +30,6 @@ func PauseResume():
 		isGamePaused = false
 		print("Resumed")
 		return
-	
-
 
 func _on_exit_pressed():
 	get_tree().quit()
