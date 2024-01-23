@@ -8,6 +8,7 @@ extends Control
 
 func _ready():
 	handle_connecting_signals()
+	Input.set_use_accumulated_input(false)
 
 func on_start_pressed_two() -> void:
 	get_tree().change_scene_to_packed(start_level_two)

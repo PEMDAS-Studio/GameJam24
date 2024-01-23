@@ -9,6 +9,7 @@ func CreateOrUseDamageFloat(damage: float, position: Vector2):
 	textScene.SetText(abs(damage))
 	
 	get_tree().current_scene.add_child(textScene)
+	return textScene
 
 func _GetScene() -> PackedScene:
 	if FloatingTextScene == null:

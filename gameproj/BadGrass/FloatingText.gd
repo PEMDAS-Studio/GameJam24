@@ -12,6 +12,11 @@ func SetText(text):
 
 func SetColor(color : Color):
 	$Label.set_modulate(color)
+	
+func SetOutline(color : Color, thickness: float):
+	$Label.add_theme_constant_override("outline_size", thickness);
+	#$Label.Theme.outline_size = thickness
+	#$Label.theme.font_outline_color = color
 
 func _getVariationVector() -> Vector2:
 	return Vector2(randf_range(-1, 1) * 4, -randf()* 8)

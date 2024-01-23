@@ -448,16 +448,12 @@ size = Vector2(1336, 20)
 [node name="Game" type="Node2D"]
 process_mode = 3
 
-[node name="PauseMenu" parent="." instance=ExtResource("9_3lmwu")]
-
 [node name="Grassgame" type="Node2D" parent="."]
 process_mode = 1
 scale = Vector2(4, 4)
 script = ExtResource("1_loyf3")
 
 [node name="GameOverlay" parent="Grassgame" instance=ExtResource("2_cdx4g")]
-scale = Vector2(2, 2)
-transform = Transform2D(2, 0, 0, 2, 0, 0)
 
 [node name="TileMap" type="TileMap" parent="Grassgame"]
 position = Vector2(0, 8)
@@ -470,7 +466,6 @@ position = Vector2(70, -23)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Grassgame"]
 disable_mode = 2
-collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grassgame/StaticBody2D"]
 position = Vector2(-186, 256)
@@ -496,3 +491,5 @@ shape = SubResource("RectangleShape2D_7nk77")
 stream = ExtResource("10_b0iia")
 volume_db = -18.08
 autoplay = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("9_3lmwu")]
