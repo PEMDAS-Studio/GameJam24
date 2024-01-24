@@ -5,11 +5,17 @@ class_name MainMenu
 @onready var setting_button = $MarginContainer/VBoxContainer/VBoxContainer2/Setting_Button as Button
 @onready var exit_button = $MarginContainer/VBoxContainer/VBoxContainer2/Exit_Button as Button
 @onready var start_level_two = load("res://BadGrass/grassgame.tscn") as PackedScene
+@onready var audioPlayer = $AudioStreamPlayer as AudioStreamPlayer
 
 func _ready():
 	AvaibableBuffList.ResetBuffs()
 	handle_connecting_signals()
 	Input.set_use_accumulated_input(false)
+	
+	var lamda = func ():
+		audioPlayer.play()
+	
+	audioPlayer.finished.connect(lamda)
 
 func on_start_pressed_two() -> void:
 	get_tree().change_scene_to_packed(start_level_two)

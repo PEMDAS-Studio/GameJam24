@@ -12,6 +12,7 @@ var _spreadableTiles : Array[Vector2i]
 @onready var borderRight = $StaticBody2D/CollisionShape2D3
 @onready var borderTop = $StaticBody2D/CollisionShape2D4
 @onready var camera = $Player/Camera2D
+@onready var audioPlayer = $"../AudioStreamPlayer" as AudioStreamPlayer
 var path : PathFollow2D
 
 var RewardScene : PackedScene = preload("res://BadGrass/RewardManager.tscn")
@@ -77,6 +78,10 @@ func _ready():
 	add_child(spawnTimer)
 	spawnTimer.start()
 	
+	var audio_lamda = func ():
+		audioPlayer.play()
+	
+	audioPlayer.finished.connect(audio_lamda)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
