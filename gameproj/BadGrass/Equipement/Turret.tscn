@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxp7pp2jywj1k"]
+
+[ext_resource type="Texture2D" uid="uid://bf1n5dglfit4i" path="res://Assets/Torrent.png" id="1_b4s1n"]
+
+[node name="Turret" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -11)
+texture = ExtResource("1_b4s1n")

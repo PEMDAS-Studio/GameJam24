@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4m2718hak04c"]
+
+[ext_resource type="Texture2D" uid="uid://daub03rtmifbq" path="res://Assets/Beacon.png" id="1_lrliu"]
+
+[node name="Beacon" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -10.5)
+texture = ExtResource("1_lrliu")

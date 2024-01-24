@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdmnwpv2bteav"
-path="res://.godot/imported/arrow_full.png-bd3a05fb98646286a99fa1e20cb7c5f1.ctex"
+uid="uid://bf1n5dglfit4i"
+path="res://.godot/imported/Torrent.png-73f18b88e86ec5beafc8ab9ecb6f62fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://BadGrass/bullet/WeaponEffect/Effects/arrow_full.png"
-dest_files=["res://.godot/imported/arrow_full.png-bd3a05fb98646286a99fa1e20cb7c5f1.ctex"]
+source_file="res://Assets/Torrent.png"
+dest_files=["res://.godot/imported/Torrent.png-73f18b88e86ec5beafc8ab9ecb6f62fe.ctex"]
 
 [params]
 
