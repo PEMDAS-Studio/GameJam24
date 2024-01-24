@@ -2,7 +2,7 @@ extends Area2D
 class_name Bullet
 
 @export var traversalVelocity: int = 1024
-@export var maxRange: int = 256
+@export var maxRange: int = 384
 var StatusEffects : Array[BaseWeaponStatusEffect]
 
 var _traversalDirection: Vector2

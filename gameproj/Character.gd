@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Character
 
 @export var _experience : int = 0
-var _levelUpExperience : Array[int] = [90, 200, 400, 500, 760, 990, 1300, 1780, 2000, 2500, 3140]
+var _levelUpExperience : Array[int] = [90, 200, 400, 500, 760, 990, 1300, 1780, 2000, 2500, 3140, 3900, 5000, 7000, 9500, 13000, 17000, 25000]
 var _level : int = 0
 signal LeveledUp
 signal XpChanged
@@ -16,11 +16,12 @@ signal Decontaminated
 var _isAttacking = false
 var attackTimer : Timer
 var bulletscene : PackedScene = preload("res://BadGrass/bullet/bullet_sample.tscn") 
+var shotgunbulletscene : PackedScene = preload("res://BadGrass/bullet/shotgunBullet.tscn") 
 var beaconScene : PackedScene = preload("res://BadGrass/Equipement/Beacon.tscn")
 var TurrentScene : PackedScene = preload("res://BadGrass/Equipement/Turret.tscn")
 var _isDashing = false
 var animation : String
-
+var _activeGun
 var _effects : Array[CharacterStatEffect] = []
 var Items : Array[PickedItem] = []
 
@@ -37,6 +38,7 @@ func GetXpToNextLevel() -> int:
 	return _levelUpExperience[_level]
 
 func _ready():
+	_activeGun = bulletscene
 	dashChargeTimer.one_shot = false
 	dashChargeTimer.timeout.connect(_chargeDash)
 	attackTimer = Timer.new()
@@ -63,6 +65,8 @@ func _ready():
 	baseRegenTimer.start()
 	
 func _physics_process(delta):
+	attackTimer.wait_time = 0.4	if _activeGun == bulletscene else 0.7
+	
 	if (Input.is_action_pressed("grassaction") && !_isAttacking):
 		Attack()
 		
@@ -88,7 +92,7 @@ func _physics_process(delta):
 		mainscene.add_child(turrentInstance)
 		mainscene.move_child(turrentInstance, get_index())
 	
-	if (Input.is_action_just_pressed("dash") && Stats.DashCharge >= 20 && !_isDashing):
+	if (Input.is_action_just_pressed("dash") && Stats.DashCharge >= 20 && !_isDashing && velocity != Vector2.ZERO):
 		var dashTimer = Timer.new()
 		dashTimer.one_shot = true
 		add_child(dashTimer)
@@ -106,6 +110,9 @@ func _physics_process(delta):
 		collision_layer = 0
 		collision_mask = 8
 		
+	if (Input.is_action_just_pressed("switchWeapons")):
+		_activeGun = shotgunbulletscene if _activeGun == bulletscene else bulletscene
+	
 	var xDirection = Input.get_axis("left", "right")
 	var yDirection = Input.get_axis("up", "down")
 	
@@ -149,11 +156,12 @@ func Attack():
 	var mousePosition = get_global_mouse_position()
 	_isAttacking = true
 	attackTimer.start()
-	var bullet = bulletscene.instantiate() as Bullet
+	var bullet = _activeGun.instantiate()
 	var position = global_position
 	bullet.global_position = position
 	bullet.StatusEffects = aquiredWeaponEffects
-	bullet.DecontontaminatedTile.connect(_TileDecontaminated)
+	if (bullet.has_signal("DecontontaminatedTile")):
+		bullet.DecontontaminatedTile.connect(_TileDecontaminated)
 	
 	get_tree().root.add_child(bullet)
 	var direction = Vector2(mousePosition.x - position.x, mousePosition.y - position.y).normalized()

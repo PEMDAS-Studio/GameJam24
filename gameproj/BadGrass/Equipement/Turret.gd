@@ -7,6 +7,8 @@ var _isAttacking = false
 var attackTimer : Timer
 var AmmoCapacity = 20
 
+@onready var sprite = $Sprite2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	attackTimer = Timer.new()
@@ -30,6 +32,11 @@ func _process(delta):
 		
 	var pos = target.global_position
 	var direction = Vector2(pos.x - global_position.x, pos.y - global_position.y).normalized()
+	if pos.x > global_position.x:
+		sprite.flip_h = false
+	elif pos.x < global_position.x:
+		sprite.flip_h = true
+		
 	_isAttacking = true
 	attackTimer.start()
 	var bullet = bulletscene.instantiate() as Bullet

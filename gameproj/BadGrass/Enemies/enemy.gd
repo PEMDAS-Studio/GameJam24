@@ -46,7 +46,13 @@ func _on_hit_box_area_entered(area):
 		#For every status effect, attempt an application of the effect
 		for effect in area.StatusEffects:
 			var result = effect.ApplyEffect(self)
-			
+	elif area.get_parent().get_name() == "ShotgunBullet":		
+		Stats.Health -= area.get_parent().damage
+		anim.play("Hit")
+		#For every status effect, attempt an application of the effect
+		for effect in area.get_parent().StatusEffects:
+			var result = effect.ApplyEffect(self)
+
 func _on_hurt_box_body_entered(body):
 	if body.get_name() == "Player":
 		anim.play("Hit")
