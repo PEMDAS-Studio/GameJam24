@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://jaflk8dep4nh"]
+
+[ext_resource type="Script" path="res://BadGrass/Items/BaseItem.gd" id="1_du52p"]
+[ext_resource type="Script" path="res://BadGrass/Character/Effects/Healbuff.gd" id="2_1ts0j"]
+[ext_resource type="Texture2D" uid="uid://du8kxymxw02ou" path="res://Assets/Orb/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/fish_01b.png" id="3_4wlph"]
+
+[sub_resource type="Resource" id="Resource_nk3jf"]
+script = ExtResource("2_1ts0j")
+HealAmount = 10.0
+Dduration = 0.0
+Name = "Fish"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y28hh"]
+radius = 9.0
+
+[node name="SampleItem" type="Node2D"]
+script = ExtResource("1_du52p")
+Effect = SubResource("Resource_nk3jf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_4wlph")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_y28hh")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_pick_up"]

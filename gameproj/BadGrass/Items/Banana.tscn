@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://desjgfr38s2qt"]
+
+[ext_resource type="Script" path="res://BadGrass/Items/BaseItem.gd" id="1_n8e8l"]
+[ext_resource type="Script" path="res://BadGrass/Character/Effects/Healbuff.gd" id="2_4q51u"]
+[ext_resource type="Texture2D" uid="uid://cn725ifxnyugd" path="res://Assets/Orb/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/fruit_01b.png" id="3_6olw3"]
+
+[sub_resource type="Resource" id="Resource_j52bw"]
+script = ExtResource("2_4q51u")
+HealAmount = 4.0
+Dduration = 0.0
+Name = "Banana"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y28hh"]
+radius = 9.0
+
+[node name="SampleItem" type="Node2D"]
+script = ExtResource("1_n8e8l")
+Effect = SubResource("Resource_j52bw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_6olw3")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_y28hh")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_pick_up"]

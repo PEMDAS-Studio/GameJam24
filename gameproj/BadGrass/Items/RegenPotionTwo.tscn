@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://f5v2w811o5l3"]
+
+[ext_resource type="Script" path="res://BadGrass/Items/BaseItem.gd" id="1_jggl0"]
+[ext_resource type="Script" path="res://BadGrass/Character/Effects/RegenBuff.gd" id="2_6hm8b"]
+[ext_resource type="Texture2D" uid="uid://d4cqn75shim0f" path="res://Assets/Orb/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/potion_02a.png" id="3_o5kl0"]
+
+[sub_resource type="Resource" id="Resource_dm22u"]
+script = ExtResource("2_6hm8b")
+RegenRate = 3.0
+Dduration = 15.0
+Name = "Potion of Regeneration II"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y28hh"]
+radius = 9.0
+
+[node name="SampleItem" type="Node2D"]
+script = ExtResource("1_jggl0")
+Effect = SubResource("Resource_dm22u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_o5kl0")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_y28hh")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_pick_up"]

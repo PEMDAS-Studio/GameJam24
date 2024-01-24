@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://BadGrass/Items/BaseItem.gd" id="1_2q604"]
 [ext_resource type="Script" path="res://BadGrass/Character/Effects/SpeedBuff.gd" id="2_v0ccw"]
-[ext_resource type="Texture2D" uid="uid://c5xwsw2mdt2f1" path="res://Assets/Orb/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/boots_01c.png" id="3_moocb"]
+[ext_resource type="Texture2D" uid="uid://x3xa4objl6qf" path="res://Assets/Orb/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/boots_01d.png" id="3_w28o6"]
 
 [sub_resource type="Resource" id="Resource_0tmj5"]
 script = ExtResource("2_v0ccw")
-IncreasePercentage = 50.0
-Dduration = 15.0
-Name = "Sample Item Speed"
+IncreasePercentage = 100.0
+Dduration = 25.0
+Name = "Speed boots II"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y28hh"]
 radius = 8.0
@@ -18,7 +18,7 @@ script = ExtResource("1_2q604")
 Effect = SubResource("Resource_0tmj5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_moocb")
+texture = ExtResource("3_w28o6")
 
 [node name="Area2D" type="Area2D" parent="."]
 

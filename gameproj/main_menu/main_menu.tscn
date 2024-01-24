@@ -77,3 +77,6 @@ text = "QUIT"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_wya45")
 autoplay = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/Setting_Button" to="." method="on_setting_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/Exit_Button" to="." method="on_exit_pressed"]
