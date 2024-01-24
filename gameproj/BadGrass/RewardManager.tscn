@@ -196,3 +196,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 72
 text = "Select"
+
+[connection signal="pressed" from="CanvasLayer/Control/MarginContainer/HBoxContainer/Option1/ColorRect/MarginContainer/Button" to="." method="_on_button_pressed" binds= [1]]
+[connection signal="pressed" from="CanvasLayer/Control/MarginContainer/HBoxContainer/Option2/ColorRect/MarginContainer/Button" to="." method="_on_button_pressed" binds= [2]]
+[connection signal="pressed" from="CanvasLayer/Control/MarginContainer/HBoxContainer/Option3/ColorRect/MarginContainer/Button" to="." method="_on_button_pressed" binds= [3]]

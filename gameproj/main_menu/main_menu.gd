@@ -1,12 +1,13 @@
-class_name MainMenu
 extends Control
+class_name MainMenu
 
 @onready var bad_grass_start = $MarginContainer/VBoxContainer/VBoxContainer2/Bad_Grass_Start as Button
 @onready var setting_button = $MarginContainer/VBoxContainer/VBoxContainer2/Setting_Button as Button
 @onready var exit_button = $MarginContainer/VBoxContainer/VBoxContainer2/Exit_Button as Button
-@onready var start_level_two = preload("res://BadGrass/grassgame.tscn") as PackedScene
+@onready var start_level_two = load("res://BadGrass/grassgame.tscn") as PackedScene
 
 func _ready():
+	AvaibableBuffList.ResetBuffs()
 	handle_connecting_signals()
 	Input.set_use_accumulated_input(false)
 

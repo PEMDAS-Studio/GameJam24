@@ -16,6 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+layout_mode = 0
 offset_left = -63.0
 offset_top = -33.0
 offset_right = 1354.0

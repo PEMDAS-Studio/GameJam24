@@ -56,7 +56,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_klpn6"]
-size = Vector2(32, 17)
+size = Vector2(36, 21)
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_hnxka")
@@ -78,7 +78,7 @@ polygon = PackedVector2Array(-16, 12, 16, 12, 16, 7, 3, -5, -4, -5, -16, 7)
 [node name="HurtBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(0, 3.5)
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_klpn6")
 
 [node name="HurtTime" type="Timer" parent="."]

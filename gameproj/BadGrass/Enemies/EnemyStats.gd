@@ -8,3 +8,6 @@ signal HealthChanged
 		var diff = Health - value
 		emit_signal("HealthChanged", diff)
 		Health = value
+
+var Speed : float
+var OriginalSpeed : float

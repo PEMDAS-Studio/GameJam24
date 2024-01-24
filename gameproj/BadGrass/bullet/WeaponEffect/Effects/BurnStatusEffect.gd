@@ -24,10 +24,10 @@ func ApplyEffect(target : Enemy) -> bool:
 
 func BuildDescription():
 	if Level == 0:
-		Description = "There is a [color=green]" + str(EffectDetail.ChanceOfEffect) + "%[/color] of dealing [color=green]" + str(EffectDetail.DamagePerTick) + "[/color] burn damage every [color=green]" + str(EffectDetail.Duration) + "[/color] seconds, for [color=green]" + str(EffectDetail.Duration) + " seconds" 
+		Description = "There is a [color=green]" + str(EffectDetail.ChanceOfEffect) + "%[/color] chance of dealing [color=green]" + str(EffectDetail.DamagePerTick) + "[/color] burn damage every [color=green]" + str(EffectDetail.Duration) + "[/color] seconds, for [color=green]" + str(EffectDetail.Duration) + " seconds" 
 	else:
 		var ChanceEffectText = str(EffectDetail.ChanceOfEffect) + " -> " + str(EffectLevels[Level].ChanceOfEffect) if EffectDetail.ChanceOfEffect != EffectLevels[Level].ChanceOfEffect else str(EffectDetail.ChanceOfEffect)
 		var DamagePerTickText = str(EffectDetail.DamagePerTick) + " -> " + str(EffectLevels[Level].DamagePerTick) if EffectDetail.DamagePerTick != EffectLevels[Level].DamagePerTick else str(EffectDetail.DamagePerTick)
 		var TickRateText = str(EffectDetail.TickRate) + " -> " + str(EffectLevels[Level].TickRate) if EffectDetail.TickRate != EffectLevels[Level].TickRate else str(EffectDetail.TickRate)
 		var DurationText = str(EffectDetail.Duration) + " -> " + str(EffectLevels[Level].Duration) if EffectDetail.Duration != EffectLevels[Level].Duration else str(EffectDetail.Duration)
-		Description = "There is a [color=green]" + ChanceEffectText + " %[/color] of dealing [color=green]" + DamagePerTickText +  "[/color] burn damage every [color=green]" + TickRateText +  "[/color] seconds, for [color=green]" + DurationText +  "[/color] seconds" 		
+		Description = "There is a [color=green]" + ChanceEffectText + " %[/color] chance of dealing [color=green]" + DamagePerTickText +  "[/color] burn damage every [color=green]" + TickRateText +  "[/color] seconds, for [color=green]" + DurationText +  "[/color] seconds" 		

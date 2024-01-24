@@ -16,6 +16,8 @@ var damage:float = 5
 
 func _ready():
 	Stats.Health = 25
+	Stats.Speed = 210.0
+	Stats.OriginalSpeed = 210.0
 	Stats.HealthChanged.connect(HealthChange)
 	anim.play("Run")
 
@@ -26,7 +28,7 @@ func _physics_process(delta):
 	else:
 		anim.flip_h = false
 	
-	velocity = position.direction_to(playerPos) * SPEED
+	velocity = position.direction_to(playerPos) * Stats.Speed
 	
 	if Stats.Health < 0:
 		var pickup = pickUp.instantiate()

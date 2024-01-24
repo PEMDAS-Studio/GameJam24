@@ -11,8 +11,7 @@ signal RewardSelected
 var availableBuff : Array[BaseWeaponEffect] = []
 
 func _ready():
-	button1.pressed.connect(_on_button_pressed.bind(1))
-	availableBuff = AvaibableBuffList.Buffs
+	availableBuff = AvaibableBuffList.Buffs.duplicate()
 	_GenerateReward()
 	
 	if (_firstOption == null):

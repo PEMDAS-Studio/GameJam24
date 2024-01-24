@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvdosgqsjsg8w"]
+[gd_scene load_steps=2 format=3 uid="uid://b67i6ugsirao3"]
 
 [ext_resource type="Script" path="res://main_menu/GameOver/game_over.gd" id="1_licik"]
 
