@@ -8,6 +8,7 @@ var StatusEffects : Array[BaseWeaponStatusEffect]
 var _traversalDirection: Vector2
 var _traveledDistance : float = 0
 var tile_map : TileMap
+var can_decontaminate = true
 
 var damage:float = 10
 signal DecontontaminatedTile
@@ -24,7 +25,8 @@ func _process(delta):
 	_traveledDistance += distance.length()
 	
 	look_at(get_global_mouse_position())
-	Decontaminate()
+	if can_decontaminate:
+		Decontaminate()
 	
 	if _traveledDistance > maxRange:
 		queue_free()
@@ -32,6 +34,9 @@ func _process(delta):
 func Shoot(direction: Vector2, angle: float):
 	_traversalDirection = direction * traversalVelocity
 	set_process(true)
+
+func disableDecon():
+	can_decontaminate = false
 
 func Decontaminate():
 	var tile_pos : Vector2i = tile_map.local_to_map(global_position) / 4

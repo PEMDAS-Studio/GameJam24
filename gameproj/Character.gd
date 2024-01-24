@@ -16,6 +16,8 @@ signal Decontaminated
 var _isAttacking = false
 var attackTimer : Timer
 var bulletscene : PackedScene = preload("res://BadGrass/bullet/bullet_sample.tscn") 
+var beaconScene : PackedScene = preload("res://BadGrass/Equipement/Beacon.tscn")
+var TurrentScene : PackedScene = preload("res://BadGrass/Equipement/Turret.tscn")
 var _isDashing = false
 var animation : String
 
@@ -25,6 +27,8 @@ var Items : Array[PickedItem] = []
 ## This seaction is to handle weapon setting but currently we are without weapons.
 var aquiredWeaponEffects : Array[BaseWeaponStatusEffect] = []
 var baseRegenTimer : Timer
+var beaconCount = 0
+var turretCount = 0
 
 func GetLevel() -> int:
 	return _level
@@ -58,10 +62,31 @@ func _ready():
 	add_child(baseRegenTimer)
 	baseRegenTimer.start()
 	
-	
 func _physics_process(delta):
 	if (Input.is_action_pressed("grassaction") && !_isAttacking):
 		Attack()
+		
+	if (Input.is_action_just_pressed("placeBeacon") && Stats.BeaconCount > 0 && beaconCount <= Stats.MaxBeaconCount):
+		Stats.BeaconCount -= 1
+		beaconCount += 1
+		var beacon = beaconScene.instantiate()
+		beacon.global_position = global_position/4
+		var mainscene = get_tree().current_scene.find_child("Grassgame", true, false)
+		mainscene.add_child(beacon)
+		mainscene.move_child(beacon, get_index())
+		
+	if (Input.is_action_just_pressed("placeTurrent") && Stats.TurretCount > 0 && turretCount <= Stats.MaxTurretCount):
+		Stats.TurretCount -= 1
+		turretCount += 1
+		var turrentInstance = TurrentScene.instantiate()
+		var turretLamda = func ():
+			turretCount -= 1
+			
+		turrentInstance.tree_exited.connect(turretLamda)
+		turrentInstance.global_position = global_position/4
+		var mainscene = get_tree().current_scene.find_child("Grassgame", true, false)
+		mainscene.add_child(turrentInstance)
+		mainscene.move_child(turrentInstance, get_index())
 	
 	if (Input.is_action_just_pressed("dash") && Stats.DashCharge >= 20 && !_isDashing):
 		var dashTimer = Timer.new()

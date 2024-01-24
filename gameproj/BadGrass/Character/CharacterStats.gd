@@ -46,3 +46,15 @@ var Health : float :
 		emit_changed()
 		if (Health == 0):
 			emit_signal("Died")
+			
+var MaxBeaconCount : int = 3
+var BeaconCount : int = 1 :
+	set(value):
+		BeaconCount = min(value, MaxBeaconCount)
+		emit_changed()
+		
+var MaxTurretCount : int = 2
+var TurretCount : int = 1 :
+	set(value):
+		TurretCount = min(value, MaxTurretCount)
+		emit_changed()

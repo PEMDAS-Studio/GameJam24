@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbtinxet4lnqv"]
+[gd_scene load_steps=10 format=3 uid="uid://dbtinxet4lnqv"]
 
 [ext_resource type="Script" path="res://BadGrass/UI/GameOverlay.gd" id="1_gsxuw"]
 [ext_resource type="Texture2D" uid="uid://b42bb8evb7b7h" path="res://Assets/UI/HealthBar/HealthEmpty.png" id="1_k0w44"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://de4bu7pe1kp38" path="res://Assets/UI/HealthBar/XpBarEmpty.png" id="4_jwpr6"]
 [ext_resource type="Texture2D" uid="uid://drhbsd3utahvs" path="res://Assets/UI/HealthBar/DashBarEmpty.png" id="6_b2tuy"]
 [ext_resource type="Texture2D" uid="uid://cx2sx61cis0re" path="res://Assets/UI/HealthBar/DashBar.png" id="7_1urpe"]
+[ext_resource type="Texture2D" uid="uid://daub03rtmifbq" path="res://Assets/Beacon.png" id="8_htafc"]
+[ext_resource type="Texture2D" uid="uid://bf1n5dglfit4i" path="res://Assets/Torrent.png" id="9_u8rn5"]
 
 [node name="GameOverlay" type="CanvasLayer"]
 script = ExtResource("1_gsxuw")
@@ -77,3 +79,49 @@ stretch_margin_right = 2
 stretch_margin_bottom = 2
 texture_under = ExtResource("6_b2tuy")
 texture_progress = ExtResource("7_1urpe")
+
+[node name="BeaconInfo" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 7.0
+offset_top = 129.0
+offset_right = 47.0
+offset_bottom = 169.0
+
+[node name="Sprite2D" type="Sprite2D" parent="BeaconInfo"]
+position = Vector2(8.75, 29.25)
+scale = Vector2(2.07143, 2.07143)
+texture = ExtResource("8_htafc")
+
+[node name="Label" type="Label" parent="BeaconInfo"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 13.0
+offset_right = 62.0
+offset_bottom = 53.0
+theme_override_font_sizes/font_size = 32
+text = "1
+"
+
+[node name="TurretInfo" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 7.0
+offset_top = 129.0
+offset_right = 47.0
+offset_bottom = 169.0
+
+[node name="Sprite2D" type="Sprite2D" parent="TurretInfo"]
+position = Vector2(71.75, 29.25)
+scale = Vector2(2.07143, 2.07143)
+texture = ExtResource("9_u8rn5")
+
+[node name="Label" type="Label" parent="TurretInfo"]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 13.0
+offset_right = 148.0
+offset_bottom = 53.0
+theme_override_font_sizes/font_size = 32
+text = "1
+"

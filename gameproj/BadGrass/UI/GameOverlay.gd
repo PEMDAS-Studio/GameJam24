@@ -5,6 +5,8 @@ class_name GameOverlay
 @onready var XpBar = $ExperienceBar as TextureProgressBar
 @onready var DashBar1 = $DashBar1 as TextureProgressBar
 @onready var DashBar2 = $DashBar2 as TextureProgressBar
+@onready var BeaconLabel = $BeaconInfo/Label
+@onready var TurrentLabel = $TurretInfo/Label
 
 func UpdateLevelUpExperience(level: int, nextLevelExperience: int):
 	XpBar.max_value = nextLevelExperience
@@ -17,3 +19,5 @@ func UpdateHealthBar(stats: CharacterStats):
 	HealthBar.value = stats.Health
 	DashBar1.value = stats.DashCharge
 	DashBar2.value = stats.DashCharge
+	BeaconLabel.text = str(stats.BeaconCount)
+	TurrentLabel.text = str(stats.TurretCount)
