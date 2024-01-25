@@ -48,6 +48,8 @@ func _ready():
 	character.XpChanged.connect(UiOverlay.UpdateExperience)
 	character.Decontaminated.connect(UpdateContaminationArray)
 	character.Stats.Died.connect(GameEnded)
+	character.ChangedWeapon.connect(UiOverlay.UpdateAmmoAndSprite)
+	character.UpdateAmmo.connect(UiOverlay.UpdateAmmo)
 	UiOverlay.HealthBar.max_value = character.Stats.MaxHealth
 	UiOverlay.HealthBar.value = character.Stats.Health
 	UiOverlay.XpBar.value = 0

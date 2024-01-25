@@ -31,6 +31,21 @@ var DamageIncrease : float = 0
 var OrigiginalPiercing: int = 2
 @export var ReachImprovement : float = 1
 
+var AmmoCapacity : int :
+	set(value):
+		if (value < 0):
+			value = 0
+		AmmoCapacity = min(MaxAmmoCapacity, value)
+		
+var ShotgunAmmoCapacity : int :
+	set(value):
+		if (value < 0):
+			value = 0
+		ShotgunAmmoCapacity = min(MaxhShotgunAmmoCapacity, value)
+		
+var MaxAmmoCapacity = 124
+var MaxhShotgunAmmoCapacity = 30
+
 var Speed : int :
 	set(value):
 		Speed = max(value, 0)

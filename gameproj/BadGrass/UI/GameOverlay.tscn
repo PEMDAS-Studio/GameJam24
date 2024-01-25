@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dbtinxet4lnqv"]
+[gd_scene load_steps=12 format=3 uid="uid://dbtinxet4lnqv"]
 
 [ext_resource type="Script" path="res://BadGrass/UI/GameOverlay.gd" id="1_gsxuw"]
 [ext_resource type="Texture2D" uid="uid://b42bb8evb7b7h" path="res://Assets/UI/HealthBar/HealthEmpty.png" id="1_k0w44"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://daub03rtmifbq" path="res://Assets/Beacon.png" id="8_htafc"]
 [ext_resource type="Texture2D" uid="uid://bf1n5dglfit4i" path="res://Assets/Torrent.png" id="9_u8rn5"]
 [ext_resource type="Texture2D" uid="uid://ci884d8oe42pf" path="res://Assets/Orb/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/crystal_01c.png" id="10_qjc5q"]
+[ext_resource type="Texture2D" uid="uid://bhiq0ma1vr5ml" path="res://Assets/bullet.png" id="11_6f8ih"]
 
 [node name="GameOverlay" type="CanvasLayer"]
 script = ExtResource("1_gsxuw")
@@ -160,3 +161,28 @@ offset_bottom = 117.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 64
 text = "00:00"
+
+[node name="Ammo" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = -78.0
+offset_right = 57.0
+offset_bottom = -38.0
+grow_vertical = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Ammo"]
+position = Vector2(21, 24)
+scale = Vector2(4, 4)
+texture = ExtResource("11_6f8ih")
+
+[node name="Label" type="Label" parent="Ammo"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 7.0
+offset_right = 112.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 28
+text = "124"

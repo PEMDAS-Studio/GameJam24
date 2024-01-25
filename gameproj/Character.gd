@@ -7,6 +7,8 @@ var _level : int = 0
 signal LeveledUp
 signal XpChanged
 signal Decontaminated 
+signal ChangedWeapon
+signal UpdateAmmo
 
 @export var Stats : CharacterStats
 @onready var sprite = $Sprite2D as AnimatedSprite2D
@@ -31,6 +33,9 @@ var baseRegenTimer : Timer
 var beaconCount = 0
 var turretCount = 0
 
+var _bulletSprite = load("res://Assets/bullet.png")
+var _shotgunBulletSprite = load("res://Assets/shotgun_bullet.png")
+
 func GetLevel() -> int:
 	return _level
 
@@ -38,6 +43,9 @@ func GetXpToNextLevel() -> int:
 	return _levelUpExperience[_level]
 
 func _ready():
+	Stats.AmmoCapacity = Stats.MaxAmmoCapacity
+	Stats.ShotgunAmmoCapacity = Stats.MaxhShotgunAmmoCapacity
+	
 	Stats.Health = Stats.OriginalHeath
 	_activeGun = bulletscene
 	dashChargeTimer.one_shot = false
@@ -113,6 +121,10 @@ func _physics_process(delta):
 		
 	if (Input.is_action_just_pressed("switchWeapons")):
 		_activeGun = shotgunbulletscene if _activeGun == bulletscene else bulletscene
+		if (_activeGun == shotgunbulletscene):
+			emit_signal("ChangedWeapon", _shotgunBulletSprite, 2.5, Stats.ShotgunAmmoCapacity)
+		else:
+			emit_signal("ChangedWeapon", _bulletSprite, 4, Stats.AmmoCapacity)
 	
 	var xDirection = Input.get_axis("left", "right")
 	var yDirection = Input.get_axis("up", "down")
@@ -155,6 +167,11 @@ func HandleAnimation():
 	
 func Attack():
 	var mousePosition = get_global_mouse_position()
+	if _activeGun == bulletscene && Stats.AmmoCapacity == 0:
+		return
+	elif _activeGun == shotgunbulletscene && Stats.ShotgunAmmoCapacity == 0:
+		return
+		
 	_isAttacking = true
 	attackTimer.start()
 	var bullet = _activeGun.instantiate()
@@ -170,6 +187,12 @@ func Attack():
 	get_tree().root.add_child(bullet)
 	var direction = Vector2(mousePosition.x - position.x, mousePosition.y - position.y).normalized()
 	bullet.Shoot(direction, atan2(direction.y, direction.x))
+	if _activeGun == bulletscene:
+		Stats.AmmoCapacity -= 1
+		emit_signal("UpdateAmmo", Stats.AmmoCapacity)
+	elif _activeGun == shotgunbulletscene:
+		Stats.ShotgunAmmoCapacity -= 1
+		emit_signal("UpdateAmmo", Stats.ShotgunAmmoCapacity)
 	
 func ConsumeItem(item : PickedItem):
 	var effect = item.StatusEffect

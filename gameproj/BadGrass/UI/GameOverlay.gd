@@ -9,6 +9,8 @@ class_name GameOverlay
 @onready var TurrentLabel = $TurretInfo/Label
 @onready var ClockLabel = $Time
 @onready var CurrencyLabel = $Currency/Label
+@onready var AmmoSprite = $Ammo/Sprite2D
+@onready var AmmoLabel = $Ammo/Label
 
 func UpdateLevelUpExperience(level: int, nextLevelExperience: int):
 	XpBar.max_value = nextLevelExperience
@@ -29,3 +31,11 @@ func UpdateTime(seconds, min):
 	
 func UpdateAquiredCurrency(currency):
 	CurrencyLabel.text = str(currency)
+	
+func UpdateAmmoAndSprite(resource, scale, ammo):
+	AmmoSprite.texture = resource
+	AmmoSprite.scale = Vector2(2.5, 2.5)
+	AmmoLabel.text = str(ammo)
+
+func UpdateAmmo(ammo):
+	AmmoLabel.text = str(ammo)
