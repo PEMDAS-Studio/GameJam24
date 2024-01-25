@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5gbth34eiokl"]
+[gd_scene load_steps=5 format=3 uid="uid://b5gbth34eiokl"]
 
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_u4c8m"]
+[ext_resource type="Texture2D" uid="uid://besu0ukr5abg3" path="res://Assets/BadGrass.png" id="2_qfjd8"]
 [ext_resource type="AudioStream" uid="uid://4fvpox7qkeat" path="res://Assets/Audio/gamejam_maintheme no melody.wav" id="2_wya45"]
+[ext_resource type="PackedScene" uid="uid://bm4icesn8f1ux" path="res://main_menu/Settings Menu/settings_menu.tscn" id="3_7vtx0"]
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
@@ -14,66 +16,61 @@ grow_vertical = 2
 size_flags_vertical = 4
 script = ExtResource("1_u4c8m")
 
-[node name="TextureRect" type="ColorRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0.262745, 0, 1)
+texture = ExtResource("2_qfjd8")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -1.0
+offset_left = 100.0
+offset_top = 500.0
+offset_right = -100.0
 offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 160
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 160
-theme_override_constants/margin_bottom = 12
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 96
-text = "Bad Grass"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 40
+theme_override_constants/separation = -86
 alignment = 1
 
-[node name="Bad_Grass_Start" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+[node name="Bad_Grass_Start" type="Button" parent="MarginContainer/VBoxContainer2"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 96
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 64
 text = "Start"
 
-[node name="Setting_Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+[node name="Setting_Button" type="Button" parent="MarginContainer/VBoxContainer2"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 72
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 64
 text = "Settings"
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+[node name="Exit_Button" type="Button" parent="MarginContainer/VBoxContainer2"]
 layout_mode = 2
-theme_override_constants/separation = 160
-
-[node name="Exit_Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 64
 text = "QUIT"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_wya45")
 autoplay = true
+
+[node name="Settings_Menu" parent="." instance=ExtResource("3_7vtx0")]
+visible = false
+layout_mode = 1

@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://bm4icesn8f1ux"]
+[gd_scene load_steps=3 format=3 uid="uid://bm4icesn8f1ux"]
+
+[ext_resource type="Script" path="res://main_menu/Settings Menu/settings_menu.gd" id="1_mt8pq"]
+[ext_resource type="PackedScene" uid="uid://btfq3wbbd8b3k" path="res://main_menu/Settings Menu/settings_tab_container.tscn" id="2_ukuop"]
 
 [node name="Settings_Menu" type="Control"]
 layout_mode = 3
@@ -7,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_mt8pq")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -30,3 +34,15 @@ theme_override_font_sizes/font_size = 32
 text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Settings_Tab_Container" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_ukuop")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Exit_Button" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 24
+text = "Exit"
