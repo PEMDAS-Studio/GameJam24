@@ -41,6 +41,7 @@ func _physics_process(delta):
 
 func _on_hit_box_area_entered(area):
 	if area.get_name() == "BulletSample":
+		area.piercing -= 1
 		Stats.Health -= area.damage
 		anim.play("Hit")
 		#For every status effect, attempt an application of the effect
@@ -48,6 +49,7 @@ func _on_hit_box_area_entered(area):
 			var result = effect.ApplyEffect(self)
 	elif area.get_parent().get_name() == "ShotgunBullet":		
 		Stats.Health -= area.get_parent().damage
+		area.get_parent().piercing -= 1
 		anim.play("Hit")
 		#For every status effect, attempt an application of the effect
 		for effect in area.get_parent().StatusEffects:

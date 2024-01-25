@@ -10,12 +10,12 @@ var StatusEffects : Array[BaseWeaponStatusEffect]
 
 var _traversalDirection: Vector2
 var _traveledDistance : float = 0
+var piercing: int
+var damage:float
 
-var damage:float = 6
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_process(false)
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -26,9 +26,14 @@ func _process(delta):
 	pelete3.global_position += distance.rotated(pelete3.get_rotation())
 	_traveledDistance += distance.length()
 	
-	if _traveledDistance > maxRange:
+	if _traveledDistance > maxRange || piercing <= 0:
 		queue_free()
 
 func Shoot(direction: Vector2, angle: float):
 	_traversalDirection = direction * traversalVelocity
 	set_process(true)
+
+func SetProperties(dmgValue, reachImprovement, piercingValue):
+	damage = dmgValue
+	maxRange *= reachImprovement
+	piercing = piercingValue * 3

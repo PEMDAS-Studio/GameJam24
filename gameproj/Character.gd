@@ -38,6 +38,7 @@ func GetXpToNextLevel() -> int:
 	return _levelUpExperience[_level]
 
 func _ready():
+	Stats.Health = Stats.OriginalHeath
 	_activeGun = bulletscene
 	dashChargeTimer.one_shot = false
 	dashChargeTimer.timeout.connect(_chargeDash)
@@ -160,9 +161,11 @@ func Attack():
 	var position = global_position
 	bullet.global_position = position
 	bullet.StatusEffects = aquiredWeaponEffects
+	
 	if (bullet.has_signal("DecontontaminatedTile")):
 		bullet.DecontontaminatedTile.connect(_TileDecontaminated)
-	
+		
+	bullet.SetProperties(Stats.Strength, Stats.ReachImprovement, Stats.Piercing)
 	get_tree().root.add_child(bullet)
 	var direction = Vector2(mousePosition.x - position.x, mousePosition.y - position.y).normalized()
 	bullet.Shoot(direction, atan2(direction.y, direction.x))
@@ -186,6 +189,7 @@ func IncreaseXp(amount: int):
 		var overflownXp = _experience - _levelUpExperience[_level]
 		_experience = overflownXp
 		_level += 1
+		IncreaseStats()
 		emit_signal("LeveledUp", _level, 0 if _level == _levelUpExperience.size() else _levelUpExperience[_level])
 	emit_signal("XpChanged", _experience)
 
@@ -238,3 +242,7 @@ func _createTrail():
 		sprite.queue_free()
 	
 	trailTween.finished.connect(my_lambda.bind(trail))
+
+func IncreaseStats():
+	Stats.OriginalHeath += max(_level, 8)
+	Stats.Strength += _level

@@ -23,8 +23,11 @@ signal Died
 @export var OriginalHeath : float:
 	set(value):
 		MaxHealth = value
-		Health = value
 		OriginalHeath = value
+
+@export var Strength : float = 10
+@export var Piercing : int = 2
+@export var ReachImprovement : float = 1
 
 var Speed : int :
 	set(value):

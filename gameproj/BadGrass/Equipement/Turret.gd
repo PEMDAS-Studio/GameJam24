@@ -5,7 +5,7 @@ var target
 var bulletscene : PackedScene = preload("res://BadGrass/bullet/bullet_sample.tscn") 
 var _isAttacking = false
 var attackTimer : Timer
-var AmmoCapacity = 20
+var AmmoCapacity = 40
 
 @onready var sprite = $Sprite2D
 
@@ -43,6 +43,7 @@ func _process(delta):
 	var position = global_position
 	bullet.global_position = position
 	bullet.disableDecon()
+	bullet.SetProperties(3, 1.4, 1)
 	get_tree().root.add_child(bullet)
 	bullet.Shoot(direction, atan2(direction.y, direction.x))
 	AmmoCapacity -= 1
@@ -52,3 +53,10 @@ func _process(delta):
 func _on_area_2d_body_entered(body):
 	if body is Enemy:
 		targets.append(body)
+
+
+func _on_area_2d_body_exited(body):
+	if body is Enemy:
+		targets.erase(body)
+		if target == body:
+			target = null

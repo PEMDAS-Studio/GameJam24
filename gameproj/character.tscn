@@ -15,6 +15,9 @@ RegenRate = 5.0
 BaseRegenAmount = 1
 OriginalSpeed = 264
 OriginalHeath = 42.0
+Strength = 10.0
+Piercing = 2
+ReachImprovement = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8l41w"]
 atlas = ExtResource("2_jvcgt")

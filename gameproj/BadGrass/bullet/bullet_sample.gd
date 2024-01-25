@@ -10,7 +10,8 @@ var _traveledDistance : float = 0
 var tile_map : TileMap
 var can_decontaminate = true
 
-var damage:float = 10
+var piercing: int
+var damage:float
 signal DecontontaminatedTile
 
 # Called when the node enters the scene tree for the first time.
@@ -28,7 +29,7 @@ func _process(delta):
 	if can_decontaminate:
 		Decontaminate()
 	
-	if _traveledDistance > maxRange:
+	if _traveledDistance > maxRange || piercing <= 0:
 		queue_free()
 
 func Shoot(direction: Vector2, angle: float):
@@ -58,3 +59,8 @@ func make_tile_green(tile_pos):
 func make_tile_purple(tile_pos):
 	var atlas_coord : Vector2i = tile_map.get_cell_atlas_coords(0, tile_pos);
 	tile_map.set_cell(0, tile_pos, 1, atlas_coord);
+
+func SetProperties(dmgValue, reachImprovement, piercingValue):
+	damage = dmgValue
+	maxRange *= reachImprovement
+	piercing = piercingValue
