@@ -26,7 +26,9 @@ signal Died
 		OriginalHeath = value
 
 @export var Strength : float = 10
+var DamageIncrease : float = 0
 @export var Piercing : int = 2
+var OrigiginalPiercing: int = 2
 @export var ReachImprovement : float = 1
 
 var Speed : int :

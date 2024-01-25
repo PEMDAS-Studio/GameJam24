@@ -164,8 +164,9 @@ func Attack():
 	
 	if (bullet.has_signal("DecontontaminatedTile")):
 		bullet.DecontontaminatedTile.connect(_TileDecontaminated)
-		
-	bullet.SetProperties(Stats.Strength, Stats.ReachImprovement, Stats.Piercing)
+	
+	var dmg = Stats.Strength + Stats.Strength * Stats.DamageIncrease / 100
+	bullet.SetProperties(dmg, Stats.ReachImprovement, Stats.Piercing)
 	get_tree().root.add_child(bullet)
 	var direction = Vector2(mousePosition.x - position.x, mousePosition.y - position.y).normalized()
 	bullet.Shoot(direction, atan2(direction.y, direction.x))
@@ -208,7 +209,7 @@ func AttachReward(effect: BaseWeaponEffect):
 		if (addbuff):
 			aquiredWeaponEffects.append(effect)
 	else:
-		#UpdateState for bullet
+		effect.ApplyEffect(self)
 		pass
 
 func HealthChanged(damage):

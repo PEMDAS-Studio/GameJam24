@@ -34,6 +34,6 @@ func Shoot(direction: Vector2, angle: float):
 	set_process(true)
 
 func SetProperties(dmgValue, reachImprovement, piercingValue):
-	damage = dmgValue
+	damage = round(dmgValue/2 * pow(10.0, 2)) / pow(10.0, 2) 
 	maxRange *= reachImprovement
 	piercing = piercingValue * 3

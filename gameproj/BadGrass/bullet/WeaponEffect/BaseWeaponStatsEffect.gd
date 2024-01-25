@@ -1,5 +1,5 @@
 extends BaseWeaponEffect
 class_name BaseWeaponStatEffect
 
-func ApplyEffect(target: Bullet):
+func ApplyEffect(target: Character):
 	pass

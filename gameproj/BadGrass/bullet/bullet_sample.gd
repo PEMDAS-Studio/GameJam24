@@ -61,6 +61,6 @@ func make_tile_purple(tile_pos):
 	tile_map.set_cell(0, tile_pos, 1, atlas_coord);
 
 func SetProperties(dmgValue, reachImprovement, piercingValue):
-	damage = dmgValue / 3
+	damage = dmgValue
 	maxRange *= reachImprovement
 	piercing = piercingValue
