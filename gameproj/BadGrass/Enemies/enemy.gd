@@ -1,7 +1,6 @@
 extends CharacterBody2D
 class_name Enemy
 
-const SPEED = 210.0
 var XpAmount = 10
 
 @export var Stats  : EnemyStats
