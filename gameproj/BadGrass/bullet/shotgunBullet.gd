@@ -19,7 +19,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	look_at(get_global_mouse_position())
 	var distance = _traversalDirection * delta
 	pellet1.global_position += distance.rotated(pellet1.get_rotation())
 	pelett2.global_position += distance.rotated(pelett2.get_rotation())
@@ -31,6 +30,7 @@ func _process(delta):
 
 func Shoot(direction: Vector2, angle: float):
 	_traversalDirection = direction * traversalVelocity
+	look_at(get_global_mouse_position())
 	set_process(true)
 
 func SetProperties(dmgValue, reachImprovement, piercingValue):

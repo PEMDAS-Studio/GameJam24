@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Enemy2
 
 var XpAmount = 30
 

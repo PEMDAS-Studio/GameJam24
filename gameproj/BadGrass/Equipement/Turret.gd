@@ -51,12 +51,12 @@ func _process(delta):
 		queue_free()
 
 func _on_area_2d_body_entered(body):
-	if body is Enemy:
+	if body is Enemy || body is Enemy2:
 		targets.append(body)
 
 
 func _on_area_2d_body_exited(body):
-	if body is Enemy:
+	if body is Enemy || body is Enemy2:
 		targets.erase(body)
 		if target == body:
 			target = null
