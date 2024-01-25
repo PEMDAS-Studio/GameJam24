@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://xv7l8o4pc75p"]
+[gd_scene load_steps=29 format=3 uid="uid://xv7l8o4pc75p"]
 
 [ext_resource type="Script" path="res://BadGrass/Enemies/enemy2.gd" id="1_apbov"]
 [ext_resource type="Texture2D" uid="uid://bj6vl3gjkih3t" path="res://BadGrass/Enemies/Sprites/satyr-Sheet.png" id="2_b6x1a"]
@@ -6,6 +6,42 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3hxk3"]
 radius = 6.0
 height = 18.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vejgf"]
+atlas = ExtResource("2_b6x1a")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfj1r"]
+atlas = ExtResource("2_b6x1a")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xbav"]
+atlas = ExtResource("2_b6x1a")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrav7"]
+atlas = ExtResource("2_b6x1a")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sx7wd"]
+atlas = ExtResource("2_b6x1a")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1xyt"]
+atlas = ExtResource("2_b6x1a")
+region = Rect2(160, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kholv"]
+atlas = ExtResource("2_b6x1a")
+region = Rect2(192, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2crio"]
+atlas = ExtResource("2_b6x1a")
+region = Rect2(224, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gsa6"]
+atlas = ExtResource("2_b6x1a")
+region = Rect2(256, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mhokv"]
 atlas = ExtResource("2_b6x1a")
@@ -67,6 +103,38 @@ region = Rect2(224, 32, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_vejgf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfj1r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xbav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrav7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sx7wd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1xyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kholv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2crio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gsa6")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mhokv")
 }, {
 "duration": 1.0,
@@ -119,9 +187,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_klpn6"]
-size = Vector2(36, 21)
+size = Vector2(23, 21)
 
 [node name="Enemy" type="CharacterBody2D"]
+collision_mask = 9
 script = ExtResource("1_apbov")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -130,18 +199,17 @@ shape = SubResource("CapsuleShape2D_3hxk3")
 [node name="Anim" type="AnimatedSprite2D" parent="."]
 z_as_relative = false
 sprite_frames = SubResource("SpriteFrames_5hpu4")
-animation = &"Run"
-frame_progress = 0.199513
+animation = &"Death"
 
 [node name="HitBox" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox"]
-polygon = PackedVector2Array(-16, 12, 16, 12, 16, 7, 3, -5, -4, -5, -16, 7)
+polygon = PackedVector2Array(-6, 12, 8, 12, 8, 6, 6, -7, -5, -7, -6, 6)
 
 [node name="HurtBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(0, 3)
+position = Vector2(0.5, 3)
 shape = SubResource("RectangleShape2D_klpn6")
 
 [node name="HurtTime" type="Timer" parent="."]

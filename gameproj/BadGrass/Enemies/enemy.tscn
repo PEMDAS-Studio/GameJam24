@@ -33,6 +33,20 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_moyjs")
 }],
+"loop": false,
+"name": &"Death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_htv4l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hfa4a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_htv4l")
+}],
 "loop": true,
 "name": &"Hit",
 "speed": 6.0
@@ -59,6 +73,7 @@ animations = [{
 size = Vector2(36, 21)
 
 [node name="Enemy" type="CharacterBody2D"]
+collision_mask = 9
 script = ExtResource("1_hnxka")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -67,8 +82,9 @@ shape = SubResource("CapsuleShape2D_3hxk3")
 [node name="Anim" type="AnimatedSprite2D" parent="."]
 z_as_relative = false
 sprite_frames = SubResource("SpriteFrames_5hpu4")
-animation = &"Hit"
-frame_progress = 0.508066
+animation = &"Death"
+frame = 4
+frame_progress = 1.0
 
 [node name="HitBox" type="Area2D" parent="."]
 
