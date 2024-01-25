@@ -17,6 +17,7 @@ var path : PathFollow2D
 
 var RewardScene : PackedScene = preload("res://BadGrass/RewardManager.tscn")
 var enemy:PackedScene = preload("res://BadGrass/Enemies/enemy.tscn")
+const enemy_2:PackedScene = preload("res://BadGrass/Enemies/enemy2.tscn")
 var gameOverScene:PackedScene = preload("res://main_menu/GameOver/game_over.tscn")
 var enemySpawnTimer:float = 0.5
 @export var enemyDiffCurve : Curve
@@ -151,7 +152,12 @@ func _spawnEnemy():
 		
 	var enemyPotentialXPos = randf_range(256, 1087)
 	var enemyPotentialYPos = randf_range(-40, 558)
-	var enemyInstance = enemy.instantiate()
+	var randomEnemy = randi_range(0,10)
+	var enemyInstance
+	if randomEnemy % 2 == 0:
+		enemyInstance = enemy.instantiate()
+	else:
+		enemyInstance = enemy_2.instantiate()
 	enemyInstance.Stats = EnemyStats.new()
 	enemyInstance.position = Vector2(enemyPotentialXPos,enemyPotentialYPos)
 	
