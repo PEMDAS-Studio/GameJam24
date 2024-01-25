@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends BaseEnemy
 class_name Enemy2
 
 var XpAmount = 12
@@ -41,8 +41,8 @@ func _on_hit_box_area_entered(area):
 		var tween = create_tween()
 		tween.tween_property(self, "modulate:v", 1, 0.25).from(15)
 		#For every status effect, attempt an application of the effect
-		#for effect in area.StatusEffects:
-			#var result = effect.ApplyEffect(self)
+		for effect in area.StatusEffects:
+			var result = effect.ApplyEffect(self)
 	elif area.get_parent().get_name() == "ShotgunBullet":		
 		Stats.Health -= area.get_parent().damage
 		area.get_parent().piercing -= 1

@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends BaseEnemy
 class_name Enemy
 
 var XpAmount = 10

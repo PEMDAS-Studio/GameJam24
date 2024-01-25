@@ -14,7 +14,7 @@ func _init():
 	EffectDetail = EffectLevels[0]
 	Effect = SlowEffect.new()
 	
-func ApplyEffect(target : Enemy) -> bool:
+func ApplyEffect(target : BaseEnemy) -> bool:
 	var chance = randf_range(1, 100)
 	if  chance <= EffectDetail.ChanceOfEffect:
 		Effect.TriggerEffect(target, EffectDetail)
