@@ -17,7 +17,7 @@ func ApplyEffect(target : Character) -> bool:
 
 func BuildDescription():
 	if Level == 0:
-		Description = "Increase the player attack by [color=green]" + str(EffectDetail.Damage) + "[/color]"
+		Description = "Increase the player attack by [color=green]" + str(EffectDetail.Damage) + "[/color]" +"%"
 	else:
 		var PiercingEffectText = str(EffectDetail.Damage) + " -> " + str(EffectLevels[Level].Damage) if EffectDetail.Damage != EffectLevels[Level].Damage else str(EffectDetail.Damage)
-		Description = "Increase the player attack by [color=green]" + PiercingEffectText + "[/color]"
+		Description = "Increase the player attack by [color=green]" + PiercingEffectText + "[/color]" + "%"

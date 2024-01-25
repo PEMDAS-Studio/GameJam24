@@ -22,14 +22,25 @@ var gameOverScene:PackedScene = preload("res://main_menu/GameOver/game_over.tscn
 var enemySpawnTimer:float = 0.5
 @export var enemyDiffCurve : Curve
 @export var enemyDiffSpikePoint : int
+@export var contaminationDiffCurve : Curve
+@export var contaminationDiffSpikePoint : int
+
 var spawnTimer : Timer
 var enemyKilled = 0 
 var currentEnemies = 0
+var spreadTimer : Timer
+signal StopWatch
+signal Currency
 
 @export var ItemDropPercentage : float
+var elapsedTime : float
+var min : int
+var seconds : int
+var _currency = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	elapsedTime = 0
 	path = get_tree().current_scene.find_child("PathFollow2D", true, false)
 	character.LeveledUp.connect(_SelectReward.unbind(2))
 	character.Stats.changed.connect(UiOverlay.UpdateHealthBar.bind(character.Stats))
@@ -45,6 +56,8 @@ func _ready():
 	UiOverlay.DashBar1.value = UiOverlay.DashBar1.max_value
 	UiOverlay.DashBar2.max_value = character.Stats.DashCharge
 	UiOverlay.DashBar2.value = UiOverlay.DashBar2.max_value
+	StopWatch.connect(UiOverlay.UpdateTime)
+	Currency.connect(UiOverlay.UpdateAquiredCurrency)
 	
 	decontaminator.InitBase(tile_map)
 	var tiles = tile_map.get_used_cells(0)
@@ -59,12 +72,6 @@ func _ready():
 					
 			_contaminatedTiles[tile] = isFullyContaminated
 	
-	var timer = Timer.new()
-	timer.one_shot = false
-	timer.wait_time = 0.4
-	add_child(timer)
-	timer.timeout.connect(spreadContamination)
-	timer.start()
 
 	camera.limit_left = borderLeft.global_position.x
 	camera.limit_bottom = borderBottom.global_position.y
@@ -79,6 +86,14 @@ func _ready():
 	add_child(spawnTimer)
 	spawnTimer.start()
 	
+	spreadTimer = Timer.new()
+	spreadTimer.one_shot = false
+	spreadTimer.wait_time = contaminationDiffCurve.sample(0)
+	spreadTimer.autostart = true
+	spreadTimer.timeout.connect(spreadContamination)
+	add_child(spreadTimer)
+	spreadTimer.start()
+	
 	var audio_lamda = func ():
 		audioPlayer.play()
 	
@@ -86,7 +101,14 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	elapsedTime += delta
+	
 	spawnTimer.wait_time = enemyDiffCurve.sample(enemyKilled/enemyDiffSpikePoint)
+	spreadTimer.wait_time = contaminationDiffCurve.sample(elapsedTime/contaminationDiffSpikePoint)
+	
+	seconds = int(elapsedTime) % 60
+	min = int(elapsedTime) / 60
+	emit_signal("StopWatch", seconds, min)
 	
 #func _unhandled_input(event):
 	#if Input.is_action_just_pressed("grassaction"):
@@ -167,6 +189,8 @@ func _spawnEnemy():
 			_DropItem(enemy)
 		enemyKilled += 1
 		currentEnemies -= 1
+		_currency += 2
+		emit_signal("Currency", _currency) 
 	
 	enemyInstance.connect("tree_exited", enemyDeathLamda.bind(enemyInstance))
 	add_child(enemyInstance)

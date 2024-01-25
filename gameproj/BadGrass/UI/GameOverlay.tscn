@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbtinxet4lnqv"]
+[gd_scene load_steps=11 format=3 uid="uid://dbtinxet4lnqv"]
 
 [ext_resource type="Script" path="res://BadGrass/UI/GameOverlay.gd" id="1_gsxuw"]
 [ext_resource type="Texture2D" uid="uid://b42bb8evb7b7h" path="res://Assets/UI/HealthBar/HealthEmpty.png" id="1_k0w44"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cx2sx61cis0re" path="res://Assets/UI/HealthBar/DashBar.png" id="7_1urpe"]
 [ext_resource type="Texture2D" uid="uid://daub03rtmifbq" path="res://Assets/Beacon.png" id="8_htafc"]
 [ext_resource type="Texture2D" uid="uid://bf1n5dglfit4i" path="res://Assets/Torrent.png" id="9_u8rn5"]
+[ext_resource type="Texture2D" uid="uid://ci884d8oe42pf" path="res://Assets/Orb/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/crystal_01c.png" id="10_qjc5q"]
 
 [node name="GameOverlay" type="CanvasLayer"]
 script = ExtResource("1_gsxuw")
@@ -125,3 +126,37 @@ offset_bottom = 53.0
 theme_override_font_sizes/font_size = 32
 text = "1
 "
+
+[node name="Currency" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 93.0
+offset_top = 129.0
+offset_right = 133.0
+offset_bottom = 169.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Currency"]
+position = Vector2(71.75, 29.25)
+scale = Vector2(3, 3)
+texture = ExtResource("10_qjc5q")
+
+[node name="Label" type="Label" parent="Currency"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 13.0
+offset_right = 142.0
+offset_bottom = 53.0
+theme_override_font_sizes/font_size = 32
+text = "0"
+
+[node name="Time" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -201.0
+offset_top = 38.0
+offset_right = -15.0
+offset_bottom = 117.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 64
+text = "00:00"

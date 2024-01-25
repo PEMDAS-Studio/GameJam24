@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Enemy2
 
-var XpAmount = 30
+var XpAmount = 12
 
 @export var Stats  : EnemyStats
 @onready var Player:Object = get_parent().get_node("Player")
@@ -11,7 +11,7 @@ var XpAmount = 30
 
 var pickUp:PackedScene = preload("res://BadGrass/Enemies/pickup.tscn")
 
-var damage:float = 5
+var damage:float = 8
 
 func _ready():
 	Stats.Health = 15
