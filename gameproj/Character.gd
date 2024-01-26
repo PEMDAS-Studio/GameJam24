@@ -44,7 +44,6 @@ func GetXpToNextLevel() -> int:
 	return _levelUpExperience[_level]
 
 func _ready():
-	Stats.Currency = 9999
 	Stats.AmmoCapacity = Stats.MaxAmmoCapacity
 	Stats.ShotgunAmmoCapacity = Stats.MaxhShotgunAmmoCapacity
 	Stats.UpdateAmmo.connect(HandleAmmoChange)

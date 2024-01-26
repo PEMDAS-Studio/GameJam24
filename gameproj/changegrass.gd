@@ -15,7 +15,7 @@ var _spreadableTiles : Array[Vector2i]
 @onready var audioPlayer = $"../AudioStreamPlayer" as AudioStreamPlayer
 @onready var pauseMenu = $"../PauseMenu"
 
-var path : PathFollow2D
+@onready var path : PathFollow2D = $Player/Path2D/PathFollow2D
 
 var RewardScene : PackedScene = preload("res://BadGrass/RewardManager.tscn")
 var enemy:PackedScene = preload("res://BadGrass/Enemies/enemy.tscn")
@@ -179,7 +179,9 @@ func _SelectReward():
 func _spawnEnemy():
 	if currentEnemies >= 80:
 		return
-		
+	var prograess = RandomNumberGenerator.new().randf_range(0, 1)
+	path.set_progress_ratio(prograess)
+	
 	var enemyPotentialXPos = randf_range(256, 1087)
 	var enemyPotentialYPos = randf_range(-40, 558)
 	var randomEnemy = randi_range(0,10)
@@ -189,8 +191,7 @@ func _spawnEnemy():
 	else:
 		enemyInstance = enemy_2.instantiate()
 	enemyInstance.Stats = EnemyStats.new()
-	enemyInstance.position = Vector2(enemyPotentialXPos,enemyPotentialYPos)
-	
+	#enemyInstance.position = Vector2(enemyPotentialXPos,enemyPotentialYPos)
 	var enemyDeathLamda : Callable = func(enemy):
 		var rand = randf_range(0, 100)
 		if rand < ItemDropPercentage:
@@ -201,7 +202,7 @@ func _spawnEnemy():
 	
 	enemyInstance.connect("tree_exited", enemyDeathLamda.bind(enemyInstance))
 	add_child(enemyInstance)
-	
+	enemyInstance.global_position = path.global_position
 	if enemyKilled > 50 && enemyKilled <= 125:
 		enemyInstance.Stats.Health *= 2
 	elif  enemyKilled > 125 && enemyKilled < 200:
