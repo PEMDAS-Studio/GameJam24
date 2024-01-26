@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bm4icesn8f1ux"]
+[gd_scene load_steps=4 format=3 uid="uid://bm4icesn8f1ux"]
 
 [ext_resource type="Script" path="res://main_menu/Settings Menu/settings_menu.gd" id="1_mt8pq"]
+[ext_resource type="Texture2D" uid="uid://cldbf0ew4suu3" path="res://main_menu/Background_Title_002.png" id="2_gxiuj"]
 [ext_resource type="PackedScene" uid="uid://btfq3wbbd8b3k" path="res://main_menu/Settings Menu/settings_tab_container.tscn" id="2_ukuop"]
 
 [node name="Settings_Menu" type="Control"]
@@ -11,6 +12,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mt8pq")
+
+[node name="BackgroundTitle002" type="Sprite2D" parent="."]
+texture_filter = 5
+position = Vector2(643, 364)
+scale = Vector2(4, 4)
+texture = ExtResource("2_gxiuj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0823529, 0.0823529, 0.0823529, 0.427451)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

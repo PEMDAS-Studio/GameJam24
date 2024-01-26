@@ -24,7 +24,8 @@ func on_start_pressed() -> void:
 	get_tree().change_scene_to_packed(start_level)
 
 func on_setting_pressed() -> void:
-	get_tree().change_scene_to_packed(settings)
+	var scene = settings.instantiate()
+	add_child(scene)
 
 func on_exit_pressed() -> void:
 	get_tree().quit()

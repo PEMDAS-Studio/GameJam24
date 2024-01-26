@@ -52,7 +52,7 @@ func _ready():
 	Stats.Health = Stats.OriginalHeath
 	_activeGun = bulletscene
 	dashChargeTimer.one_shot = false
-	dashChargeTimer.timeout.connect(_chargeDash)
+	dashChargeTimer.timeout.connect(_chargeDash) 
 	attackTimer = Timer.new()
 	attackTimer.one_shot = true
 	add_child(attackTimer)

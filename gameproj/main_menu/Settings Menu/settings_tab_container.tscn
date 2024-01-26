@@ -92,6 +92,10 @@ text = "Skill 1     |     Q"
 layout_mode = 2
 text = "Skill 2     |     E"
 
+[node name="Label10" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Interact     |     F"
+
 [node name="Label7" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Dash     |     Shift"

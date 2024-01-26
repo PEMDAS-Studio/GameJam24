@@ -217,4 +217,7 @@ func _DropItem(enemy):
 	add_child(instance)
 
 func GameEnded():
+	call_deferred("_endGame")
+
+func _endGame():
 	get_tree().change_scene_to_packed(gameOverScene)
