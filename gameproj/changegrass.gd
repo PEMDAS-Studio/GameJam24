@@ -13,6 +13,7 @@ var _spreadableTiles : Array[Vector2i]
 @onready var borderTop = $StaticBody2D/CollisionShape2D4
 @onready var camera = $Player/Camera2D
 @onready var audioPlayer = $"../AudioStreamPlayer" as AudioStreamPlayer
+@onready var pauseMenu = $"../PauseMenu"
 var path : PathFollow2D
 
 var RewardScene : PackedScene = preload("res://BadGrass/RewardManager.tscn")
@@ -167,7 +168,13 @@ func UpdateContaminationArray(tilePos: Vector2i):
 func _SelectReward():
 	var scene = RewardScene.instantiate() as RewardManager
 	scene.RewardSelected.connect(character.AttachReward)
+	
+	var lamda = func ():
+		pauseMenu.updatePausedState(false)
+	scene.RewardSelected.connect(lamda.unbind(1))
+	
 	get_tree().paused = true
+	pauseMenu.updatePausedState(true)
 	get_tree().root.add_child(scene)
 
 func _spawnEnemy():

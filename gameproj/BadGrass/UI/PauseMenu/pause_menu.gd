@@ -2,11 +2,15 @@ extends CanvasLayer
 
 var isGamePaused:bool = false
 @onready var pause_menu = $PauseMenu
+var isPausedExternally = false
 
 func _ready():
 	pause_menu.hide()
 	
 func _input(event):
+	if isPausedExternally:
+		return
+		
 	if Input.is_action_just_pressed("pause"):
 		PauseResume()
 
@@ -33,3 +37,6 @@ func PauseResume():
 
 func _on_exit_pressed():
 	get_tree().quit()
+
+func updatePausedState(isPaused):
+	isPausedExternally = isPaused
