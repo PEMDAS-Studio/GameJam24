@@ -7,11 +7,15 @@ extends Control
 @export_enum("Master") var bus_name : String
 
 var bus_index : int = 0
+var volume_default : float = 0.4;
+
 
 func _ready():
 	h_slider.value_changed.connect(on_value_changed)
 	get_bus_name_by_index()
 	set_name_label_text()
+	set_slider_value()
+	on_value_changed(volume_default)
 	set_slider_value()
 
 func set_name_label_text() -> void:
