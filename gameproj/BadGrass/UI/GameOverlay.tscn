@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bhiq0ma1vr5ml" path="res://Assets/bullet.png" id="11_6f8ih"]
 
 [node name="GameOverlay" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_gsxuw")
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]

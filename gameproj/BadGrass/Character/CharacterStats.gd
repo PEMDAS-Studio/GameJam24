@@ -3,6 +3,9 @@ class_name CharacterStats
 
 signal HealthChanger
 signal Died
+signal CurrencyUpdated
+signal UpdateAmmo
+signal UpdateShotgunAmmo
 
 @export var DashSpeed : int
 @export var DashDuration : float
@@ -36,12 +39,14 @@ var AmmoCapacity : int :
 		if (value < 0):
 			value = 0
 		AmmoCapacity = min(MaxAmmoCapacity, value)
+		emit_signal("UpdateAmmo", AmmoCapacity)
 		
 var ShotgunAmmoCapacity : int :
 	set(value):
 		if (value < 0):
 			value = 0
 		ShotgunAmmoCapacity = min(MaxhShotgunAmmoCapacity, value)
+		emit_signal("UpdateShotgunAmmo", ShotgunAmmoCapacity)
 		
 var MaxAmmoCapacity = 124
 var MaxhShotgunAmmoCapacity = 30
@@ -78,3 +83,8 @@ var TurretCount : int = 1 :
 	set(value):
 		TurretCount = min(value, MaxTurretCount)
 		emit_changed()
+
+var Currency : int = 0 :
+	set(value):
+		Currency = clamp(value, 0, 9999)
+		emit_signal("CurrencyUpdated", Currency)

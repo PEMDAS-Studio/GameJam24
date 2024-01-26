@@ -5,12 +5,13 @@ var target
 var bulletscene : PackedScene = preload("res://BadGrass/bullet/bullet_sample.tscn") 
 var _isAttacking = false
 var attackTimer : Timer
-var AmmoCapacity = 40
 
 @onready var sprite = $Sprite2D
+@export var turretStat : TurretStats
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	turretStat = turretStat.duplicate()
 	attackTimer = Timer.new()
 	attackTimer.one_shot = true
 	add_child(attackTimer)
@@ -46,8 +47,8 @@ func _process(delta):
 	bullet.SetProperties(3, 1.4, 1)
 	get_tree().root.add_child(bullet)
 	bullet.Shoot(direction, atan2(direction.y, direction.x))
-	AmmoCapacity -= 1
-	if AmmoCapacity == 0:
+	turretStat.AmmonCapacity -= 1
+	if turretStat.AmmonCapacity == 0:
 		queue_free()
 
 func _on_area_2d_body_entered(body):

@@ -14,6 +14,7 @@ var _spreadableTiles : Array[Vector2i]
 @onready var camera = $Player/Camera2D
 @onready var audioPlayer = $"../AudioStreamPlayer" as AudioStreamPlayer
 @onready var pauseMenu = $"../PauseMenu"
+
 var path : PathFollow2D
 
 var RewardScene : PackedScene = preload("res://BadGrass/RewardManager.tscn")
@@ -31,13 +32,11 @@ var enemyKilled = 0
 var currentEnemies = 0
 var spreadTimer : Timer
 signal StopWatch
-signal Currency
 
 @export var ItemDropPercentage : float
 var elapsedTime : float
 var min : int
 var seconds : int
-var _currency = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -50,7 +49,6 @@ func _ready():
 	character.Decontaminated.connect(UpdateContaminationArray)
 	character.Stats.Died.connect(GameEnded)
 	character.ChangedWeapon.connect(UiOverlay.UpdateAmmoAndSprite)
-	character.UpdateAmmo.connect(UiOverlay.UpdateAmmo)
 	UiOverlay.HealthBar.max_value = character.Stats.MaxHealth
 	UiOverlay.HealthBar.value = character.Stats.Health
 	UiOverlay.XpBar.value = 0
@@ -60,7 +58,9 @@ func _ready():
 	UiOverlay.DashBar2.max_value = character.Stats.DashCharge
 	UiOverlay.DashBar2.value = UiOverlay.DashBar2.max_value
 	StopWatch.connect(UiOverlay.UpdateTime)
-	Currency.connect(UiOverlay.UpdateAquiredCurrency)
+	character.Stats.CurrencyUpdated.connect(UiOverlay.UpdateAquiredCurrency)
+	decontaminator.ShopOpenStat.connect(pauseMenu.updatePausedState)
+	decontaminator.BaseDestroyed.connect(GameEnded)
 	
 	decontaminator.InitBase(tile_map)
 	var tiles = tile_map.get_used_cells(0)
@@ -74,7 +74,6 @@ func _ready():
 					break
 					
 			_contaminatedTiles[tile] = isFullyContaminated
-	
 
 	camera.limit_left = borderLeft.global_position.x
 	camera.limit_bottom = borderBottom.global_position.y
@@ -198,12 +197,19 @@ func _spawnEnemy():
 			_DropItem(enemy)
 		enemyKilled += 1
 		currentEnemies -= 1
-		_currency += 2
-		emit_signal("Currency", _currency) 
+		character.Stats.Currency += 2
 	
 	enemyInstance.connect("tree_exited", enemyDeathLamda.bind(enemyInstance))
 	add_child(enemyInstance)
-	currentEnemies += 1
+	
+	if enemyKilled > 50 && enemyKilled <= 125:
+		enemyInstance.Stats.Health *= 2
+	elif  enemyKilled > 125 && enemyKilled < 200:
+		enemyInstance.Stats.Health *= 4
+		enemyInstance.damage *= 1.75
+	elif enemyKilled >= 200:
+		enemyInstance.Stats.Health *= 6
+		enemyInstance.damage *= 2.75
 
 func _DropItem(enemy):
 	var instance = AvailableItems.GetItem()

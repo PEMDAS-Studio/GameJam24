@@ -18,6 +18,9 @@ func _ready():
 	decontaminationTimer.timeout.connect(decontaminateSurrounding)
 	decontaminationTimer.start()
 
+func _process(delta):
+	decontaminationTimer.wait_time = Stats.DeconSpeed
+
 func decontaminateSurrounding():
 	var tile_pos : Vector2i = tile_map.local_to_map(global_position - Vector2(16, 0)) / 4
 	var neightbouringTiles = tile_map.get_surrounding_cells(tile_pos)

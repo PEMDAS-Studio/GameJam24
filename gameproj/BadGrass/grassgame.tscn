@@ -16,9 +16,9 @@ _data = [Vector2(0, 1.5), 0.0, -1.01868, 0, 0, Vector2(0.110465, 1.26014), -3.05
 point_count = 5
 
 [sub_resource type="Curve" id="Curve_g6y5e"]
-min_value = 0.08
+min_value = 0.01
 max_value = 0.8
-_data = [Vector2(0, 0.8), 0.0, -2.91857, 0, 0, Vector2(0.229075, 0.436044), 0.0, 0.0, 0, 0, Vector2(0.54185, 0.356923), 0.0, 0.0, 0, 0, Vector2(0.806167, 0.285714), 0.0, 0.0, 0, 0, Vector2(1, 0.08), -0.336758, 0.0, 0, 0]
+_data = [Vector2(0, 0.8), 0.0, -2.91857, 0, 0, Vector2(0.229075, 0.436044), 0.0, 0.0, 0, 0, Vector2(0.54185, 0.356923), 0.0, 0.0, 0, 0, Vector2(0.806167, 0.285714), 0.0, 0.0, 0, 0, Vector2(1, 0.01), -0.336758, 0.0, 0, 0]
 point_count = 5
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4672s"]
@@ -501,7 +501,6 @@ position = Vector2(472, -98)
 shape = SubResource("RectangleShape2D_7nk77")
 
 [node name="Player" parent="Grassgame" instance=ExtResource("2_hu4nw")]
-_experience = 0
 
 [node name="Camera2D" type="Camera2D" parent="Grassgame/Player"]
 

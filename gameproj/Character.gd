@@ -8,8 +8,9 @@ signal LeveledUp
 signal XpChanged
 signal Decontaminated 
 signal ChangedWeapon
-signal UpdateAmmo
 
+@export var turretStatCopy : TurretStats
+@export var beaconStatCopy : BeaconStats
 @export var Stats : CharacterStats
 @onready var sprite = $Sprite2D as AnimatedSprite2D
 @onready var marker = $Marker2D
@@ -43,9 +44,11 @@ func GetXpToNextLevel() -> int:
 	return _levelUpExperience[_level]
 
 func _ready():
+	Stats.Currency = 9999
 	Stats.AmmoCapacity = Stats.MaxAmmoCapacity
 	Stats.ShotgunAmmoCapacity = Stats.MaxhShotgunAmmoCapacity
-	
+	Stats.UpdateAmmo.connect(HandleAmmoChange)
+	Stats.UpdateShotgunAmmo.connect(HandleShotgunAmmoChange)
 	Stats.Health = Stats.OriginalHeath
 	_activeGun = bulletscene
 	dashChargeTimer.one_shot = false
@@ -189,10 +192,8 @@ func Attack():
 	bullet.Shoot(direction, atan2(direction.y, direction.x))
 	if _activeGun == bulletscene:
 		Stats.AmmoCapacity -= 1
-		emit_signal("UpdateAmmo", Stats.AmmoCapacity)
 	elif _activeGun == shotgunbulletscene:
 		Stats.ShotgunAmmoCapacity -= 1
-		emit_signal("UpdateAmmo", Stats.ShotgunAmmoCapacity)
 	
 func ConsumeItem(item : PickedItem):
 	var effect = item.StatusEffect
@@ -270,3 +271,11 @@ func _createTrail():
 func IncreaseStats():
 	Stats.OriginalHeath += max(_level, 8)
 	Stats.Strength += _level
+
+func HandleAmmoChange(ammo):
+	if _activeGun == bulletscene:
+		emit_signal("ChangedWeapon", _bulletSprite, 4, Stats.AmmoCapacity)
+
+func HandleShotgunAmmoChange(ammo):
+	if (_activeGun == shotgunbulletscene):
+		emit_signal("ChangedWeapon", _shotgunBulletSprite, 2.5, Stats.ShotgunAmmoCapacity)

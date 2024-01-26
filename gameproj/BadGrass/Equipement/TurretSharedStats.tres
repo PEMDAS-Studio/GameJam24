@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="TurretStats" load_steps=2 format=3 uid="uid://buah1wan8vwct"]
+
+[ext_resource type="Script" path="res://BadGrass/Equipement/TurrentStats.gd" id="1_l1mew"]
+
+[resource]
+script = ExtResource("1_l1mew")
+AmmonCapacity = 40

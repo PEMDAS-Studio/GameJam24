@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://cap10eddus7lv"]
+
+[ext_resource type="Texture2D" uid="uid://bhiq0ma1vr5ml" path="res://Assets/bullet.png" id="1_ixim7"]
+[ext_resource type="Texture2D" uid="uid://ci884d8oe42pf" path="res://Assets/Orb/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/crystal_01c.png" id="2_fk7xd"]
+
+[node name="ShopItem" type="Control"]
+layout_mode = 3
+anchor_right = 0.137
+anchor_bottom = 0.292
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 0.640015
+offset_bottom = 0.759979
+grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.215686, 1, 0.215686, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="ItemName" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Item Name"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_ixim7")
+expand_mode = 5
+
+[node name="Quantity" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "X 20"
+
+[node name="Button" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "20"
+icon = ExtResource("2_fk7xd")
+alignment = 0
+icon_alignment = 2

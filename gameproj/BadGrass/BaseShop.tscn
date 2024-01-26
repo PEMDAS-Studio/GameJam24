@@ -1,0 +1,520 @@
+[gd_scene load_steps=7 format=3 uid="uid://dg8teu5dyjpp1"]
+
+[ext_resource type="Script" path="res://BadGrass/BaseShop.gd" id="1_gfcky"]
+[ext_resource type="Texture2D" uid="uid://ci884d8oe42pf" path="res://Assets/Orb/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/crystal_01c.png" id="1_w5meh"]
+[ext_resource type="Texture2D" uid="uid://bhiq0ma1vr5ml" path="res://Assets/bullet.png" id="2_8xlwq"]
+[ext_resource type="Texture2D" uid="uid://d34nvkfs4qxnf" path="res://Assets/shotgun_bullet.png" id="3_8cgd0"]
+[ext_resource type="Texture2D" uid="uid://bf1n5dglfit4i" path="res://Assets/Torrent.png" id="4_upwkf"]
+[ext_resource type="Texture2D" uid="uid://daub03rtmifbq" path="res://Assets/Beacon.png" id="5_87ep2"]
+
+[node name="BaseShop" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_gfcky")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+color = Color(1, 0.282353, 0.282353, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.5
+offset_right = 21.5
+offset_bottom = 20.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 124
+text = "Shop"
+horizontal_alignment = 1
+
+[node name="Currency" type="Control" parent="CanvasLayer/Control/MarginContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -163.0
+offset_right = -4.0
+offset_bottom = 51.0
+grow_horizontal = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/MarginContainer/ColorRect/Currency"]
+position = Vector2(31, 26)
+scale = Vector2(3, 3)
+texture = ExtResource("1_w5meh")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/ColorRect/Currency"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -19.5
+offset_right = 63.0
+offset_bottom = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "0"
+clip_text = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.252
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.240005
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 30
+
+[node name="Control2" type="Control" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -197.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control"]
+layout_mode = 0
+offset_right = 182.0
+offset_bottom = 207.0
+color = Color(0.180392, 0.180392, 0.180392, 0.811765)
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.0
+offset_top = 10.0
+offset_right = 67.0
+offset_bottom = 30.0
+grow_horizontal = 2
+text = "Gun Ammunition"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control/ColorRect"]
+position = Vector2(92, 61)
+scale = Vector2(5, 5)
+texture = ExtResource("2_8xlwq")
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 2.0
+offset_right = 20.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "X 20"
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -23.0
+offset_right = 4.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "10"
+icon = ExtResource("1_w5meh")
+
+[node name="Control2" type="Control" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control2"]
+layout_mode = 0
+offset_left = 189.0
+offset_right = 371.0
+offset_bottom = 207.0
+color = Color(0.180392, 0.180392, 0.180392, 0.811765)
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control2/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.0
+offset_top = 10.0
+offset_right = 67.0
+offset_bottom = 30.0
+grow_horizontal = 2
+text = "Shotgun Ammunition"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control2/ColorRect"]
+position = Vector2(87, 67)
+scale = Vector2(3, 3)
+texture = ExtResource("3_8cgd0")
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control2/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -13.0
+offset_top = 2.0
+offset_right = 27.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "X 6"
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control2/ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -23.0
+offset_right = 4.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "08"
+icon = ExtResource("1_w5meh")
+
+[node name="Control3" type="Control" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control3"]
+layout_mode = 0
+offset_left = 378.0
+offset_right = 560.0
+offset_bottom = 207.0
+color = Color(0.180392, 0.180392, 0.180392, 0.811765)
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control3/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.0
+offset_top = 10.0
+offset_right = 67.0
+offset_bottom = 30.0
+grow_horizontal = 2
+text = "Gun Turret"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control3/ColorRect"]
+position = Vector2(92, 66)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_upwkf")
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control3/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = 2.0
+offset_right = 24.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "X 1"
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control3/ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -23.0
+offset_right = 4.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "25"
+icon = ExtResource("1_w5meh")
+
+[node name="Control4" type="Control" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control4"]
+layout_mode = 0
+offset_left = 566.0
+offset_right = 748.0
+offset_bottom = 207.0
+color = Color(0.180392, 0.180392, 0.180392, 0.811765)
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control4/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.0
+offset_top = 10.0
+offset_right = 67.0
+offset_bottom = 30.0
+grow_horizontal = 2
+text = "Beacon"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control4/ColorRect"]
+position = Vector2(92, 66)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("5_87ep2")
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control4/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = 2.0
+offset_right = 24.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "X 1"
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control4/ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -23.0
+offset_right = 4.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "25"
+icon = ExtResource("1_w5meh")
+
+[node name="Control5" type="Control" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control5"]
+layout_mode = 0
+offset_left = 756.0
+offset_right = 938.0
+offset_bottom = 207.0
+color = Color(0.180392, 0.180392, 0.180392, 0.811765)
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control5/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.0
+offset_top = 10.0
+offset_right = 67.0
+offset_bottom = 30.0
+grow_horizontal = 2
+text = "Beacon Upgrade"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control5/ColorRect"]
+position = Vector2(92, 66)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("5_87ep2")
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control5/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = 2.0
+offset_right = 24.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control5/ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -23.0
+offset_right = 4.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "50"
+icon = ExtResource("1_w5meh")
+
+[node name="Control6" type="Control" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control6"]
+layout_mode = 0
+offset_left = 946.0
+offset_right = 1128.0
+offset_bottom = 207.0
+color = Color(0.180392, 0.180392, 0.180392, 0.811765)
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control6/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.0
+offset_top = 10.0
+offset_right = 67.0
+offset_bottom = 30.0
+grow_horizontal = 2
+text = "Gun Turret Upgrade"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control6/ColorRect"]
+position = Vector2(92, 66)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_upwkf")
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control6/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = 2.0
+offset_right = 24.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control6/ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -23.0
+offset_right = 4.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "100"
+icon = ExtResource("1_w5meh")
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -180.0
+grow_horizontal = 2
+color = Color(0.137255, 0.137255, 0.137255, 0.603922)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 5
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control/ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control/ColorRect/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 48
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/MarginContainer/ColorRect"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 6.0
+offset_right = 49.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 24
+text = "X"
+
+[connection signal="pressed" from="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control/ColorRect/Button" to="." method="_on_ammo_purchase"]
+[connection signal="pressed" from="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control2/ColorRect/Button" to="." method="_on_shotgun_ammo_purchase"]
+[connection signal="pressed" from="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control3/ColorRect/Button" to="." method="_on_turret_purchase"]
+[connection signal="pressed" from="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control4/ColorRect/Button" to="." method="_on_beacon_purchase"]
+[connection signal="pressed" from="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control5/ColorRect/Button" to="." method="_on_beacon_upgrade"]
+[connection signal="pressed" from="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/Control2/ScrollContainer/HBoxContainer/Control6/ColorRect/Button" to="." method="_on_turret_upgrade"]
+[connection signal="pressed" from="CanvasLayer/Control/MarginContainer/ColorRect/Button" to="." method="_on_exit_button_pressed"]

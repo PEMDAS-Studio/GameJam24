@@ -11,7 +11,7 @@ name = ""
 Rate = 0.0
 MaxCapacity = 0.0
 Deposite = 0.0
-MaxHealth = 0.0
+MaxHealth = 100.0
 Type = "Base"
 Description = ""
 
@@ -610,7 +610,7 @@ physics_layer_0/collision_layer = 8
 sources/0 = SubResource("TileSetAtlasSource_mjbq1")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tn5lh"]
-radius = 77.026
+radius = 48.0
 
 [node name="Decontaminator" type="Node2D"]
 script = ExtResource("1_87cdd")
@@ -627,3 +627,6 @@ script = ExtResource("4_f6q81")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionZone"]
 shape = SubResource("CircleShape2D_tn5lh")
+
+[connection signal="body_entered" from="InteractionZone" to="." method="_on_interaction_zone_body_entered"]
+[connection signal="body_exited" from="InteractionZone" to="." method="_on_interaction_zone_body_exited"]

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BeaconStats" load_steps=2 format=3 uid="uid://dnaa1c2gokpr0"]
+
+[ext_resource type="Script" path="res://BadGrass/Equipement/BeaconStat.gd" id="1_uiky1"]
+
+[resource]
+script = ExtResource("1_uiky1")
+DeconSpeed = 1.0
+ChargeCapacity = 100.0
+Dischargerate = 5.0
+DeconChargeCost = 1.0

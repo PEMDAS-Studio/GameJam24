@@ -3,9 +3,15 @@ class_name DecontaminatorBase
 
 @export var Stats : Base
 var _timer = Timer.new()
-
-
+var Interactable = false
+var ShopScene = load("res://BadGrass/BaseShop.tscn")
 # Called when the node enters the scene tree for the first time.
+signal ShopOpenStat
+var CharStats
+var BeaconStat
+var TurretStat
+
+signal BaseDestroyed
 
 func _ready():
 	Stats = Stats.duplicate()
@@ -15,11 +21,21 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if (Stats.Health == 0):
-		print_debug("Base destroyed, Game ending.")
-		set_process(false)
 		_timer.stop()
-		remove_child(_timer)
+		emit_signal("BaseDestroyed")
 		
+	if (Interactable && Input.is_action_pressed("Interact")):
+		var scene = ShopScene.instantiate() as BaseShop
+		emit_signal("ShopOpenStat", true)
+		
+		var lamda = func ():
+			emit_signal("ShopOpenStat", false)
+		scene.tree_exited.connect(lamda)
+		
+		get_tree().paused = true
+		scene.Init(CharStats, TurretStat, BeaconStat)
+		get_tree().root.add_child(scene)
+			
 func InitBase(tileSet: TileMap):
 	_timer.one_shot = false
 	_timer.wait_time = 1
@@ -44,3 +60,14 @@ func _detectDamage(tileSet: TileMap) -> int :
 				numberOfSuroundingInfectedTiles += 1
 	
 	return numberOfSuroundingInfectedTiles
+
+func _on_interaction_zone_body_entered(body):
+	if body is Character:
+		Interactable = true
+		CharStats = body.Stats
+		TurretStat = body.turretStatCopy
+		BeaconStat = body.beaconStatCopy
+		
+func _on_interaction_zone_body_exited(body):
+	if body is Character:
+		Interactable = false
