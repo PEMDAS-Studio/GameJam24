@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5gbth34eiokl"]
+[gd_scene load_steps=6 format=3 uid="uid://b5gbth34eiokl"]
 
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_u4c8m"]
 [ext_resource type="Texture2D" uid="uid://cldbf0ew4suu3" path="res://main_menu/Background_Title_002.png" id="2_ka46c"]
 [ext_resource type="AudioStream" uid="uid://4fvpox7qkeat" path="res://Assets/Audio/gamejam_maintheme no melody.wav" id="2_wya45"]
 [ext_resource type="PackedScene" uid="uid://bm4icesn8f1ux" path="res://main_menu/Settings Menu/settings_menu.tscn" id="3_7vtx0"]
+[ext_resource type="PackedScene" uid="uid://dfcyimjs5ld8x" path="res://main_menu/credits_screen.tscn" id="5_b7q1r"]
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
@@ -79,3 +80,21 @@ autoplay = true
 [node name="Settings_Menu" parent="." instance=ExtResource("3_7vtx0")]
 visible = false
 layout_mode = 1
+
+[node name="Credits_Screen" parent="." instance=ExtResource("5_b7q1r")]
+visible = false
+layout_mode = 1
+
+[node name="Credits_Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.018
+anchor_top = 0.035
+anchor_right = 0.088
+anchor_bottom = 0.096
+offset_left = -0.0400009
+offset_top = -0.235001
+offset_right = 0.359993
+offset_bottom = -0.216003
+theme_override_font_sizes/font_size = 18
+text = "Credits"
