@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b5gbth34eiokl"]
 
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_u4c8m"]
-[ext_resource type="Texture2D" uid="uid://besu0ukr5abg3" path="res://Assets/BadGrass.png" id="2_qfjd8"]
+[ext_resource type="Texture2D" uid="uid://cldbf0ew4suu3" path="res://main_menu/Background_Title_002.png" id="2_ka46c"]
 [ext_resource type="AudioStream" uid="uid://4fvpox7qkeat" path="res://Assets/Audio/gamejam_maintheme no melody.wav" id="2_wya45"]
 [ext_resource type="PackedScene" uid="uid://bm4icesn8f1ux" path="res://main_menu/Settings Menu/settings_menu.tscn" id="3_7vtx0"]
 
@@ -16,6 +16,12 @@ grow_vertical = 2
 size_flags_vertical = 4
 script = ExtResource("1_u4c8m")
 
+[node name="BackgroundTitle002" type="Sprite2D" parent="."]
+texture_filter = 5
+position = Vector2(643, 364)
+scale = Vector2(4, 4)
+texture = ExtResource("2_ka46c")
+
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -23,7 +29,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_qfjd8")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
