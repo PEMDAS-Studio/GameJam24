@@ -40,6 +40,8 @@ func disableDecon():
 	can_decontaminate = false
 
 func Decontaminate():
+	if (!tile_map):
+		pass
 	var tile_pos : Vector2i = tile_map.local_to_map(global_position) / 4
 	var tile_source = tile_map.get_cell_source_id(0, tile_pos);
 	
