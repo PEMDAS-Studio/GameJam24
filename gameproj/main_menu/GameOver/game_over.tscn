@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b67i6ugsirao3"]
 
 [ext_resource type="Script" path="res://main_menu/GameOver/game_over.gd" id="1_licik"]
-[ext_resource type="AudioStream" uid="uid://cdrprcm7pfgm0" path="res://Assets/Audio/videogame-death-sound-43894.mp3" id="2_l7kj8"]
+[ext_resource type="AudioStream" uid="uid://dbb5yblkwn08" path="res://Assets/Audio/gamejam_over.wav" id="2_k8m47"]
 
 [node name="Game_Over" type="Control"]
 layout_mode = 3
@@ -62,7 +62,7 @@ theme_override_font_sizes/font_size = 75
 text = "Restart"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_l7kj8")
+stream = ExtResource("2_k8m47")
 autoplay = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Restart_Button" to="." method="on_restart_screen"]
