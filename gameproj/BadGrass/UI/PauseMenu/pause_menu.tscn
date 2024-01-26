@@ -43,7 +43,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="PauseMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 256
+theme_override_font_sizes/font_size = 168
 text = "PAUSED"
 horizontal_alignment = 1
 
@@ -57,6 +57,16 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 96
 text = "RESUME"
 
+[node name="Spacer3" type="MarginContainer" parent="PauseMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Resume2" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+text = "SETTINGS"
+
 [node name="Spacer2" type="MarginContainer" parent="PauseMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 5
@@ -68,4 +78,5 @@ theme_override_font_sizes/font_size = 96
 text = "EXIT"
 
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Resume2" to="." method="_on_setting_pressed"]
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

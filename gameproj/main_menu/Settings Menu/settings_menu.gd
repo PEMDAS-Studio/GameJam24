@@ -8,7 +8,7 @@ func _ready():
 	handle_connecting_signals()
 
 func on_exit_pressed() -> void:
-	get_tree().change_scene_to_packed(main_menu)
+	queue_free()
 
 func handle_connecting_signals() -> void:
 	exit_button.button_down.connect(on_exit_pressed)

@@ -9,7 +9,6 @@ class_name MainMenu
 @onready var settings_menu = $Settings_Menu as SettingsMenu
 @onready var settings = load("res://main_menu/Settings Menu/settings_menu.tscn") as PackedScene
 
-
 func _ready():
 	AvaibableBuffList.ResetBuffs()
 	handle_connecting_signals()
