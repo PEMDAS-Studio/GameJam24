@@ -10,10 +10,12 @@ signal ShopOpenStat
 var CharStats
 var BeaconStat
 var TurretStat
+@onready var text = $RichTextLabel
 
 signal BaseDestroyed
 
 func _ready():
+	text.visible = false
 	Stats = Stats.duplicate()
 	Stats.AutomateResources(self)
 	pass
@@ -67,7 +69,9 @@ func _on_interaction_zone_body_entered(body):
 		CharStats = body.Stats
 		TurretStat = body.turretStatCopy
 		BeaconStat = body.beaconStatCopy
+		text.visible = true
 		
 func _on_interaction_zone_body_exited(body):
 	if body is Character:
 		Interactable = false
+		text.visible = false

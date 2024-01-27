@@ -628,5 +628,14 @@ script = ExtResource("4_f6q81")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionZone"]
 shape = SubResource("CircleShape2D_tn5lh")
 
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -40.0
+offset_top = -28.0
+offset_right = 44.0
+offset_bottom = -6.0
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "[shake rate=20.0 level=5 connected=1]F: Open shop[/shake]"
+
 [connection signal="body_entered" from="InteractionZone" to="." method="_on_interaction_zone_body_entered"]
 [connection signal="body_exited" from="InteractionZone" to="." method="_on_interaction_zone_body_exited"]
