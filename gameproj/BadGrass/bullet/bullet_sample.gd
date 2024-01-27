@@ -1,6 +1,7 @@
 extends Area2D
 class_name Bullet
 
+@onready var audioPlayer = $AudioStreamPlayer
 @export var traversalVelocity: int = 1024
 @export var maxRange: int = 384
 var StatusEffects : Array[BaseWeaponStatusEffect]
@@ -34,6 +35,7 @@ func _process(delta):
 
 func Shoot(direction: Vector2, angle: float):
 	_traversalDirection = direction * traversalVelocity
+	audioPlayer.play()
 	set_process(true)
 
 func disableDecon():

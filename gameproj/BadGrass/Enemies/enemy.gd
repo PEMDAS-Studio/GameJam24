@@ -8,6 +8,8 @@ var XpAmount = 10
 @onready var anim = $Anim
 @onready var hurt_time = $HurtTime
 @onready var marker = $Marker2D
+@onready var audioPlayer = $AudioStreamPlayer2D
+@onready var characterAudPlayer = $CharacterHit
 
 var pickUp:PackedScene = preload("res://BadGrass/Enemies/pickup.tscn")
 
@@ -38,6 +40,7 @@ func _on_hit_box_area_entered(area):
 	if area.get_name() == "BulletSample":
 		area.piercing -= 1
 		Stats.Health -= area.damage
+		audioPlayer.play()
 		var tween = create_tween()
 		tween.tween_property(self, "modulate:v", 1, 0.25).from(15)
 		#For every status effect, attempt an application of the effect
@@ -46,6 +49,7 @@ func _on_hit_box_area_entered(area):
 	elif area.get_parent().get_name() == "ShotgunBullet":		
 		Stats.Health -= area.get_parent().damage
 		area.get_parent().piercing -= 1
+		audioPlayer.play()
 		var tween = create_tween()
 		tween.tween_property(self, "modulate:v", 1, 0.25).from(15)
 		#For every status effect, attempt an application of the effect
@@ -84,6 +88,7 @@ func _on_hurt_box_body_exited(body):
 
 func _on_hurt_time_timeout():
 	Player.Stats.Health -= damage
+	characterAudPlayer.play()
 
 func HealthChange(dmg):
 	FloatingTextManager.CreateOrUseDamageFloat(dmg, marker.global_position).SetOutline(Color(0,0,0,0), 2)

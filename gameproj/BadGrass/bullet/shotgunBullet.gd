@@ -6,6 +6,7 @@ class_name  shotgunBullet
 @onready var pellet1 = $Area2D
 @onready var pelett2 = $Area2D2
 @onready var pelete3 = $Area2D3
+@onready var audioPlayer = $AudioStreamPlayer
 var StatusEffects : Array[BaseWeaponStatusEffect]
 
 var _traversalDirection: Vector2
@@ -30,6 +31,7 @@ func _process(delta):
 
 func Shoot(direction: Vector2, angle: float):
 	_traversalDirection = direction * traversalVelocity
+	audioPlayer.play()
 	look_at(get_global_mouse_position())
 	set_process(true)
 

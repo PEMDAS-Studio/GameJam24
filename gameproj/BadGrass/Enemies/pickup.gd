@@ -1,6 +1,7 @@
 extends Area2D
 
 var XpAmount : int
+@onready var audioplayer = $AudioStreamPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,4 +14,5 @@ func _process(delta):
 func _on_body_entered(body):
 	if body.get_name() == "Player":
 		body.IncreaseXp(XpAmount)
+		audioplayer.play()
 		queue_free()

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmgj71n12ohj"]
+[gd_scene load_steps=5 format=3 uid="uid://cmgj71n12ohj"]
 
 [ext_resource type="Script" path="res://BadGrass/bullet/bullet_sample.gd" id="1_rs4ax"]
 [ext_resource type="Texture2D" uid="uid://bhiq0ma1vr5ml" path="res://Assets/bullet.png" id="2_yamxl"]
+[ext_resource type="AudioStream" uid="uid://bni5we15n4278" path="res://Assets/Audio/Shooting.wav" id="3_o2b0d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x4lyv"]
 radius = 5.0
@@ -15,3 +16,7 @@ texture = ExtResource("2_yamxl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_x4lyv")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_o2b0d")
+volume_db = 16.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://beuy842wf4e4p"]
+[gd_scene load_steps=16 format=3 uid="uid://beuy842wf4e4p"]
 
 [ext_resource type="Script" path="res://BadGrass/Enemies/enemy.gd" id="1_hnxka"]
 [ext_resource type="Texture2D" uid="uid://6e4mmwhskjou" path="res://BadGrass/Enemies/Sprites/Grass_Little_020.png" id="2_htv4l"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://ci3l7esq8vl82" path="res://BadGrass/Enemies/Sprites/Grass_Little_015.png" id="8_73mxb"]
 [ext_resource type="Texture2D" uid="uid://bc043kkx1sydk" path="res://BadGrass/Enemies/Sprites/Grass_Little_016.png" id="9_lgwcq"]
 [ext_resource type="Texture2D" uid="uid://d1o6xxnblvgmg" path="res://BadGrass/Enemies/Sprites/Grass_Little_017.png" id="10_0lpgp"]
+[ext_resource type="AudioStream" uid="uid://ckv1wpful8mrm" path="res://Assets/Audio/EnemyHit.wav" id="11_qm2b0"]
+[ext_resource type="AudioStream" uid="uid://762namu8gj1r" path="res://Assets/Audio/CharacterHit.wav" id="12_df3g7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3hxk3"]
 radius = 6.0
@@ -101,6 +103,14 @@ shape = SubResource("RectangleShape2D_klpn6")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, -7)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_qm2b0")
+volume_db = 16.0
+
+[node name="CharacterHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_df3g7")
+volume_db = 16.0
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

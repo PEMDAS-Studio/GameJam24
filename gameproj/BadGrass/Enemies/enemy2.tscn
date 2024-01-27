@@ -1,7 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://xv7l8o4pc75p"]
+[gd_scene load_steps=31 format=3 uid="uid://xv7l8o4pc75p"]
 
 [ext_resource type="Script" path="res://BadGrass/Enemies/enemy2.gd" id="1_apbov"]
 [ext_resource type="Texture2D" uid="uid://bj6vl3gjkih3t" path="res://BadGrass/Enemies/Sprites/satyr-Sheet.png" id="2_b6x1a"]
+[ext_resource type="AudioStream" uid="uid://ckv1wpful8mrm" path="res://Assets/Audio/EnemyHit.wav" id="3_5kjan"]
+[ext_resource type="AudioStream" uid="uid://762namu8gj1r" path="res://Assets/Audio/CharacterHit.wav" id="4_mwpki"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3hxk3"]
 radius = 6.0
@@ -216,6 +218,14 @@ shape = SubResource("RectangleShape2D_klpn6")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, -7)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5kjan")
+volume_db = 16.0
+
+[node name="CharhitPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_mwpki")
+volume_db = 16.0
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

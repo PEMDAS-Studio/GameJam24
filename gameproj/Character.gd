@@ -15,6 +15,7 @@ signal ChangedWeapon
 @onready var sprite = $Sprite2D as AnimatedSprite2D
 @onready var marker = $Marker2D
 @onready var dashChargeTimer = $DashCharger
+@onready var levelUpAudio = $LevelUpAudio
 
 var _isAttacking = false
 var attackTimer : Timer
@@ -213,6 +214,7 @@ func IncreaseXp(amount: int):
 		var overflownXp = _experience - _levelUpExperience[_level]
 		_experience = overflownXp
 		_level += 1
+		levelUpAudio.play()
 		IncreaseStats()
 		emit_signal("LeveledUp", _level, 0 if _level == _levelUpExperience.size() else _levelUpExperience[_level])
 	emit_signal("XpChanged", _experience)
