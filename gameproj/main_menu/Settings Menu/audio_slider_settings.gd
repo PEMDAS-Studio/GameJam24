@@ -7,15 +7,12 @@ extends Control
 @export_enum("Master") var bus_name : String
 
 var bus_index : int = 0
-var volume_default : float = 0.4;
-
 
 func _ready():
 	h_slider.value_changed.connect(on_value_changed)
 	get_bus_name_by_index()
 	set_name_label_text()
-	set_slider_value()
-	on_value_changed(volume_default)
+	on_value_changed(Volume.Default)
 	set_slider_value()
 
 func set_name_label_text() -> void:
@@ -29,8 +26,10 @@ func get_bus_name_by_index() -> void:
 
 func set_slider_value() -> void:
 	h_slider.value = db_to_linear(AudioServer.get_bus_volume_db(bus_index))
+	Volume.Default = h_slider.value
 	set_audio_num_label_text()
 
 func on_value_changed(value : float) -> void:
+	Volume.Default = value
 	AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
 	set_audio_num_label_text()

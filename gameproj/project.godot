@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 AvaibableBuffList="*res://BadGrass/bullet/WeaponEffect/Effects/AvaibableBuffs.gd"
 FloatingTextManager="*res://BadGrass/FloatingTextManager.gd"
 AvailableItems="*res://BadGrass/Items/AvailableItems.gd"
+Volume="*res://Volume.gd"
 
 [display]
 

@@ -18,6 +18,10 @@ func _ready():
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if (Input.is_action_just_pressed("pause")):
+		get_tree().paused = false
+		queue_free()
+	
 	charCurrency.text = str(charStatRef.Currency)
 	if charStatRef.AmmoCapacity == charStatRef.MaxAmmoCapacity:
 		AmmoButton.disabled = true

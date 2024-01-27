@@ -16,10 +16,10 @@ _data = [Vector2(0, 1.5), 0.0, -1.01868, 0, 0, Vector2(0.110465, 1.26014), -3.05
 point_count = 5
 
 [sub_resource type="Curve" id="Curve_g6y5e"]
-min_value = 0.08
-max_value = 0.8
-_data = [Vector2(0, 0.8), 0.0, -2.91857, 0, 0, Vector2(0.229075, 0.436044), 0.0, 0.0, 0, 0, Vector2(0.54185, 0.356923), 0.0, 0.0, 0, 0, Vector2(0.806167, 0.285714), 0.0, 0.0, 0, 0, Vector2(1, 0.08), -0.336758, 0.0, 0, 0]
-point_count = 5
+min_value = 0.03
+max_value = 0.5
+_data = [Vector2(0.00881057, 0.5), 0.0, -0.956446, 0, 0, Vector2(0.995595, 0.0403296), -0.106584, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4672s"]
 texture = ExtResource("1_aap60")
@@ -473,7 +473,7 @@ script = ExtResource("1_loyf3")
 enemyDiffCurve = SubResource("Curve_i4ufg")
 enemyDiffSpikePoint = 45
 contaminationDiffCurve = SubResource("Curve_g6y5e")
-contaminationDiffSpikePoint = 300
+contaminationDiffSpikePoint = 210
 ItemDropPercentage = 5.0
 
 [node name="GameOverlay" parent="Grassgame" instance=ExtResource("2_cdx4g")]

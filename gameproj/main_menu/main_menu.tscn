@@ -19,8 +19,8 @@ script = ExtResource("1_u4c8m")
 
 [node name="BackgroundTitle002" type="Sprite2D" parent="."]
 texture_filter = 5
-position = Vector2(643, 364)
-scale = Vector2(4, 4)
+position = Vector2(641, 361.5)
+scale = Vector2(4.0125, 4.02778)
 texture = ExtResource("2_ka46c")
 
 [node name="TextureRect" type="TextureRect" parent="."]
